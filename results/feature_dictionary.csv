@@ -1,0 +1,14 @@
+feature,set,description
+rms,baseline,RMS de la vibration centrée
+kurtosis,baseline,Kurtosis de Pearson sans biais
+crest_factor,baseline,Maximum absolu / RMS
+spectrum_centroid_hz,enriched,Centre de gravité du spectre de vibration (Hz)
+spectrum_entropy,enriched,Entropie normalisée du spectre de vibration
+envelope_centroid_hz,enriched,Centre de gravité du spectre d'enveloppe (Hz)
+envelope_entropy,enriched,Entropie normalisée du spectre d'enveloppe
+envelope_bpfo_h1_energy_ratio,enriched,"Part d'énergie d'enveloppe près de BPFO, harmonique 1"
+envelope_bpfo_h2_energy_ratio,enriched,"Part d'énergie d'enveloppe près de BPFO, harmonique 2"
+envelope_bpfo_h3_energy_ratio,enriched,"Part d'énergie d'enveloppe près de BPFO, harmonique 3"
+envelope_bpfi_h1_energy_ratio,enriched,"Part d'énergie d'enveloppe près de BPFI, harmonique 1"
+envelope_bpfi_h2_energy_ratio,enriched,"Part d'énergie d'enveloppe près de BPFI, harmonique 2"
+envelope_bpfi_h3_energy_ratio,enriched,"Part d'énergie d'enveloppe près de BPFI, harmonique 3"

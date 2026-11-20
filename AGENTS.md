@@ -4,15 +4,16 @@ Ces instructions s'appliquent à `mini-project/` et ses sous-dossiers.
 
 ## Sources de vérité
 
-- Lire `ROADMAP.md` et `ARCHITECTURE.md` avant de modifier le projet.
+- Lire `ROADMAP.md`, `ARCHITECTURE.md` et `tasks.md` avant de modifier le projet.
 - La roadmap définit le périmètre, les jalons, les preuves, l'avancement et la prochaine action.
 - L'architecture définit les choix techniques, les données et le protocole expérimental.
+- `tasks.md` détaille les actions ordonnées et leurs preuves ; il reste subordonné à la roadmap et à l'architecture.
 - Respecter l'énoncé `Mini-projet-AML313.pdf`, pages 3, 10 et 12. Les instructions explicites de l'utilisateur priment ; documenter toute adaptation.
 - Le README est un point d'entrée, sans second suivi d'avancement.
 
 ## Maintien des documents
 
-- Après une étape significative, actualiser preuves, avancement et prochaine action dans la roadmap.
+- Après une étape significative, actualiser les cases et preuves de `tasks.md`, puis l'état du jalon et la prochaine action dans la roadmap. Ne pas laisser des statuts contradictoires.
 - Lorsqu'un choix technique ou scientifique change, actualiser l'architecture, la configuration et le journal de la roadmap dans le même travail.
 - Distinguer proposition, implémentation et résultat vérifié. Ne pas cocher un jalon sans preuve.
 - Si l'audit invalide une hypothèse, adapter les documents et expliquer la conséquence.

@@ -1,0 +1,17 @@
+[
+  {
+    "source": "/home/nomad/Projects/school/S3/IoT-serie-temporel/mini-project/configs/experiment.json",
+    "released": "results/experiment.json",
+    "sha256": "d9cd07c42ef567cb9aaac24da9fcc2b34b7392d295f36501226372afb37b3c9f"
+  },
+  {
+    "source": "/home/nomad/Projects/school/S3/IoT-serie-temporel/mini-project/outputs/main/preparation_development.json",
+    "released": "results/preparation_development.json",
+    "sha256": "5d850f9a0cb59f57819d1be93de9c5ee9ee87e800bf965a12166ce84932af2d2"
+  },
+  {
+    "source": "/home/nomad/Projects/school/S3/IoT-serie-temporel/mini-project/outputs/main/filter_diagnostics.json",
+    "released": "results/filter_diagnostics.json",
+    "sha256": "6ec87ab9571e124bbfe50dcefdac9348b350798a919a63868634832032e8e53d"
+  }
+]

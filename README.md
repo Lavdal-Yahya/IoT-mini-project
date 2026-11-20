@@ -15,14 +15,15 @@ Dépôt : [Lavdal-Yahya/IoT-mini-project](https://github.com/Lavdal-Yahya/IoT-mi
 | --- | --- |
 | [ROADMAP.md](ROADMAP.md) | Source de vérité pour l'objectif, le périmètre, les étapes, les jalons et l'avancement. |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | Source de vérité pour les choix techniques, les interfaces et la validation. |
+| [tasks.md](tasks.md) | Checklist ordonnée des actions et preuves, rattachées aux jalons de la roadmap. |
 | [Mini-projet-AML313.pdf](Mini-projet-AML313.pdf) | Cadre commun page 3, sujet 7 page 10, barème page 12. |
 | [AGENTS.md](AGENTS.md) | Instructions pour maintenir le code et les documents cohérents. |
 
-Les décisions et l'état du projet restent dans les deux documents de référence, sans duplication ici. Les instructions explicites de l'utilisateur priment ; l'énoncé reste la référence pédagogique. Toute adaptation est documentée.
+Les décisions et l'état des jalons restent dans la roadmap et l'architecture ; `tasks.md` détaille leur exécution. Le README ne duplique pas leur suivi. Les instructions explicites de l'utilisateur priment ; l'énoncé reste la référence pédagogique. Toute adaptation est documentée.
 
 ## Démarrage
 
-Lire la roadmap, puis l'architecture. Reprendre le premier jalon non terminé. Les commandes d'exécution seront ajoutées lorsque le pipeline reproductible existera ; aucune commande fictive n'est présentée comme disponible.
+Lire la roadmap, puis l'architecture et la checklist. Reprendre la première tâche non terminée du jalon courant. Les commandes d'exécution seront ajoutées lorsque le pipeline reproductible existera ; aucune commande fictive n'est présentée comme disponible.
 
 ## Références pédagogiques locales
 

@@ -1,0 +1,690 @@
+{
+  "audited_at_utc": "2026-11-20T13:41:17.719838+00:00",
+  "n_recordings": 40,
+  "n_groups": 40,
+  "fs_evidence": {
+    "faults": "https://engineering.case.edu/bearingdatacenter/12k-drive-end-bearing-fault-data",
+    "healthy": "https://papers.phmsociety.org/index.php/phme/article/download/3329/1947",
+    "healthy_note": "Official normal page does not state a native frequency; independent primary research identifies 48 kHz baseline"
+  },
+  "units_status": "Official pages do not explicitly state acceleration unit",
+  "records": [
+    {
+      "recording_id": "Normal_0",
+      "mat_keys": [
+        "X097RPM",
+        "X097_DE_time",
+        "X097_FE_time"
+      ],
+      "file_sha256": "16bf48babcf1c7ac224bc1a81cd9eafdb27e42d5cf559761907e067e8eeadf3c",
+      "signal_sha256": "fdc4cfa19e86507a1abf26e07a60b7d0576faed9d21bbf0df070df3e97623b88",
+      "nonfinite_count": 0,
+      "longest_constant_run": 3,
+      "min": -0.28663753846153844,
+      "max": 0.31125415384615385,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "Normal_1",
+      "mat_keys": [
+        "X098_DE_time",
+        "X098_FE_time"
+      ],
+      "file_sha256": "37e6612c05e65c415dcfa2ab27a3fda648a5863160fa898b884a14743044e045",
+      "signal_sha256": "c6849294ba401cf2f6d8126069f67d06ece00273412b555d4ad842638fb42c5d",
+      "nonfinite_count": 0,
+      "longest_constant_run": 3,
+      "min": -0.34588430769230766,
+      "max": 0.31751261538461534,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "Normal_2",
+      "mat_keys": [
+        "X098_DE_time",
+        "X098_FE_time",
+        "X099_DE_time",
+        "X099_FE_time",
+        "ans"
+      ],
+      "file_sha256": "4b97e6b5361f45efb6951dc3b1aebcdb3b89cb69d0f96d6f5c297dd9f45eee75",
+      "signal_sha256": "1b614451075e81856028668cd708cafb01c048e291e63d1cfc944a8d3e8a3a07",
+      "nonfinite_count": 0,
+      "longest_constant_run": 3,
+      "min": -0.3269003076923077,
+      "max": 0.35923569230769226,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "Normal_3",
+      "mat_keys": [
+        "X100RPM",
+        "X100_DE_time",
+        "X100_FE_time"
+      ],
+      "file_sha256": "88a5990cb541320e91505a1d72139e1993500ffe6e292a451011667f4138ca78",
+      "signal_sha256": "2c0c89282cc3e846034dee866fdd338247756f8a43d55825244020abd43f80a6",
+      "nonfinite_count": 0,
+      "longest_constant_run": 3,
+      "min": -0.306456,
+      "max": 0.2837169230769231,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "IR007_0",
+      "mat_keys": [
+        "X105RPM",
+        "X105_BA_time",
+        "X105_DE_time",
+        "X105_FE_time"
+      ],
+      "file_sha256": "f80b0ea04fd06b372a0eaec7c056543ea37e4bb4727a5b173d2a5bacd2aa9cab",
+      "signal_sha256": "4434354abec348a31f541557ef3bde6f3527cf954e422932f141e101b3b1c4f9",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -1.3798864271457085,
+      "max": 1.739030499001996,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "B007_0",
+      "mat_keys": [
+        "X118RPM",
+        "X118_BA_time",
+        "X118_DE_time",
+        "X118_FE_time"
+      ],
+      "file_sha256": "b00628f8dd8d1d930af77fa465d1e5cdb385fe259489053f91f3680bda7f640e",
+      "signal_sha256": "6410b1813dcd7a2199322b486bda9951415b73072c7ccd827d8554d8c9abec64",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -0.6070200798403194,
+      "max": 0.6039338123752496,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "OR007@6_0",
+      "mat_keys": [
+        "X130RPM",
+        "X130_BA_time",
+        "X130_DE_time",
+        "X130_FE_time"
+      ],
+      "file_sha256": "35a095307d0971477049b343a1b5981dde465a58fb7f233ad89b035068c1717d",
+      "signal_sha256": "9fb9c867e75d007a3e66b5dc55f2f7e8ac13e317bfed204acf6817ecc84e7a7e",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -3.4087011976047905,
+      "max": 3.630425149700599,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "IR007_1",
+      "mat_keys": [
+        "X106RPM",
+        "X106_BA_time",
+        "X106_DE_time",
+        "X106_FE_time"
+      ],
+      "file_sha256": "e5cec7cdd138e6cd1deb9ed8634e5aaa9bc1bd7094ddc075bff606580eb6e883",
+      "signal_sha256": "d7c55f1efd72d332316204583f4652a7da97980081732aa0d90d60385eb5483b",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -1.4029522155688623,
+      "max": 1.5808186826347306,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "B007_1",
+      "mat_keys": [
+        "X119RPM",
+        "X119_BA_time",
+        "X119_DE_time",
+        "X119_FE_time"
+      ],
+      "file_sha256": "bc72d9df7668219e004a0f711232b23ec0aed393eb9bd8f9f5483426f6b51330",
+      "signal_sha256": "241367c5feefbf7a336627cf863186ed28d84e076512ff7236c3e6b55bbc1798",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -0.6596490618762475,
+      "max": 0.6396695409181637,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "OR007@6_1",
+      "mat_keys": [
+        "X131RPM",
+        "X131_BA_time",
+        "X131_DE_time",
+        "X131_FE_time"
+      ],
+      "file_sha256": "7883f7b83beadc54b2f301767f9145ce07055707182fb0278fdf0a6bb53ce3cb",
+      "signal_sha256": "0719e55c5ec504fdd088d95d85a888eb3b259f2cb7bf485936479b6db5cb4f5e",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -3.011953393213573,
+      "max": 3.112257085828343,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "IR007_2",
+      "mat_keys": [
+        "X107RPM",
+        "X107_BA_time",
+        "X107_DE_time",
+        "X107_FE_time"
+      ],
+      "file_sha256": "111ba8996a115684661a13c913bd74d8029a59294492f88aec7b03e175fdd388",
+      "signal_sha256": "2a4f8eb23b340dfbeec33f91d88101af4e1568879350dc2a05b5196fd603bd4e",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -1.4255306986027942,
+      "max": 1.6396201996007984,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "B007_2",
+      "mat_keys": [
+        "X120RPM",
+        "X120_BA_time",
+        "X120_DE_time",
+        "X120_FE_time"
+      ],
+      "file_sha256": "e0b7a584c49af52335ff0904a97d4afcf02d045625c582de63a7c85ce10b489c",
+      "signal_sha256": "2ca18ea932ea8b0b209d4b1e7d2a31f8d0f57ba80a0d1940ef852c2cc1d8285b",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -0.5667361676646706,
+      "max": 0.6045835528942115,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "OR007@6_2",
+      "mat_keys": [
+        "X132RPM",
+        "X132_BA_time",
+        "X132_DE_time",
+        "X132_FE_time"
+      ],
+      "file_sha256": "17a69ed5d2270b42532e678e35bbe2fa04a2cc413cf2bf9e88c7692de8662d18",
+      "signal_sha256": "b2ba154e5de7f921a61c4acf6c167a2ab6cd2d416c156a3c636225ed95102d8c",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -3.0822065868263473,
+      "max": 3.1012927145708584,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "IR007_3",
+      "mat_keys": [
+        "X108RPM",
+        "X108_BA_time",
+        "X108_DE_time",
+        "X108_FE_time"
+      ],
+      "file_sha256": "d415f0e65128bfa0b118c2051c988fb0dc6ce3e4c8aa45fdc5ad1d0967462e7d",
+      "signal_sha256": "4b2ec269995b9645f3e94e8423d7ccd316c71fc08f2d72db29c2534b93896ceb",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -1.5354992814371258,
+      "max": 1.6714574850299402,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "B007_3",
+      "mat_keys": [
+        "X121RPM",
+        "X121_BA_time",
+        "X121_DE_time",
+        "X121_FE_time"
+      ],
+      "file_sha256": "52f686e984ba8e9b04a047a57416271cdb322cee57ee105dce58926a24b966cb",
+      "signal_sha256": "bfa929f8a7d7c4e41cd0f340515f3e06ff7eee5e21edca7dc567c82c041cde90",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -0.720562235528942,
+      "max": 0.6715068263473054,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "OR007@6_3",
+      "mat_keys": [
+        "X133RPM",
+        "X133_BA_time",
+        "X133_DE_time",
+        "X133_FE_time"
+      ],
+      "file_sha256": "53f076cb0d905cf46bffaee7736abce8224ffed777deed03c0c863d762a90c71",
+      "signal_sha256": "92f3b7850473ac2212b00adfe53533882569dca07c5810a9defe9c1a1486d773",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -3.003019461077844,
+      "max": 3.236113872255489,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "IR014_0",
+      "mat_keys": [
+        "X169RPM",
+        "X169_BA_time",
+        "X169_DE_time",
+        "X169_FE_time"
+      ],
+      "file_sha256": "f5448673725c4ea2735fe7d3fe4b16ad82b217eac6b62c4bf351c4549b0a5229",
+      "signal_sha256": "ea2671109fbb15b46195eea8873c7eef0858d1a652198a4e0bbff9551dd84233",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -2.010784471057884,
+      "max": 1.9342775249500999,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "B014_0",
+      "mat_keys": [
+        "X185RPM",
+        "X185_BA_time",
+        "X185_DE_time",
+        "X185_FE_time"
+      ],
+      "file_sha256": "5bea2c60f177215ba3ec4ae287faf745d7e14aed1a12efe9e37b27c27044bafc",
+      "signal_sha256": "ab707cbf47fbc21d3a7cf1fa5854db05e260c9dbffa3a91fa581715513636bf1",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -1.9635158483033932,
+      "max": 2.2781526946107786,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "OR014@6_0",
+      "mat_keys": [
+        "X197RPM",
+        "X197_BA_time",
+        "X197_DE_time",
+        "X197_FE_time"
+      ],
+      "file_sha256": "fa571b47cd942f9514a920b403fb7c053cd442bb2963a360a96d0f61432f03e9",
+      "signal_sha256": "68e0fb1c9bb16e4bc0b347a5546d053547ed67095926bd5c5104e1b757d54b8e",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -0.5504385628742515,
+      "max": 0.5505603592814372,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "IR014_1",
+      "mat_keys": [
+        "X170RPM",
+        "X170_BA_time",
+        "X170_DE_time",
+        "X170_FE_time"
+      ],
+      "file_sha256": "bcb73a5208b67265468232a2e342f53719850901671d0ee28494f3af97621f46",
+      "signal_sha256": "33da94f4fa5703a33ba688e2f416093b3c460af78f81c3bb7469c1c8063366ae",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -2.0015256686626746,
+      "max": 2.030114251497006,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "B014_1",
+      "mat_keys": [
+        "X186RPM",
+        "X186_BA_time",
+        "X186_DE_time",
+        "X186_FE_time"
+      ],
+      "file_sha256": "1b3b6f3ad38e891feaa8026fe957b34f62f9082785089cc74f6878acdfe88ec5",
+      "signal_sha256": "ba1a9bdc14695b8c875bb9eb7976d50e410202495e4c5943d1043f75fde5d6d9",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -1.3038667864271458,
+      "max": 1.3397649500998003,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "OR014@6_1",
+      "mat_keys": [
+        "X198RPM",
+        "X198_BA_time",
+        "X198_DE_time",
+        "X198_FE_time"
+      ],
+      "file_sha256": "dbd58e4585ca8f8332c708b15936987ec0990ca701359fd2483dae2719df5b49",
+      "signal_sha256": "0bb2257cdfd54763ea685d0c1b7b04d6255bd69f96e3c6272959196c39619461",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -0.4016439520958084,
+      "max": 0.3958383233532934,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "IR014_2",
+      "mat_keys": [
+        "X171RPM",
+        "X171_BA_time",
+        "X171_DE_time",
+        "X171_FE_time"
+      ],
+      "file_sha256": "63d0fdc1a68e64610ddfaf56a9c224d6137ab7b5c0d318eea1d542b9e5ffc029",
+      "signal_sha256": "cd5cfc1f098b041acaaf1540ea0745ba1a14c0385be8556509139387087d825c",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -1.880511497005988,
+      "max": 1.854197005988024,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "B014_2",
+      "mat_keys": [
+        "X187RPM",
+        "X187_BA_time",
+        "X187_DE_time",
+        "X187_FE_time"
+      ],
+      "file_sha256": "0f1338cce89beb5c8d8e5e154579bc576354e7c7d1617ebd1759662c6f3100b2",
+      "signal_sha256": "acad5a77de3d0dd6af30212f6ed14a218ee644b023143203fc7511ae9a671527",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -1.3857340918163672,
+      "max": 1.8390905389221557,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "OR014@6_2",
+      "mat_keys": [
+        "X199RPM",
+        "X199_BA_time",
+        "X199_DE_time",
+        "X199_FE_time"
+      ],
+      "file_sha256": "ca4e6407fdb68845a6973da6028477911a62d018580063749fe956441be95cf2",
+      "signal_sha256": "e94e49ef93ba42761c4e91588484beb7a00bc67c9163595269111310b4d43799",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -0.4098449101796407,
+      "max": 0.4774419161676647,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "IR014_3",
+      "mat_keys": [
+        "X172RPM",
+        "X172_BA_time",
+        "X172_DE_time",
+        "X172_FE_time"
+      ],
+      "file_sha256": "f75170ceef70d5da475671de0d2e52a0acd9b3883ad422b6deaf2907d888ba24",
+      "signal_sha256": "35bc326eb24866c98ee170b7f2fbcdc5c2a15dbff7a9ddd71803b8734965088f",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -2.0176067465069862,
+      "max": 2.1269255888223553,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "B014_3",
+      "mat_keys": [
+        "X188RPM",
+        "X188_BA_time",
+        "X188_DE_time",
+        "X188_FE_time"
+      ],
+      "file_sha256": "1981614324d653c2522bea68fd4fd87e337495b117d12596db67abd1e10e7443",
+      "signal_sha256": "bded2a5a7616dfd55b5c16a4bfdd585488cbe14d16f1cc7b4a51b2ae01cf980e",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -1.7128784431137725,
+      "max": 1.9891805988023952,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "OR014@6_3",
+      "mat_keys": [
+        "X200RPM",
+        "X200_BA_time",
+        "X200_DE_time",
+        "X200_FE_time"
+      ],
+      "file_sha256": "2526483d2701220a700df8e6c9db0c527641b0887225907f4096610dd7120f4b",
+      "signal_sha256": "ecaeec139ed21959751aadda706bdd26ab4b07e63b7f768883a818fe99de58b2",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -0.6651707784431137,
+      "max": 0.6651301796407186,
+      "min_count": 4,
+      "max_count": 4
+    },
+    {
+      "recording_id": "IR021_0",
+      "mat_keys": [
+        "X209RPM",
+        "X209_BA_time",
+        "X209_DE_time",
+        "X209_FE_time"
+      ],
+      "file_sha256": "9f723d6d9d2eba714c6dc50f99321dffa73d8b1e4d3605675b2c2251511eff80",
+      "signal_sha256": "ce527dc8f10784f89f8125be2fa9776c83e0713d5920a7e152bd7a391c9cb814",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -3.3717472055888225,
+      "max": 3.7879872255489024,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "B021_0",
+      "mat_keys": [
+        "X222RPM",
+        "X222_BA_time",
+        "X222_DE_time",
+        "X222_FE_time"
+      ],
+      "file_sha256": "fcc0ee740fa123b1f4683f555458891719efb2857afd9fdee63e8fde0ed14469",
+      "signal_sha256": "57950bd6db11b4960a732be17befc2943243a754cb5ddf08867877dcf3e198c9",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -1.6178538922155687,
+      "max": 1.6595997205588824,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "OR021@6_0",
+      "mat_keys": [
+        "X234RPM",
+        "X234_BA_time",
+        "X234_DE_time",
+        "X234_FE_time"
+      ],
+      "file_sha256": "ebcbdb96612e8085bbdbf81f0e5e8e8a8d1a693d1ec559c4894f7792771aa9b2",
+      "signal_sha256": "44096ae1984c71042d6f8964c57f9216d9f4546f6197f41384b2682a807c9920",
+      "nonfinite_count": 0,
+      "longest_constant_run": 3,
+      "min": -6.411720658682635,
+      "max": 6.652936826347305,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "IR021_1",
+      "mat_keys": [
+        "X210RPM",
+        "X210_BA_time",
+        "X210_DE_time",
+        "X210_FE_time"
+      ],
+      "file_sha256": "596692397e77e129a00f7b7a61c4c3ffd6c7a59979b89039e7f70a7431cce1c7",
+      "signal_sha256": "c80e691877bd338efb523c7451032fe9e9e2b5784623afb3cd9a4dc091c582f1",
+      "nonfinite_count": 0,
+      "longest_constant_run": 3,
+      "min": -3.284032235528942,
+      "max": 3.6860591816367263,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "B021_1",
+      "mat_keys": [
+        "X223RPM",
+        "X223_BA_time",
+        "X223_DE_time",
+        "X223_FE_time"
+      ],
+      "file_sha256": "7287410fd2217e3b332c5ab4732a68963be046d7d17bd40efa41cabe6a0514e5",
+      "signal_sha256": "b2f1e3bd3929731c80bababee7b6722c86f379cddd248ccb244c35580e101742",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -1.413510499001996,
+      "max": 1.4747485429141716,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "OR021@6_1",
+      "mat_keys": [
+        "X235RPM",
+        "X235_BA_time",
+        "X235_DE_time",
+        "X235_FE_time"
+      ],
+      "file_sha256": "667e4bf1f213f92d10dca71d494ad002d8fd22bfd8004b31a4c71ccf0d764b66",
+      "signal_sha256": "40fb6d35747a54cdae26039b38c7626893457a13a0e783e6cbddc1e69a6cdf3b",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -6.11284001996008,
+      "max": 6.207052395209581,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "IR021_2",
+      "mat_keys": [
+        "X211RPM",
+        "X211_BA_time",
+        "X211_DE_time",
+        "X211_FE_time"
+      ],
+      "file_sha256": "8296a02ee489c2d16cbd9fc278ca2e29b22475cec70ebe840558c78b6b743dc1",
+      "signal_sha256": "c61aeb5037fc64f6a72820469028e1e944996a1c86fdb8fa8d804a528a994ed6",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -3.124033632734531,
+      "max": 3.623115568862276,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "B021_2",
+      "mat_keys": [
+        "X224RPM",
+        "X224_BA_time",
+        "X224_DE_time",
+        "X224_FE_time"
+      ],
+      "file_sha256": "8a16894c2ff4d6bcdb9f4c345c0d5f13737b3bd6d15015d6b566c86e7a3ee7b7",
+      "signal_sha256": "8ec659ab0bd010884247f50db1a84d7479f03b9af8861832a1d3d48511af6463",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -0.530838003992016,
+      "max": 0.6455172055888224,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "OR021@6_2",
+      "mat_keys": [
+        "X236RPM",
+        "X236_BA_time",
+        "X236_DE_time",
+        "X236_FE_time"
+      ],
+      "file_sha256": "c411d6d9826cba8073430555dc833e05fcbe4c38535f3eb7f03c525ea6797589",
+      "signal_sha256": "9bbb00f71f6c47b70f1e038e69acba3102150c501f2f7ff889ca7f1b05257c80",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -6.653342914171657,
+      "max": 6.652936826347305,
+      "min_count": 2,
+      "max_count": 2
+    },
+    {
+      "recording_id": "IR021_3",
+      "mat_keys": [
+        "X212RPM",
+        "X212_BA_time",
+        "X212_DE_time",
+        "X212_FE_time"
+      ],
+      "file_sha256": "bfe13761f545a26b217db897a12d27e16fec74306aa86ade8dbdc8ebe587c253",
+      "signal_sha256": "61045e8113f008aab22ea2c6ee0bc3e04ab8fd5a800ef4aafa2415d67950c60b",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -3.087485728542914,
+      "max": 3.6149938123752494,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "B021_3",
+      "mat_keys": [
+        "X225RPM",
+        "X225_BA_time",
+        "X225_DE_time",
+        "X225_FE_time"
+      ],
+      "file_sha256": "ece92fa141af03473fdfca80d00d9112472a20340224514e79979c6ddc97a6cf",
+      "signal_sha256": "db1f26a8632ebe5f5519a162217287754987ec4b06c82f8a09898baaa0da058e",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -0.4931530538922156,
+      "max": 0.5763198403193612,
+      "min_count": 1,
+      "max_count": 1
+    },
+    {
+      "recording_id": "OR021@6_3",
+      "mat_keys": [
+        "X237RPM",
+        "X237_BA_time",
+        "X237_DE_time",
+        "X237_FE_time"
+      ],
+      "file_sha256": "233d1edb2daa963658369119e389e30f02aca551dd7bb028ab33e7ba63edfd20",
+      "signal_sha256": "a59974d2d2daa74609ae68bdaa38efb045184c14fa2319f1d8841641853dd53e",
+      "nonfinite_count": 0,
+      "longest_constant_run": 2,
+      "min": -6.653342914171657,
+      "max": 6.652936826347305,
+      "min_count": 2,
+      "max_count": 1
+    }
+  ]
+}

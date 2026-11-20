@@ -1,0 +1,23 @@
+{
+  "method": "GroupKFold(n_splits=3)",
+  "grouping_for_fold_assignment": "load_hp (whole-load supergroups)",
+  "physical_record_group_column": "group_id",
+  "selection_basis": "source metadata and class coverage only; no signal feature or model score",
+  "development_load_hp": [
+    0,
+    1,
+    2
+  ],
+  "final_test_load_hp": 3,
+  "fold_validation_load_hp": {
+    "0": [
+      2
+    ],
+    "1": [
+      1
+    ],
+    "2": [
+      0
+    ]
+  }
+}

@@ -9,7 +9,7 @@ Création : **19 novembre 2026**. Dernière mise à jour : **20 novembre 2026**.
 
 Ce fichier est la source de vérité pour le but, le périmètre, les étapes, les jalons et l'avancement. [ARCHITECTURE.md](ARCHITECTURE.md) définit leur réalisation technique. L'[énoncé](Mini-projet-AML313.pdf), pages 3, 10 et 12, reste la référence pédagogique. Les instructions explicites de l'utilisateur priment ; toute adaptation est documentée.
 
-Un jalon est terminé quand ses preuves existent et ont été vérifiées. Un script écrit mais non exécuté ne prouve pas un résultat. Les cases de la section 6 constituent l'unique suivi d'avancement ; le README sert de point d'entrée.
+Un jalon est terminé quand ses preuves existent et ont été vérifiées. Un script écrit mais non exécuté ne prouve pas un résultat. Les cases de la section 6 font autorité pour l'état des jalons. [tasks.md](tasks.md) détaille les actions et leurs preuves ; ses cases sont mises à jour avec le jalon correspondant. Le README sert de point d'entrée.
 
 ## 2. But et hypothèse
 
@@ -70,16 +70,16 @@ Ordre : **M0 → M1 → M2 → M3 → M4 → M5 → M6**. Un chargement ou contr
 ## 6. Avancement
 
 - [x] M0 — Cadrage documentaire terminé.
-- [ ] M1 — Audit des données. **Prochain jalon.**
-- [ ] M2 — Protocole fixé.
-- [ ] M3 — Analyse physique et caractéristiques vérifiées.
+- [x] M1 — Audit des données vérifié : 40 fichiers, manifeste et journal disponibles.
+- [x] M2 — Protocole fixé : charges et partitions enregistrées avant entraînement.
+- [x] M3 — Analyse physique vérifiée : 268 fenêtres, 13 caractéristiques et figures inspectées.
 - [ ] M4 — Modèles et ablation évalués sur le développement.
 - [ ] M5 — Test final de transfert réalisé.
 - [ ] M6 — Livraison et reproduction vérifiées.
 
-**État observé :** l'énoncé et les documents de cadrage sont présents. Le dépôt Git est initialisé sur `main`, avec `origin` configuré vers [Lavdal-Yahya/IoT-mini-project](https://github.com/Lavdal-Yahya/IoT-mini-project). Les pages officielles CWRU ont été consultées pour préparer l'architecture. Aucun signal n'a été téléchargé, aucun modèle entraîné et aucun résultat expérimental produit.
+**État observé :** M1 et M2 terminés. Les 40 fichiers CWRU sont audités et leurs empreintes enregistrées. Les charges 0/1/2 HP forment trois plis par charge entière ; les dix essais à 3 HP sont réservés. Deux vitesses saines viennent de valeurs officielles approximatives, marquées comme telles. L'environnement Python 3.12.14 est installé et verrouillé. Les indicateurs sont vérifiés sur 268 fenêtres de développement ; aucun modèle CWRU n’a encore été entraîné.
 
-**Prochaine action :** construire le manifeste des enregistrements candidats à partir des tables officielles, puis vérifier les fichiers en M1.
+**Prochaine action :** T31–T38 dans [tasks.md](tasks.md), modèles et ablation sur les plis de développement.
 
 ## 7. Budget indicatif
 
@@ -106,7 +106,7 @@ Consigner les difficultés et délais de données. Si le budget est insuffisant,
 
 ## 9. Maintenir le cap
 
-Après chaque étape significative, mettre à jour les preuves, les cases, la prochaine action et les inconnues. Modifier aussi l'architecture lorsqu'un choix technique, une interface ou le protocole change. Les paramètres exécutés doivent correspondre à la configuration enregistrée.
+Après chaque étape significative, mettre à jour les preuves, les cases de `tasks.md`, l'état du jalon, la prochaine action et les inconnues. Modifier aussi l'architecture lorsqu'un choix technique, une interface ou le protocole change. Les paramètres exécutés doivent correspondre à la configuration enregistrée.
 
 Après consultation du test final, une nouvelle idée reste exploratoire et ne peut pas être annoncée comme confirmée par ce même test. Une relance technique identique est permise pour la reproductibilité ; elle ne sert pas à sélectionner une nouvelle méthode.
 
@@ -114,3 +114,8 @@ Après consultation du test final, une nouvelle idée reste exploratoire et ne p
 | --- | --- | --- |
 | 2026-11-19 | Création de la roadmap et de l'architecture. | M0 terminé ; M1 à commencer ; propositions techniques identifiées. |
 | 2026-11-20 | Initialisation du dépôt Git sur `main`, configuration d'`origin` et ajout de `.gitignore`. | Dépôt limité au mini-projet ; cours et TPs conservés dans le workspace parent ; M1 reste le prochain jalon. |
+| 2026-11-20 | Ajout de `tasks.md`, checklist détaillée de T01 à T52, reliée aux jalons et aux règles de suivi. | Cadrage existant coché ; prochaine tâche T05 ; aucun travail expérimental marqué terminé. |
+
+| 2026-11-20 | Audit de 40 fichiers, métadonnées corrigées, environnement et protocole enregistrés. | M1/M2 terminés ; sains à 48 kHz ; validation par charge entière ; test 3 HP réservé. |
+
+| 2026-11-20 | Extraction et contrôles physiques sur le développement ; FIR harmonisé à 12/48 kHz avant tout modèle. | M3 terminé ; 268 fenêtres ; 32 tests réussis ; test final non consulté. |

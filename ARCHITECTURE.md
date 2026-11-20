@@ -3,7 +3,7 @@
 
 # Architecture technique du mini-projet AML313 du groupe 7
 
-Dernière mise à jour : **20 novembre 2026**. Statut : **conception initiale ; pipeline non implémenté**.
+Dernière mise à jour : **20 novembre 2026**. Statut : **audit et protocole vérifiés ; pipeline en cours de vérification**.
 
 ## 1. Rôle et principes
 
@@ -49,7 +49,7 @@ Arborescence **cible**, créée au fil des jalons :
 
 ```text
 mini-project/
-  README.md, ROADMAP.md, ARCHITECTURE.md, AGENTS.md
+  README.md, ROADMAP.md, ARCHITECTURE.md, tasks.md, AGENTS.md
   Mini-projet-AML313.pdf
   pyproject.toml                  # paquet et dépendances déclarées
   requirements.lock.txt           # environnement exact vérifié
@@ -88,7 +88,7 @@ Point de départ à vérifier en M1 : roulement côté entraînement, canal `DE`
 
 Charges proposées : **0, 1 et 2 HP pour développer ; 3 HP pour le transfert final**. Cette répartition reste provisoire jusqu'au contrôle des fichiers et des classes. Un changement se décide sur les métadonnées avant les scores.
 
-Fréquence commune envisagée : **12 000 Hz**. Vérifier la fréquence native de chaque canal et fichier ; ne pas la déduire du seul nom du dossier. Pour un fichier retenu à 48 kHz, appliquer un anti-repliement documenté avant le passage à 12 kHz. Une fréquence non vérifiable met le fichier en attente.
+Fréquence commune envisagée : **12 000 Hz**. Vérifier la fréquence native de chaque canal et fichier ; ne pas la déduire du seul nom du dossier. Appliquer un passe-bas causal harmonisé à tous les fichiers : 41 coefficients à 12 kHz, 161 à 48 kHz, coupure 4,8 kHz. Décimer seulement les fichiers à 48 kHz après ce filtre. Une fréquence non vérifiable met le fichier en attente.
 
 ### 4.2 Contrats de données
 
@@ -228,3 +228,15 @@ Pages officielles CWRU consultées le 19 novembre 2026 :
 - [S5 — Table des enregistrements sains](https://engineering.case.edu/bearingdatacenter/normal-baseline-data).
 
 Ces pages décrivent les données candidates ; l'audit des fichiers reste à faire. Les chapitres locaux 1, 3 et 5 complètent les références, comme indiqué dans le README.
+
+## 11. Décisions vérifiées pendant M1 et M2
+
+Les 40 fichiers proposés sont inclus, avec 40 signaux DE distincts. Les quatre sains sont à 48 kHz selon la source primaire Radtke et Bock (2022), section 4.1.1 et 4.2 ; les défauts sont à 12 kHz selon la table officielle. Le manifeste conserve les RPM mesurés séparément de `rpm_used` ; pour `Normal_1` et `Normal_2`, cette dernière valeur est approximative et sa source est déclarée. `99.mat` utilise uniquement `X099_DE_time`. Voir [audit](docs/data_audit.md).
+
+D04 et D05 sont confirmées. GroupKFold utilise la charge comme supergroupe, ce qui garantit des enregistrements disjoints et une validation sur une charge entière parmi 0/1/2 HP ; 3 HP reste le test final. Il ne s'agit pas d'un découpage chronologique entre fichiers. D06 est fixé à 1 s sans recouvrement, sans comparaison de durées. D07 est fixé par `configs/experiment.json` : bande 2–5 kHz, Butterworth ordre 4, bords Hilbert 0,05 s, grille profondeur 3/6/illimitée et feuille 1/5, 200 arbres, graine 313. Ces choix ne sont pas optimisés sur le test. Le [protocole](docs/protocol.md) précise métriques, départage et incertitude.
+
+## 12. Réalisation et vérification M3
+
+Les modules de signal et de caractéristiques sont implémentés. Le même passe-bas physique est appliqué aux sains et aux défauts ; les réponses 12/48 kHz diffèrent de moins de 0,04 dB aux fréquences contrôlées. Cela réduit le confondant numérique de préparation sans supprimer toute différence d'acquisition. Les délais FIR valent 1,667 ms ; le délai passe-bande maximal mesuré dans 2,1–4,8 kHz est 0,624 ms. Après 0,1 s de préparation et 0,1 s de passe-bande, les fenêtres commencent à 0,2 s. L'enveloppe conserve 0,9 s après retrait de 0,05 s par bord, soit Δf ≈ 1,111 Hz ; le spectre brut garde Δf = 1 Hz.
+
+La bande 2–5 kHz est confirmée comme bande large exploitable sur les figures du développement, avec des pics proches de BPFI pour IR007 et de BPFO pour OR007. Elle n'est pas proclamée optimale. Les données produisent 268 fenêtres de développement et 13 caractéristiques finies. Voir `results/filter_diagnostics.json`, `results/feature_dictionary.csv` et [méthode](docs/features.md).

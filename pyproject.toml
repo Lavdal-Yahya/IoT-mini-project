@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bearing-diagnosis-aml313"
+version = "0.1.0"
+description = "Diagnostic vibratoire CWRU avec validation par enregistrement"
+requires-python = ">=3.12,<3.13"
+dependencies = ["numpy", "scipy", "pandas", "scikit-learn", "matplotlib", "requests", "beautifulsoup4", "joblib"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.scripts]
+bearing-diagnosis = "bearing_diagnosis.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
