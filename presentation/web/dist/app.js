@@ -3,7 +3,8 @@
 const D=window.PROJECT_DATA,G=window.PresentationCharts;
 if(!D||!G)return;
 const slides=[...document.querySelectorAll('.slide')],charts=new Map();
-const state={index:0,feature:'rms',compare:false,model:'E4',grain:'raw_window',reducedMotion:window.matchMedia('(prefers-reduced-motion: reduce)').matches,narrow:window.innerWidth<700};
+const motionPreference=window.matchMedia('(prefers-reduced-motion: reduce)');
+const state={index:0,feature:'rms',compare:false,model:'E4',grain:'raw_window',reducedMotion:motionPreference.matches,narrow:window.innerWidth<700};
 const $=id=>document.getElementById(id),pct=x=>G.number(x*100)+' %',signed=x=>(x<0?'−':'+')+G.number(Math.abs(x)*100)+' points';
 const row=(stage,experiment)=>D.summary.find(r=>r.stage===stage&&r.experiment===experiment);
 const final=row('final','E4'),dev=row('development','E4'),diff=D.bootstrap.comparisons.E4_minus_E1;
@@ -27,9 +28,22 @@ const featureInfo={rms:['Amplitude efficace, unité source non certifiée','RMS'
 function updateTemporal(){document.querySelectorAll('[data-feature]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.feature===state.feature)));$('feature-definition').textContent=featureInfo[state.feature][0]+' · trait court : médiane de classe';table('temporal-table',['Enregistrement','Classe',featureInfo[state.feature][1]],D.temporal.map(r=>[r.recording_id,G.LABELS[G.CLASSES.indexOf(r.class_label)],G.number(r[state.feature],5)]));render('temporal-chart');}
 function updateConfusion(){const m=D.metrics[state.model],stats=m[state.grain],cm=stats.confusion;const n=cm.flat().reduce((a,b)=>a+b,0),correct=cm.reduce((a,row,i)=>a+row[i],0),errors=n-correct;const unit=state.grain==='record'?'essais':'fenêtres';$('error-headline').textContent=errors===0?'aucune erreur après agrégation.':`${errors} erreur${errors>1?'s':''} sur ${n} ${unit}.`;$('confusion-caption').textContent=`${state.model} · ${n} ${unit} · comptes bruts`;$('record-score').textContent=`${Math.round(m.record.accuracy*m.n_recordings)}/${m.n_recordings}`;$('outer-recall').textContent=pct((state.grain==='record'?m.record:m.weighted_window).recall_by_class.outer_race);$('outer-recall-label').textContent=state.grain==='record'?'Rappel externe par essai':'Rappel externe pondéré par essai';document.querySelectorAll('[data-grain]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.grain===state.grain)));table('confusion-table',['Réel / prédit',...G.LABELS],cm.map((r,i)=>[G.LABELS[i],...r]));$('confusion-chart').setAttribute('aria-label',`${state.model}, ${errors} erreurs sur ${n} ${unit}. Lignes réelles, colonnes prédites. Tableau exact disponible juste après le graphique.`);render('confusion-chart');}
 table('uncertainty-table',['Comparaison','Gain (points)','IC 95 % (points)'],['E4_minus_E1','E4_minus_E3','E4_minus_E2'].map(k=>{const r=D.bootstrap.comparisons[k];return [k.replace('_minus_',' − '),G.number(r.point_difference*100),`[${G.number(r.ci95[0]*100)} ; ${G.number(r.ci95[1]*100)}]`];}));
-function render(id){const node=$(id);if(!node||node.closest('.slide').hidden)return;if(!window.echarts){node.textContent='Le moteur graphique n’a pas pu être chargé. Les résultats exacts restent dans les tableaux et le dépôt.';node.classList.add('chart-error');return;}try{let chart=charts.get(id);if(!chart){chart=echarts.init(node,null,{renderer:'svg'});charts.set(id,chart);}chart.setOption(G.buildOptions(id,D,state),true);chart.resize();}catch(error){node.textContent='Ce graphique est indisponible. Consultez les valeurs exactes dans le tableau ou les sources.';node.classList.add('chart-error');console.error(error);}}
+function render(id,{replay=false}={}){
+ const node=$(id);if(!node||node.closest('.slide').hidden)return;
+ if(!window.echarts){node.textContent='Le moteur graphique n’a pas pu être chargé. Les résultats exacts restent dans les tableaux et le dépôt.';node.classList.add('chart-error');return;}
+ try{
+  let chart=charts.get(id);
+  if(!chart){chart=echarts.init(node,null,{renderer:'svg'});charts.set(id,chart);}
+  else{
+   // Measure the visible slide before starting its entrance animation.
+   if(chart.getWidth()!==node.clientWidth||chart.getHeight()!==node.clientHeight)chart.resize({animation:{duration:0}});
+   if(replay)chart.clear();
+  }
+  chart.setOption(G.buildOptions(id,D,state),{notMerge:false,replaceMerge:['series']});
+ }catch(error){node.textContent='Ce graphique est indisponible. Consultez les valeurs exactes dans le tableau ou les sources.';node.classList.add('chart-error');console.error(error);}
+}
 function updateNotes(){$('notes-content').textContent=notes[state.index][0];$('notes-source').textContent='Sources : '+notes[state.index][1];}
-function show(index,{hash=true,focus=false}={}){state.index=Math.max(0,Math.min(slides.length-1,index));slides.forEach((s,i)=>s.hidden=i!==state.index);$('slide-number').textContent=String(state.index+1).padStart(2,'0');$('previous-button').disabled=state.index===0;$('next-button').disabled=state.index===slides.length-1;document.querySelectorAll('[data-slide]').forEach(b=>{if(Number(b.dataset.slide)===state.index)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current');b.classList.toggle('completed',Number(b.dataset.slide)<state.index);});updateNotes();if(hash)history.replaceState(null,'',`#${state.index+1}`);document.title=`${state.index+1}/10 · ${slides[state.index].dataset.title} — CWRU Lab`;for(const node of slides[state.index].querySelectorAll('.chart'))render(node.id);if(focus){const heading=slides[state.index].querySelector('h1,h2');heading.tabIndex=-1;heading.focus({preventScroll:true});}window.scrollTo({top:0,behavior:'instant'});}
+function show(index,{hash=true,focus=false}={}){state.index=Math.max(0,Math.min(slides.length-1,index));slides.forEach((s,i)=>s.hidden=i!==state.index);$('slide-number').textContent=String(state.index+1).padStart(2,'0');$('previous-button').disabled=state.index===0;$('next-button').disabled=state.index===slides.length-1;document.querySelectorAll('[data-slide]').forEach(b=>{if(Number(b.dataset.slide)===state.index)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current');b.classList.toggle('completed',Number(b.dataset.slide)<state.index);});updateNotes();if(hash)history.replaceState(null,'',`#${state.index+1}`);document.title=`${state.index+1}/10 · ${slides[state.index].dataset.title} — CWRU Lab`;for(const node of slides[state.index].querySelectorAll('.chart'))render(node.id,{replay:true});if(focus){const heading=slides[state.index].querySelector('h1,h2');heading.tabIndex=-1;heading.focus({preventScroll:true});}window.scrollTo({top:0,behavior:'instant'});}
 slides.forEach((s,i)=>{const progress=document.createElement('button');progress.dataset.slide=i;progress.setAttribute('aria-label',`Diapositive ${i+1} : ${s.dataset.title}`);progress.addEventListener('click',()=>show(i,{focus:true}));$('slide-progress').append(progress);const plan=document.createElement('button');plan.dataset.slide=i;const num=document.createElement('span');num.textContent=String(i+1).padStart(2,'0');plan.append(num,document.createTextNode(s.dataset.title));plan.addEventListener('click',()=>{$('plan-dialog').close();show(i,{focus:true});});$('plan-links').append(plan);});
 $('previous-button').addEventListener('click',()=>show(state.index-1));$('next-button').addEventListener('click',()=>show(state.index+1));
 function openDialog(id){$(id).showModal();}
@@ -43,6 +57,14 @@ $('compare-development').addEventListener('change',e=>{state.compare=e.target.ch
 $('confusion-model').addEventListener('change',e=>{state.model=e.target.value;updateConfusion();});document.querySelectorAll('[data-grain]').forEach(b=>b.addEventListener('click',()=>{state.grain=b.dataset.grain;updateConfusion();}));
 document.addEventListener('keydown',e=>{if(e.ctrlKey||e.altKey||e.metaKey||e.target.closest('input,select,textarea,[contenteditable=true]'))return;if(document.querySelector('dialog[open]'))return;const key=e.key.toLowerCase();if(['arrowright','pagedown'].includes(key)||(key===' '&&e.target===document.body)){e.preventDefault();show(state.index+1);}else if(['arrowleft','pageup'].includes(key)){e.preventDefault();show(state.index-1);}else if(key==='home'){e.preventDefault();show(0);}else if(key==='end'){e.preventDefault();show(9);}else if(key==='p')openDialog('plan-dialog');else if(key==='n')toggleNotes();else if(key==='f')fullscreen();});
 window.addEventListener('hashchange',()=>{const n=Number(location.hash.slice(1));if(Number.isInteger(n)&&n>=1&&n<=10)show(n-1,{hash:false});});
-function resize(){state.narrow=window.innerWidth<700;for(const node of slides[state.index].querySelectorAll('.chart'))render(node.id);}let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(resize,120);});
+function resize(){
+ const narrow=window.innerWidth<700,changed=narrow!==state.narrow;state.narrow=narrow;
+ for(const node of slides[state.index].querySelectorAll('.chart')){
+  const chart=charts.get(node.id);if(!chart)continue;
+  if(changed)render(node.id);
+  else if(chart.getWidth()!==node.clientWidth||chart.getHeight()!==node.clientHeight)chart.resize({animation:{duration:0}});
+ }
+}let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(resize,120);});
+motionPreference.addEventListener?.('change',event=>{state.reducedMotion=event.matches;for(const node of slides[state.index].querySelectorAll('.chart'))render(node.id);});
 updateTemporal();updateConfusion();const initial=Number(location.hash.slice(1));show(Number.isInteger(initial)&&initial>=1&&initial<=10?initial-1:0);if(document.fonts)document.fonts.ready.then(resize);
 })();

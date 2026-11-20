@@ -105,3 +105,5 @@ Prérequis : M5 terminé pour les résultats finaux. Un premier brouillon des li
 ## Extension de livraison demandée
 
 - [x] **T53 — Livrer une présentation web avec Apache ECharts.** Dix diapositives, deux auteurs, graphiques des résultats gelés, navigation clavier, lecture par modèle et unité, données exactes accessibles. Preuves : `presentation/web/verification.json`, `assets.sha256.json`, source de génération et publication du Site confirmée par `deployment.json` (statut succeeded). Le contrôle complet en navigateur reste indisponible ; T49 continue d’exiger une répétition humaine.
+
+- [x] **T54 — Animer les graphiques lors de l’apparition des diapositives.** Entrées ECharts natives sur lignes, barres, points, matrice et intervalles ; rejeu à la revisite, absence de boucle et réduction du mouvement. Preuve : `presentation/web/check_animations.cjs` exécuté avec succès ; version publiée avec succès, identifiée dans `presentation/web/deployment.json`.

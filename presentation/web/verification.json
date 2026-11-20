@@ -12,5 +12,22 @@
     "final scores",
     "aggregate confusion matrix",
     "paired bootstrap intervals"
-  ]
+  ],
+  "animation_checks": {
+    "status": "pass",
+    "engine": "real Apache ECharts 6.1.0 in jsdom SVG",
+    "native_entrances": [
+      "line",
+      "bar",
+      "scatter",
+      "heatmap",
+      "custom confidence interval"
+    ],
+    "revisit_replays": true,
+    "animations_finish_without_looping": true,
+    "values_preserved": true,
+    "reduced_motion_respected": true,
+    "visual_browser_review": false
+  },
+  "dom_animation_checks": "Slide re-entry replays; updates and layout notifications do not clear; reduced-motion preference handled live"
 }

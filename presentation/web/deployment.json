@@ -1,11 +1,11 @@
 {
   "project_id": "appgprj_6b0057ac2b788191a61a9758d579e8f0",
-  "deployment_id": "appgdep_6b005b2706108191bc45dd774e6ab55c",
-  "version_id": "appgprj_6b0057ac2b788191a61a9758d579e8f0~appgver_bc9ba4ddfa2c81919e7ecbc2b1a1d3c4",
-  "source_commit": "5907f0758fa05dd5c5ca42fbb0a5cd87123a854d",
+  "deployment_id": "appgdep_6b00600763608191a4070e3db1d3fa7a",
+  "version_id": "appgprj_6b0057ac2b788191a61a9758d579e8f0~appgver_a3bb3f7a37208191b1c88935c9e14d2a",
+  "source_commit": "97359aaf81fd31b89d0cdf864ac363d21319c09b",
   "status": "succeeded",
   "audience": "owner-private",
   "url": "https://cwru-group7-vibration-lab.fuzzychest.chatgpt.site",
-  "verified_by": "Sites get_deployment_status",
-  "updated_at": "2026-11-20T14:37:37.214392+00:00"
+  "verified_by": "Sites save_version_and_deploy_private",
+  "updated_at": "2026-11-20T14:58:26.479523+00:00"
 }
