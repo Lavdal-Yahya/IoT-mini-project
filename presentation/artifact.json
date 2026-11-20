@@ -8,5 +8,6 @@
   "builder": "presentation/build_slides.mjs",
   "storyboard": "presentation/slides.md",
   "evidence": "results/summary.csv",
-  "notes": "Artefact modifiable du chat Codex ; le storyboard et le callback restent versionnés pour reconstruction. Aucun lien public ni Page ID n’a été retourné."
+  "notes": "Artefact modifiable du chat Codex ; le storyboard et le callback restent versionnés pour reconstruction. Aucun lien public ni Page ID n’a été retourné.",
+  "reviewed_state_version": 8
 }

@@ -75,11 +75,11 @@ Ordre : **M0 → M1 → M2 → M3 → M4 → M5 → M6**. Un chargement ou contr
 - [x] M3 — Analyse physique vérifiée : 268 fenêtres, 13 caractéristiques et figures inspectées.
 - [x] M4 — E1–E4 évalués sur le développement ; E4 retenu avant le test.
 - [x] M5 — Test final gelé réalisé : 92 fenêtres, 10 essais ; E4 BA 98,15 %.
-- [ ] M6 — Reproduction vérifiée, article de six pages, dix diapositives et fiches orales prêts ; répétition humaine et publication à terminer.
+- [ ] M6 — Reproduction vérifiée, article de six pages, dix diapositives et fiches orales prêts ; répétition humaine à effectuer, livrables publiés.
 
-**État observé :** M1 à M5 terminés. Les 40 fichiers sont audités. Les charges 0/1/2 HP servent au développement (268 fenêtres) ; la charge 3 HP a été évaluée une fois après gel (92 fenêtres). E4, retenu avant le test, atteint 98,15 % d'exactitude équilibrée contre 90,74 % pour E1. Les dix diagnostics agrégés d'E4 sont corrects, avec un seul essai sain disponible. Une reproduction dans un environnement neuf a retrouvé les 368 prédictions finales des quatre modèles. L’article de six pages est rendu et inspecté ; les dix diapositives modifiables et les fiches orales utilisent les résultats vérifiés. Le support a été rendu et inspecté. La répétition humaine n’est pas effectuée.
+**État observé :** M1 à M5 terminés. Les 40 fichiers sont audités. Les charges 0/1/2 HP servent au développement (268 fenêtres) ; la charge 3 HP a été évaluée une fois après gel (92 fenêtres). E4, retenu avant le test, atteint 98,15 % d'exactitude équilibrée contre 90,74 % pour E1. Les dix diagnostics agrégés d'E4 sont corrects, avec un seul essai sain disponible. Une reproduction dans un environnement neuf a retrouvé les 368 prédictions finales des quatre modèles. L’article de six pages est rendu et inspecté ; les dix diapositives modifiables et les fiches orales utilisent les résultats vérifiés. Le support a été rendu et inspecté. Les livrables ont été poussés sur `origin/main` (livraison `5d7e8f5`, distant vérifié). La répétition humaine n’est pas effectuée.
 
-**Prochaine action :** T49 dans [tasks.md](tasks.md), répétition humaine chronométrée à partir de `presentation/plan_soutenance.md`, et publication T52. Le contrôle T51 est documenté dans `docs/delivery_check.md`.
+**Prochaine action :** T49 dans [tasks.md](tasks.md), répétition humaine chronométrée à partir de `presentation/plan_soutenance.md`, Le contrôle T51 est documenté dans `docs/delivery_check.md` ; la publication T52 est vérifiée.
 
 ## 7. Budget indicatif
 
@@ -121,3 +121,4 @@ Après consultation du test final, une nouvelle idée reste exploratoire et ne p
 | 2026-11-20 | Gel puis campagne finale 3 HP ; reproduction dans un environnement Python distinct. | M5 terminé ; E4 98,15 % BA, baseline 90,74 % ; 368 prédictions reproduites à l’identique ; préparation de M6. |
 | 2026-11-20 | Article six pages, sources et fiches orales préparés ; reproduction et contrôles scientifiques réussis. | M6 partiel : répétition humaine et clôture de livraison encore ouvertes. |
 | 2026-11-20 | Dix diapositives modifiables construites et inspectées ; couverture des cinq tâches et du barème vérifiée. | T51 terminé ; T49 reste ouvert pour la répétition humaine, sans modification du protocole gelé. |
+| 2026-11-20 | Livraison scientifique et sources du support poussées sur `origin/main` ; commit `5d7e8f5` vérifié sur GitHub. | T52 terminé ; seule la répétition humaine T49 empêche la clôture de M6. |
