@@ -74,12 +74,12 @@ Ordre : **M0 → M1 → M2 → M3 → M4 → M5 → M6**. Un chargement ou contr
 - [x] M2 — Protocole fixé : charges et partitions enregistrées avant entraînement.
 - [x] M3 — Analyse physique vérifiée : 268 fenêtres, 13 caractéristiques et figures inspectées.
 - [x] M4 — E1–E4 évalués sur le développement ; E4 retenu avant le test.
-- [ ] M5 — Test final de transfert réalisé.
-- [ ] M6 — Livraison et reproduction vérifiées.
+- [x] M5 — Test final gelé réalisé : 92 fenêtres, 10 essais ; E4 BA 98,15 %.
+- [ ] M6 — Reproduction vérifiée, article de six pages et fiches orales prêts ; répétition humaine et livraison finale à terminer.
 
-**État observé :** M1 et M2 terminés. Les 40 fichiers CWRU sont audités et leurs empreintes enregistrées. Les charges 0/1/2 HP forment trois plis par charge entière ; les dix essais à 3 HP sont réservés. Deux vitesses saines viennent de valeurs officielles approximatives, marquées comme telles. L'environnement Python 3.12.14 est installé et verrouillé. Les indicateurs sont vérifiés sur 268 fenêtres de développement ; les quatre expériences sont entraînées et comparées sur les plis de développement. E4 est retenu (exactitude équilibrée 99,69 %). La charge finale reste non consultée.
+**État observé :** M1 à M5 terminés. Les 40 fichiers sont audités. Les charges 0/1/2 HP servent au développement (268 fenêtres) ; la charge 3 HP a été évaluée une fois après gel (92 fenêtres). E4, retenu avant le test, atteint 98,15 % d'exactitude équilibrée contre 90,74 % pour E1. Les dix diagnostics agrégés d'E4 sont corrects, avec un seul essai sain disponible. Une reproduction dans un environnement neuf a retrouvé les 368 prédictions finales des quatre modèles. L’article de six pages est rendu et inspecté ; les fiches orales utilisent les résultats vérifiés. La répétition humaine n’est pas effectuée.
 
-**Prochaine action :** T39–T44 dans [tasks.md](tasks.md), gel et campagne finale sur la charge 3 HP.
+**Prochaine action :** T49 dans [tasks.md](tasks.md), répétition humaine chronométrée à partir de `presentation/plan_soutenance.md`, puis clôture de livraison T51/T52.
 
 ## 7. Budget indicatif
 
@@ -121,3 +121,7 @@ Après consultation du test final, une nouvelle idée reste exploratoire et ne p
 | 2026-11-20 | Extraction et contrôles physiques sur le développement ; FIR harmonisé à 12/48 kHz avant tout modèle. | M3 terminé ; 268 fenêtres ; 32 tests réussis ; test final non consulté. |
 
 | 2026-11-20 | Comparaison E1–E4 sur trois plis par charge ; E4 retenu avant le test. | M4 terminé ; baseline 92,90 % et E4 99,69 % d’exactitude équilibrée de développement ; scores de sélection, non indépendants. |
+
+| 2026-11-20 | Gel puis campagne finale 3 HP ; reproduction dans un environnement Python distinct. | M5 terminé ; E4 98,15 % BA, baseline 90,74 % ; 368 prédictions reproduites à l’identique ; préparation de M6. |
+
+| 2026-11-20 | Article six pages, sources et fiches orales préparés ; reproduction et contrôles scientifiques réussis. | M6 partiel : répétition humaine et clôture de livraison encore ouvertes. |

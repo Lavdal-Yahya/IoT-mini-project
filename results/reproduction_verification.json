@@ -1,0 +1,18 @@
+{
+  "status": "identical",
+  "n_final_predictions": 368,
+  "freeze_sha256": "42f98a766c895b4f9fc8a50737f8624266c9455e4140ac288fd0a7002240f002",
+  "environment": {
+    "python": "3.12.14",
+    "packages": {
+      "numpy": "2.5.5",
+      "scipy": "1.18.1",
+      "pandas": "3.1.1",
+      "scikit-learn": "1.9.1",
+      "matplotlib": "3.11.2",
+      "requests": "2.34.2",
+      "beautifulsoup4": "4.15.0",
+      "joblib": "1.6.0"
+    }
+  }
+}

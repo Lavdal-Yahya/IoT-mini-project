@@ -1,0 +1,35 @@
+{
+  "scientific_sources": {
+    "src/bearing_diagnosis/__init__.py": "fa06f2ffbe0c63c3cbbc080cde37180b71235d23163b96702196a448d068c483",
+    "src/bearing_diagnosis/cli.py": "ca9e3fca41661d681471137717d4624f2a2fd53fdb32f560b6d87fe66210dd3c",
+    "src/bearing_diagnosis/data.py": "e295fd2e77db65d08698a7575d86fbe296224683a4864a2a745fdd349808fb1c",
+    "src/bearing_diagnosis/evaluation.py": "b53d53658e6e1df0e33ec7772849600e858b5d96f21c2bf756b99ce73517deb3",
+    "src/bearing_diagnosis/features.py": "1c04f960d5d14f2423c50788adfbf5904618f908182b2a3f9f3a313ff61eb1a8",
+    "src/bearing_diagnosis/models.py": "a9c07de3a31080c0c61a2cd200571e7d019c965bba7acf42175edc9a77e47f57",
+    "src/bearing_diagnosis/provenance.py": "5d361119543607d672a8eada2b12410aba3c3a0460f06ad63c53c4d98f88402a",
+    "src/bearing_diagnosis/signals.py": "d0cee1dec5ae7dc991072c7a26ea69fbfc133e1ebdd6ebc7df338540cb75506a",
+    "src/bearing_diagnosis/splits.py": "02e0aace6571965415b066d447a9878054ad83fd07c3e2d9319fe979f7574ab8",
+    "configs/experiment.json": "d9cd07c42ef567cb9aaac24da9fcc2b34b7392d295f36501226372afb37b3c9f",
+    "data/manifest.csv": "72a7c35828c4bf9338916d0bb1cbc2f7675146cb5e0829d36f3067bcb4df27cd",
+    "data/splits/recordings.csv": "65cc5e9e58519be8bec948fb6719c55a6ad839bc1613ec2395a923d504800b69",
+    "requirements.lock.txt": "87c51841213db789dcec94bb27e6df5757ecb4e03694440e3ec71acf7cf8dfea"
+  },
+  "development": {
+    "selection.json": "d0e8f39851f165d2841130b7e2567c090405a1a4d558a5cdb3804a4b2104be23",
+    "features_development.csv": "57dd30c19e2445e17c84e385bc54c3e79bb39ce8aff956a3f2b59244ad3912c0"
+  },
+  "environment": {
+    "python": "3.12.14",
+    "packages": {
+      "numpy": "2.5.5",
+      "scipy": "1.18.1",
+      "pandas": "3.1.1",
+      "scikit-learn": "1.9.1",
+      "matplotlib": "3.11.2",
+      "requests": "2.34.2",
+      "beautifulsoup4": "4.15.0",
+      "joblib": "1.6.0"
+    }
+  },
+  "test_access": "sealed; no final features or scores consulted"
+}

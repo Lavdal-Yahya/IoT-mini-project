@@ -38,5 +38,40 @@
     "source": "/home/nomad/Projects/school/S3/IoT-serie-temporel/mini-project/outputs/main/environment.json",
     "released": "results/environment.json",
     "sha256": "189c360c633166f275165a3014d7958de9cf17e0637056c77ecf500374aba729"
+  },
+  {
+    "source": "/home/nomad/Projects/school/S3/IoT-serie-temporel/mini-project/outputs/main/freeze.json",
+    "released": "results/freeze.json",
+    "sha256": "42f98a766c895b4f9fc8a50737f8624266c9455e4140ac288fd0a7002240f002"
+  },
+  {
+    "source": "/home/nomad/Projects/school/S3/IoT-serie-temporel/mini-project/outputs/main/final_metrics.json",
+    "released": "results/final_metrics.json",
+    "sha256": "bdc70f12e2bdafcde774e60eac529b19d7b1feafecef3c46ecdb1da52cf4c1e0"
+  },
+  {
+    "source": "/home/nomad/Projects/school/S3/IoT-serie-temporel/mini-project/outputs/main/final_bootstrap.json",
+    "released": "results/final_bootstrap.json",
+    "sha256": "7c348471f0ac116628e11c6d5f040bffc00d6520cf6379a2645daf35f3c9cbf3"
+  },
+  {
+    "source": "/home/nomad/Projects/school/S3/IoT-serie-temporel/mini-project/outputs/main/final_predictions.csv",
+    "released": "results/final_predictions.csv",
+    "sha256": "c0b6b8e499f6fbc1f9b7dbffd6d23a92982c868d44b127a6c65389b03c670ed7"
+  },
+  {
+    "source": "/home/nomad/Projects/school/S3/IoT-serie-temporel/mini-project/outputs/main/test_consulted.json",
+    "released": "results/test_consulted.json",
+    "sha256": "b2c41ca6f9f49c92d423c80d47a63aa9bda8f3c80e023b8e008a58f4bf398114"
+  },
+  {
+    "source": "/home/nomad/Projects/school/S3/IoT-serie-temporel/mini-project/outputs/main/preparation_final_test.json",
+    "released": "results/preparation_final_test.json",
+    "sha256": "d975c33ec3a9bac5f60052c8d09c2b55768ec949a1782776e7dd155f385706ff"
+  },
+  {
+    "source": "/home/nomad/Projects/school/S3/IoT-serie-temporel/mini-project/outputs/main/final_model_provenance.json",
+    "released": "results/final_model_provenance.json",
+    "sha256": "856b48df0af5f765e4c622350220b311d26fa5e7866ad088faefd3d67ddf8b41"
   }
 ]

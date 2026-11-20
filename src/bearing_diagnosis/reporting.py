@@ -146,13 +146,31 @@ def _final_confusion(metrics: dict, classes: list[str], path: Path) -> None:
         matrix = np.asarray(result["confusion"], dtype=int)
         axis.imshow(matrix, cmap="Blues", vmin=0, vmax=max(1, matrix.max()))
         for (i, j), value in np.ndenumerate(matrix):
-            axis.text(j, i, str(value), ha="center", va="center", fontsize=10)
+            axis.text(j, i, str(value), ha="center", va="center", fontsize=10,
+                      color="white" if value > matrix.max() / 2 else "black")
         axis.set_xticks(range(len(classes)), [LABELS.get(c, c) for c in classes], rotation=35, ha="right")
         axis.set_yticks(range(len(classes)), [LABELS.get(c, c) for c in classes])
         axis.set_title(experiment)
         axis.set_xlabel("Classe prédite")
         axis.set_ylabel("Classe réelle")
     fig.suptitle("Test final 3 HP — confusion par enregistrement", fontsize=13)
+    _save(fig, path)
+
+
+def _final_window_confusion(metrics: dict, classes: list[str], path: Path) -> None:
+    fig, axes = plt.subplots(2, 2, figsize=(9.5, 8.5), constrained_layout=True)
+    for axis, experiment in zip(axes.flat, EXPERIMENTS):
+        matrix = np.asarray(metrics[experiment]["weighted_window"]["confusion_normalized_true"], dtype=float)
+        axis.imshow(matrix, cmap="Blues", vmin=0, vmax=1)
+        for (i, j), value in np.ndenumerate(matrix):
+            axis.text(j, i, f"{value:.1%}", ha="center", va="center", fontsize=9,
+                      color="white" if value > 0.55 else "black")
+        axis.set_xticks(range(len(classes)), [LABELS.get(c, c) for c in classes], rotation=35, ha="right")
+        axis.set_yticks(range(len(classes)), [LABELS.get(c, c) for c in classes])
+        axis.set_title(experiment)
+        axis.set_xlabel("Classe prédite")
+        axis.set_ylabel("Classe réelle")
+    fig.suptitle("Test final 3 HP — fenêtres, poids égal par essai\nLignes normalisées par vraie classe", fontsize=13)
     _save(fig, path)
 
 
@@ -178,14 +196,29 @@ def make_report(root: Path, destination: Path) -> Path:
     La figure des spectres lit quatre essais du développement seulement. Les
     résultats de test ne sont copiés et tracés qu'après leur sortie complète.
     """
-    root, destination = Path(root), Path(destination)
+    root, destination = Path(root).resolve(), Path(destination).resolve()
     release = root / "results"
     figures = release / "figures"
     figures.mkdir(parents=True, exist_ok=True)
+    ledger_path = release / "source_paths.json"
+    ledger = {
+        entry["released"]: entry["sha256"]
+        for entry in json.loads(ledger_path.read_text(encoding="utf-8"))
+    } if ledger_path.exists() else {}
+
+    def source(name: str) -> Path:
+        run_path = destination / name
+        if run_path.exists():
+            return run_path
+        published = release / name
+        relative = str(published.relative_to(root))
+        if published.exists() and ledger.get(relative) == sha256(published):
+            return published
+        raise FileNotFoundError(f"Sortie absente ou publication non vérifiée : {name}")
+
     config_path = root / "configs/experiment.json"
     config = json.loads(config_path.read_text(encoding="utf-8"))
     feature_path = destination / "features_development.csv"
-    development_path = destination / "development_metrics.json"
     if not feature_path.exists():
         raise FileNotFoundError("Caractéristiques de développement requises")
     features = pd.read_csv(feature_path)
@@ -206,40 +239,48 @@ def make_report(root: Path, destination: Path) -> Path:
         ],
     })
     dictionary.to_csv(release / "feature_dictionary.csv", index=False)
-    required = [config_path, destination / "preparation_development.json",
-                destination / "filter_diagnostics.json"]
+    required = [config_path, source("preparation_development.json"),
+                source("filter_diagnostics.json")]
     final_ready = False
-    if development_path.exists():
+    if (destination / "development_metrics.json").exists() or (release / "development_metrics.json").exists():
+        development_path = source("development_metrics.json")
         development = json.loads(development_path.read_text(encoding="utf-8"))
         rows = _metrics_rows("development", development)
-        final_path = destination / "final_metrics.json"
-        marker_path = destination / "test_consulted.json"
-        final_ready = (final_path.exists() and marker_path.exists() and
-                       json.loads(marker_path.read_text(encoding="utf-8")).get("state") == "complete")
+        final_available = ((destination / "final_metrics.json").exists() or
+                           (release / "final_metrics.json").exists())
+        marker_available = ((destination / "test_consulted.json").exists() or
+                            (release / "test_consulted.json").exists())
+        if final_available and marker_available:
+            final_path = source("final_metrics.json")
+            marker_path = source("test_consulted.json")
+            final_ready = json.loads(marker_path.read_text(encoding="utf-8")).get("state") == "complete"
         if final_ready:
             final = json.loads(final_path.read_text(encoding="utf-8"))
             rows += _metrics_rows("final", final)
             _final_confusion(final, classes, figures / "final_confusion.png")
+            _final_window_confusion(final, classes, figures / "final_window_confusion.png")
         summary = pd.DataFrame(rows)
         summary.to_csv(release / "summary.csv", index=False)
         _development_scores(summary, figures / "development_scores.png")
         _ablation(summary, figures / "ablation.png")
-        required += [development_path, destination / "development_bootstrap.json",
-                     destination / "development_oof.csv", destination / "selection.json",
-                     destination / "environment.json"]
-    if (destination / "freeze.json").exists():
-        required.append(destination / "freeze.json")
+        required += [development_path, source("development_bootstrap.json"),
+                     source("development_oof.csv"), source("selection.json"),
+                     source("environment.json")]
+    if (destination / "freeze.json").exists() or (release / "freeze.json").exists():
+        required.append(source("freeze.json"))
     if final_ready:
-        required += [final_path, destination / "final_bootstrap.json",
-                     destination / "final_predictions.csv", marker_path,
-                     destination / "preparation_final_test.json"]
+        required += [final_path, source("final_bootstrap.json"),
+                     source("final_predictions.csv"), marker_path,
+                     source("preparation_final_test.json"),
+                     source("final_model_provenance.json")]
     provenance = []
     for source in required:
         if not source.exists():
             raise FileNotFoundError(source)
         target = release / source.name
-        shutil.copy2(source, target)
-        provenance.append({"source": str(source.resolve()), "released": str(target.relative_to(root)),
+        if source != target:
+            shutil.copy2(source, target)
+        provenance.append({"source": str(source.relative_to(root)), "released": str(target.relative_to(root)),
                            "sha256": sha256(source)})
     (release / "source_paths.json").write_text(json.dumps(provenance, indent=2), encoding="utf-8")
     return release

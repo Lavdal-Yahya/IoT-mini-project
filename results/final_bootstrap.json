@@ -1,0 +1,59 @@
+{
+  "metric": "record_equal_window_balanced_accuracy",
+  "n_bootstrap": 1000,
+  "random_state": 313,
+  "recordings_per_class": {
+    "healthy": 1,
+    "inner_race": 3,
+    "outer_race": 3,
+    "ball": 3
+  },
+  "single_recording_classes": [
+    "healthy"
+  ],
+  "limitation": "A class with one recording has no estimated between-recording variability.",
+  "comparisons": {
+    "E2_minus_E1": {
+      "point_difference": 0.07407407407407407,
+      "ci95": [
+        -0.01851851851851849,
+        0.19444444444444442
+      ]
+    },
+    "E3_minus_E1": {
+      "point_difference": -0.009259259259259217,
+      "ci95": [
+        -0.05555555555555558,
+        0.04629629629629628
+      ]
+    },
+    "E4_minus_E1": {
+      "point_difference": 0.0740740740740741,
+      "ci95": [
+        0.0,
+        0.17592592592592593
+      ]
+    },
+    "E3_minus_E2": {
+      "point_difference": -0.08333333333333329,
+      "ci95": [
+        -0.14814814814814814,
+        -0.03703703703703709
+      ]
+    },
+    "E4_minus_E2": {
+      "point_difference": 2.7755575615628914e-17,
+      "ci95": [
+        -0.0185185185185186,
+        0.0185185185185186
+      ]
+    },
+    "E4_minus_E3": {
+      "point_difference": 0.08333333333333331,
+      "ci95": [
+        0.05555555555555558,
+        0.13888888888888884
+      ]
+    }
+  }
+}

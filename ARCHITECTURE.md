@@ -3,7 +3,7 @@
 
 # Architecture technique du mini-projet AML313 du groupe 7
 
-Dernière mise à jour : **20 novembre 2026**. Statut : **audit et protocole vérifiés ; pipeline en cours de vérification**.
+Dernière mise à jour : **20 novembre 2026**. Statut : **pipeline scientifique exécuté, test final consulté et reproduction vérifiée**.
 
 ## 1. Rôle et principes
 
@@ -82,13 +82,13 @@ Le dépôt Git a pour racine `mini-project/`, pour branche principale `main` et 
 
 ## 4. Données et interfaces
 
-### 4.1 Sous-ensemble proposé
+### 4.1 Sous-ensemble retenu après audit
 
-Point de départ à vérifier en M1 : roulement côté entraînement, canal `DE`, quatre classes `healthy`, `inner_race`, `outer_race`, `ball`, tailles de défaut 0,007/0,014/0,021 pouce et une position externe cohérente, proposée à 6 h selon la table officielle [S4]. Ajouter les enregistrements sains correspondants [S5].
+Sous-ensemble vérifié en M1 : roulement côté entraînement, canal `DE`, quatre classes `healthy`, `inner_race`, `outer_race`, `ball`, tailles de défaut 0,007/0,014/0,021 pouce et une position externe cohérente, proposée à 6 h selon la table officielle [S4]. Ajouter les enregistrements sains correspondants [S5].
 
-Charges proposées : **0, 1 et 2 HP pour développer ; 3 HP pour le transfert final**. Cette répartition reste provisoire jusqu'au contrôle des fichiers et des classes. Un changement se décide sur les métadonnées avant les scores.
+Charges retenues : **0, 1 et 2 HP pour développer ; 3 HP pour le transfert final**. Cette répartition a été contrôlée avant l'entraînement. Un changement se décide sur les métadonnées avant les scores.
 
-Fréquence commune envisagée : **12 000 Hz**. Vérifier la fréquence native de chaque canal et fichier ; ne pas la déduire du seul nom du dossier. Appliquer un passe-bas causal harmonisé à tous les fichiers : 41 coefficients à 12 kHz, 161 à 48 kHz, coupure 4,8 kHz. Décimer seulement les fichiers à 48 kHz après ce filtre. Une fréquence non vérifiable met le fichier en attente.
+Fréquence commune retenue : **12 000 Hz**. Vérifier la fréquence native de chaque canal et fichier ; ne pas la déduire du seul nom du dossier. Appliquer un passe-bas causal harmonisé à tous les fichiers : 41 coefficients à 12 kHz, 161 à 48 kHz, coupure 4,8 kHz. Décimer seulement les fichiers à 48 kHz après ce filtre. Une fréquence non vérifiable met le fichier en attente.
 
 ### 4.2 Contrats de données
 
@@ -110,7 +110,7 @@ Une valeur répétée peut être légitime : ne pas supprimer les échantillons 
 
 ### 5.1 Fenêtres et causalité
 
-Proposition initiale : fenêtres complètes de **1 s sans recouvrement**, soit 12 000 points à 12 kHz et `Δf = 1 Hz`. Une alternative de 0,5 s peut être comparée uniquement sur le développement si elle est physiquement justifiée. Durée et pas sont ensuite figés ; compter les fragments terminaux exclus.
+Choix retenu : fenêtres complètes de **1 s sans recouvrement**, soit 12 000 points à 12 kHz et `Δf = 1 Hz`. Aucune alternative de durée n’a été comparée dans cette expérience. Durée et pas sont ensuite figés ; compter les fragments terminaux exclus.
 
 La prédiction d'une fenêtre est disponible à sa fin, lorsque tous ses échantillons sont connus. FFT et enveloppe analytique calculées sur cette fenêtre fermée ne permettent pas de dater une décision avant sa fin. Ne pas appliquer un filtre bidirectionnel sur tout l'enregistrement en le présentant comme causal.
 
@@ -139,7 +139,7 @@ BPFI = (n / 2) × f_rotation × (1 + (d / D) × cos(theta))
 
 `n` : nombre d'éléments roulants ; `d` : diamètre d'une bille ; `D` : diamètre primitif ; `theta` : angle de contact. Ne pas inventer une géométrie manquante. La fiche officielle DE fournit directement `BPFO = 3,5848 × f_rotation` et `BPFI = 5,4152 × f_rotation` ; vérifier la correspondance du roulement retenu [S3].
 
-Chaîne prévue : passe-bande causal autour d'une résonance justifiée → enveloppe analytique sur fenêtre fermée → retrait de moyenne de l'enveloppe → Hann → spectre. Inspecter les transitoires et effets de bord. La bande reste **à déterminer par la physique et le développement**, sous Nyquist ; ne pas recopier une bande du cours sans contrôle.
+Chaîne prévue : passe-bande causal autour d'une résonance justifiée → enveloppe analytique sur fenêtre fermée → retrait de moyenne de l'enveloppe → Hann → spectre. Inspecter les transitoires et effets de bord. La bande 2–5 kHz est fixée et contrôlée sur le développement, sous Nyquist ; elle n’a pas été optimisée par les scores.
 
 Jeu spectral proposé : énergies relatives dans des bandes proches de BPFO/BPFI et de leurs premières harmoniques, avec quelques bandes générales documentées. Calculer les mêmes candidats pour toutes les classes ; aucune fréquence n'est sélectionnée à partir de la vraie étiquette. Tolérances et harmoniques sont figées avant le test.
 
@@ -151,7 +151,7 @@ La vitesse place les bandes physiques mais n'est pas une entrée brute du classi
 
 1. Définir groupes et alias avant de produire les exemples d'apprentissage.
 2. Réserver la charge de transfert et ses identifiants ; aucune sélection de bande ou de modèle sur cette charge.
-3. Utiliser `GroupKFold` sur les charges de développement, avec **3 plis proposés**. Vérifier toutes les classes dans chaque apprentissage et évaluation ; la classe saine peut avoir peu de groupes.
+3. Utiliser `GroupKFold` sur les charges de développement, avec **3 plis par charge entière**. Vérifier toutes les classes dans chaque apprentissage et évaluation ; la classe saine peut avoir peu de groupes.
 4. Si un pli est invalide, revoir nombre de plis, répartition ou sous-ensemble sur les métadonnées avant les scores. Ne pas mélanger aléatoirement les fenêtres pour contourner ce problème.
 5. Ajuster tout prétraitement appris seulement dans l'apprentissage du pli. Les transformations fixes par fenêtre restent déterministes et sans ajustement global.
 
@@ -172,7 +172,7 @@ Les plis de développement servent à sélectionner les choix ; leur score aprè
 
 ### 6.3 Métriques et incertitude
 
-Rapporter l'exactitude et les matrices de confusion imposées, en nombres et normalisées par vraie classe. Ajouter rappel par classe, exactitude équilibrée et macro-F1. Critère de sélection proposé : exactitude équilibrée donnant le même poids aux enregistrements, puis préférence pour le modèle plus simple à résultats comparables ; règle exacte fixée en M2.
+Rapporter l'exactitude et les matrices de confusion imposées, en nombres et normalisées par vraie classe. Ajouter rappel par classe, exactitude équilibrée et macro-F1. Critère de sélection retenu : exactitude équilibrée donnant le même poids aux enregistrements, puis préférence pour le modèle plus simple à résultats comparables ; règle fixée en M2 et enregistrée dans la configuration.
 
 Conserver les métriques par fenêtre et par enregistrement. Les indicateurs principaux utilisent des poids de fenêtre inverses du nombre de fenêtres de leur enregistrement ; les scores bruts par fenêtre sont complémentaires, car les essais longs peuvent les dominer. Pour un diagnostic agrégé de l'enregistrement, la règle proposée est la moyenne des probabilités de ses fenêtres, annoncée avant l'évaluation.
 
@@ -190,7 +190,7 @@ Le programme de test exigera un fichier de gel et écrira un marqueur de consult
 
 Chaque exécution produit un dossier identifié : configuration résolue, empreintes des données et partitions, versions, graines, journal de préparation, résultats par pli, prédictions avec provenance, métriques et figures. Les tables de l'article sont dérivées de ces sorties ; ne pas saisir à la main des résultats dans le code d'affichage.
 
-Interface **prévue, non encore disponible** : diagnostic → développement → gel → évaluation finale. La cible `make reproduce` devra rejouer le protocole figé et régénérer les résultats et figures. URL, empreintes et verrou d'environnement permettront de reconstruire les entrées et le logiciel. Ajouter les commandes exactes au README après implémentation et vérification.
+Interface implémentée : diagnostic → développement → gel → évaluation finale. La cible `make reproduce` rejoue les calculs gelés et compare les prédictions finales aux références. Les figures et tables sont régénérées par `make report` depuis une exécution complète. URL, empreintes et verrou d'environnement permettront de reconstruire les entrées et le logiciel. Les commandes exactes et le parcours de reproduction sont décrits dans le README.
 
 ## 8. Vérifications nécessaires
 
@@ -210,10 +210,10 @@ Ces contrôles ciblent les erreurs scientifiques importantes. Aucun résultat n'
 | D01 | Pipeline Python local CPU ; notebooks explicatifs. | Retenu pour l'implémentation. |
 | D02 | Quatre classes ; arbre de référence ; forêt enrichie ; ablation E1–E4. | Retenu pour l'implémentation. |
 | D03 | Groupes par essai source et alias ; charge finale distincte. | Règle obligatoire. |
-| D04 | DE, tailles 0,007/0,014/0,021 pouce, position externe 6 h, fréquence commune 12 kHz. | Proposition à vérifier en M1. |
-| D05 | Charges 0/1/2 HP en développement, 3 HP en transfert ; 3 plis. | Proposition à vérifier en M2. |
-| D06 | Fenêtres 1 s sans recouvrement ; alternative 0,5 s sur développement. | Justification à terminer en M2/M3. |
-| D07 | Bande d'enveloppe, tolérances, grille exacte et versions logicielles. | Ouvert ; à fixer avant les essais concernés. |
+| D04 | DE, tailles 0,007/0,014/0,021 pouce, position externe 6 h, fréquence commune 12 kHz. | Confirmé en M1. |
+| D05 | Charges 0/1/2 HP en développement, 3 HP en transfert ; 3 plis. | Confirmé en M2 ; supergroupes par charge. |
+| D06 | Fenêtres 1 s sans recouvrement ; aucune alternative évaluée. | Fixé et vérifié en M3 ; aucune recherche de durée. |
+| D07 | Bande d'enveloppe, tolérances, grille exacte et versions logicielles. | Fixé avant les essais ; configuration et environnement verrouillés. |
 
 Toute modification substantielle actualise cette table, les sections concernées, la configuration et le journal de la roadmap. La configuration décrit l'exécution exacte et ne peut pas contredire silencieusement ces décisions.
 
@@ -240,3 +240,9 @@ D04 et D05 sont confirmées. GroupKFold utilise la charge comme supergroupe, ce 
 Les modules de signal et de caractéristiques sont implémentés. Le même passe-bas physique est appliqué aux sains et aux défauts ; les réponses 12/48 kHz diffèrent de moins de 0,04 dB aux fréquences contrôlées. Cela réduit le confondant numérique de préparation sans supprimer toute différence d'acquisition. Les délais FIR valent 1,667 ms ; le délai passe-bande maximal mesuré dans 2,1–4,8 kHz est 0,624 ms. Après 0,1 s de préparation et 0,1 s de passe-bande, les fenêtres commencent à 0,2 s. L'enveloppe conserve 0,9 s après retrait de 0,05 s par bord, soit Δf ≈ 1,111 Hz ; le spectre brut garde Δf = 1 Hz.
 
 La bande 2–5 kHz est confirmée comme bande large exploitable sur les figures du développement, avec des pics proches de BPFI pour IR007 et de BPFO pour OR007. Elle n'est pas proclamée optimale. Les données produisent 268 fenêtres de développement et 13 caractéristiques finies. Voir `results/filter_diagnostics.json`, `results/feature_dictionary.csv` et [méthode](docs/features.md).
+
+## 13. Résultats et état du test
+
+Les réglages E1–E4 sont choisis sur les plis de développement et archivés dans `results/selection.json`. E4 a été retenu avant la campagne finale. À 3 HP, l'exactitude équilibrée par fenêtre avec pondération égale des essais est de 90,741 % pour E1, 98,148 % pour E2, 89,815 % pour E3 et 98,148 % pour E4. Le modèle retenu n'a pas changé après lecture du test. Son diagnostic agrégé est correct pour 10 essais sur 10 ; son rappel par fenêtre pour la bague externe est 92,593 %.
+
+Le gel `results/freeze.json` et le marqueur `results/test_consulted.json` font autorité. Toute nouvelle méthode reste exploratoire. Les sources de présentation (`reporting.py` et les documents) sont séparées de l'empreinte scientifique ; les modules de données, signal, caractéristiques, modèles, métriques, orchestration et provenance sont gelés. La reproduction utilise la sélection enregistrée, sans nouvelle recherche. La comparaison dans un environnement Python neuf a retrouvé les 368 prédictions des quatre expériences.

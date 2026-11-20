@@ -1,0 +1,162 @@
+{
+  "selected": {
+    "E1": {
+      "estimator": "tree",
+      "features": [
+        "rms",
+        "kurtosis",
+        "crest_factor"
+      ],
+      "params": {
+        "max_depth": 6,
+        "min_samples_leaf": 5
+      },
+      "mean_fold_balanced_accuracy": 0.9290123456790124,
+      "fold_scores": [
+        {
+          "fold": 0,
+          "balanced_accuracy": 0.9722222222222222,
+          "n_train_groups": 20,
+          "n_valid_groups": 10
+        },
+        {
+          "fold": 1,
+          "balanced_accuracy": 0.9722222222222222,
+          "n_train_groups": 20,
+          "n_valid_groups": 10
+        },
+        {
+          "fold": 2,
+          "balanced_accuracy": 0.8425925925925927,
+          "n_train_groups": 20,
+          "n_valid_groups": 10
+        }
+      ]
+    },
+    "E2": {
+      "estimator": "tree",
+      "features": [
+        "rms",
+        "kurtosis",
+        "crest_factor",
+        "spectrum_centroid_hz",
+        "spectrum_entropy",
+        "envelope_centroid_hz",
+        "envelope_entropy",
+        "envelope_bpfo_h1_energy_ratio",
+        "envelope_bpfo_h2_energy_ratio",
+        "envelope_bpfo_h3_energy_ratio",
+        "envelope_bpfi_h1_energy_ratio",
+        "envelope_bpfi_h2_energy_ratio",
+        "envelope_bpfi_h3_energy_ratio"
+      ],
+      "params": {
+        "max_depth": 6,
+        "min_samples_leaf": 5
+      },
+      "mean_fold_balanced_accuracy": 0.8734567901234568,
+      "fold_scores": [
+        {
+          "fold": 0,
+          "balanced_accuracy": 0.9351851851851852,
+          "n_train_groups": 20,
+          "n_valid_groups": 10
+        },
+        {
+          "fold": 1,
+          "balanced_accuracy": 0.9814814814814815,
+          "n_train_groups": 20,
+          "n_valid_groups": 10
+        },
+        {
+          "fold": 2,
+          "balanced_accuracy": 0.7037037037037037,
+          "n_train_groups": 20,
+          "n_valid_groups": 10
+        }
+      ]
+    },
+    "E3": {
+      "estimator": "forest",
+      "features": [
+        "rms",
+        "kurtosis",
+        "crest_factor"
+      ],
+      "params": {
+        "max_depth": null,
+        "min_samples_leaf": 1
+      },
+      "mean_fold_balanced_accuracy": 0.9506172839506174,
+      "fold_scores": [
+        {
+          "fold": 0,
+          "balanced_accuracy": 1.0,
+          "n_train_groups": 20,
+          "n_valid_groups": 10
+        },
+        {
+          "fold": 1,
+          "balanced_accuracy": 0.9259259259259259,
+          "n_train_groups": 20,
+          "n_valid_groups": 10
+        },
+        {
+          "fold": 2,
+          "balanced_accuracy": 0.9259259259259258,
+          "n_train_groups": 20,
+          "n_valid_groups": 10
+        }
+      ]
+    },
+    "E4": {
+      "estimator": "forest",
+      "features": [
+        "rms",
+        "kurtosis",
+        "crest_factor",
+        "spectrum_centroid_hz",
+        "spectrum_entropy",
+        "envelope_centroid_hz",
+        "envelope_entropy",
+        "envelope_bpfo_h1_energy_ratio",
+        "envelope_bpfo_h2_energy_ratio",
+        "envelope_bpfo_h3_energy_ratio",
+        "envelope_bpfi_h1_energy_ratio",
+        "envelope_bpfi_h2_energy_ratio",
+        "envelope_bpfi_h3_energy_ratio"
+      ],
+      "params": {
+        "max_depth": 6,
+        "min_samples_leaf": 1
+      },
+      "mean_fold_balanced_accuracy": 0.9969135802469135,
+      "fold_scores": [
+        {
+          "fold": 0,
+          "balanced_accuracy": 1.0,
+          "n_train_groups": 20,
+          "n_valid_groups": 10
+        },
+        {
+          "fold": 1,
+          "balanced_accuracy": 1.0,
+          "n_train_groups": 20,
+          "n_valid_groups": 10
+        },
+        {
+          "fold": 2,
+          "balanced_accuracy": 0.9907407407407407,
+          "n_train_groups": 20,
+          "n_valid_groups": 10
+        }
+      ]
+    }
+  },
+  "n_train_windows": 268,
+  "n_train_groups": 30,
+  "n_test_windows": 92,
+  "n_test_groups": 10,
+  "random_state": 313,
+  "n_estimators": 200
+}
