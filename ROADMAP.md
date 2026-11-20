@@ -27,7 +27,7 @@ Un jalon est terminé quand ses preuves existent et ont été vérifiées. Un sc
 
 Le projet comprend le diagnostic des fichiers, la préparation journalisée, les indicateurs temporels et spectraux, BPFO/BPFI, l'enveloppe, la classification, l'ablation et le transfert vers une autre charge. L’audit a confirmé 40 enregistrements côté entraînement, le canal DE et une fréquence d’analyse commune de 12 kHz.
 
-La durée de vie restante, une application web, un déploiement industriel et les réseaux profonds sont hors du périmètre initial. Leur ajout demanderait de réviser les objectifs et la charge de travail.
+La durée de vie restante, une application web métier de prédiction, un déploiement industriel et les réseaux profonds sont hors du périmètre initial. La présentation web statique demandée ensuite par l’utilisateur est un support de livraison des mêmes résultats. Leur ajout demanderait de réviser les objectifs et la charge de travail.
 
 Le projet est réussi lorsque :
 
@@ -126,3 +126,5 @@ Après consultation du test final, une nouvelle idée reste exploratoire et ne p
 | 2026-11-20 | Livraison scientifique et sources du support poussées sur `origin/main` ; commit `5d7e8f5` vérifié sur GitHub. | T52 terminé ; seule la répétition humaine T49 empêche la clôture de M6. |
 | 2026-11-20 | Attribution des livrables aux deux membres du groupe 7, conformément à l’énoncé page 10 ; rapport et couverture du support régénérés. | Correction éditoriale des auteurs ; protocole et résultats gelés inchangés, répétition humaine T49 toujours ouverte. |
 | 2026-11-20 | Variante de dix diapositives conçue avec dashboard-design, livrée en PowerPoint distinct et contrôlée ; support initial préservé. | Même protocole, mêmes résultats et deux auteurs ; seule la présentation change. T49 reste ouvert pour la répétition humaine. |
+| 2026-11-20 | Présentation web statique demandée : dix diapositives et graphiques ECharts, navigation et sources incorporées. | Extension du support de livraison ; aucune nouvelle expérience. Vérifications DOM et SVG documentées, inspection complète en navigateur indisponible. |
+| 2026-11-20 | Site privé publié avec succès ; URL et version conservées dans `presentation/web/deployment.json`. | T53 terminé avec limite explicite de vérification en navigateur ; T49 reste ouvert pour la répétition humaine. |

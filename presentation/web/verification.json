@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "echarts": "6.1.0",
+  "svg_states": 38,
+  "dom_checks": "navigation, keyboard, all slides, features, comparison, models, grain, notes, plan, sources",
+  "data": "frozen metrics identical; 30 development recordings; 2 spectra; both authors",
+  "browser_visual_qa": "unavailable: local browser use disabled in Work settings",
+  "scope": "DOM behavior and ECharts SVG rendering, not full-browser visual testing",
+  "http_preview": "200 OK",
+  "scientific_fingerprints_unchanged": true,
+  "critical_chart_previews_reviewed": [
+    "final scores",
+    "aggregate confusion matrix",
+    "paired bootstrap intervals"
+  ]
+}

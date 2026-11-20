@@ -34,3 +34,7 @@ Exécuter ensuite `builder.default` dans quatre appels `artifactSession.run` sé
 ## Autre version analytique
 
 La [version dashboard-design](dashboard/README.md) est un diaporama PowerPoint distinct de dix diapositives. Elle conserve les mêmes résultats et auteurs avec des comparaisons alignées, une matrice de confusion et des limites visibles. Les notes sont estimées à dix minutes, sans répétition humaine revendiquée.
+
+## Version web interactive
+
+La [présentation web Apache ECharts](web/README.md) propose dix diapositives, un mode plein écran, des notes et des graphiques interactifs. Elle conserve les mêmes auteurs et le protocole gelé. Les instructions locales, la publication et les limites de vérification sont dans ce dossier.

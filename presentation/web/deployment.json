@@ -1,0 +1,11 @@
+{
+  "project_id": "appgprj_6b0057ac2b788191a61a9758d579e8f0",
+  "deployment_id": "appgdep_6b005b2706108191bc45dd774e6ab55c",
+  "version_id": "appgprj_6b0057ac2b788191a61a9758d579e8f0~appgver_bc9ba4ddfa2c81919e7ecbc2b1a1d3c4",
+  "source_commit": "5907f0758fa05dd5c5ca42fbb0a5cd87123a854d",
+  "status": "succeeded",
+  "audience": "owner-private",
+  "url": "https://cwru-group7-vibration-lab.fuzzychest.chatgpt.site",
+  "verified_by": "Sites get_deployment_status",
+  "updated_at": "2026-11-20T14:37:37.214392+00:00"
+}

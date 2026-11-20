@@ -254,3 +254,11 @@ Le gel `results/freeze.json` et le marqueur `results/test_consulted.json` font a
 L’article de six pages est livré dans `report/rapport.pdf`, avec sa source éditable et son générateur. Le diaporama modifiable comporte dix diapositives ; `presentation/artifact.json` identifie l’artefact, `presentation/build_slides.mjs` conserve le callback de construction et `presentation/slides.md` son storyboard. Les tableaux et graphiques de scores sont des objets natifs éditables. Les notes sont estimées à dix minutes ; cette estimation ne remplace pas une répétition humaine. Aucun réglage scientifique n’a changé pendant la mise en page.
 
 La variante demandée avec `dashboard-design` est indépendante du support initial : `presentation/dashboard/diagnostic_dashboard.pptx`. Ses tableaux et graphiques natifs sont régénérés par `build_dashboard.mjs` et `export_dashboard.mjs` à partir des preuves gelées. Les classeurs embarqués portent un instantané des valeurs, sans logique scientifique supplémentaire. Cette variante de présentation n’ajoute ni application web ni expérience au périmètre.
+
+## 15. Présentation web demandée
+
+La demande explicite de l’utilisateur ajoute une présentation web statique, sous `presentation/web/`. Elle est un support de lecture des résultats gelés, sans serveur de prédiction, acquisition en ligne ni nouvel entraînement. Cette extension de livraison précise l’exclusion initiale d’une application web métier.
+
+Le dossier `dist/` embarque HTML, CSS, JavaScript, Apache ECharts 6.1.0 et Manrope avec leurs licences. Les données affichées viennent des preuves `results/`, de la table de caractéristiques du développement vérifiée par empreinte, et des mêmes fenêtres de développement que les figures. `build_data.py` produit `data.js`, sans apprentissage. Les métriques et dénominateurs suivent le modèle ou l’unité de lecture choisis ; le modèle scientifique retenu reste E4.
+
+La consultation locale utilise un serveur HTTP statique. Le Site est privé par défaut et son identité reste dans `.openai/hosting.json`. Les contrôles `check_web.cjs` couvrent le comportement DOM et 38 rendus ECharts SVG en deux largeurs. Ils ne prouvent pas la mise en page complète dans un navigateur : l’usage du navigateur local est désactivé dans Work. Cette limite reste explicite dans `verification.json`.

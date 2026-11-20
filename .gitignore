@@ -31,3 +31,7 @@ Thumbs.db
 
 # Presentation finalizer working files
 /.chart-data-*/
+
+# Static web presentation is a versioned deliverable
+!/presentation/web/dist/
+!/presentation/web/dist/**

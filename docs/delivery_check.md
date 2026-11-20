@@ -46,3 +46,7 @@ La référence [1] de l'article renvoie directement aux deux tables CWRU utilis�
 ## Variante analytique du support
 
 `presentation/dashboard/diagnostic_dashboard.pptx` propose dix diapositives supplémentaires en tant que version alternative du même oral. Les cinq tâches du sujet, la sélection avant le test, l’ablation, les erreurs et les limites y sont reprises. Dix rendus ont été inspectés. Le fichier passe les contrôles de structure, dimensions, polices, tableaux et graphiques natifs, ainsi que l’import Artifact Tool. Aucun essai scientifique supplémentaire ni répétition humaine n’a été effectué.
+
+## Présentation web
+
+La version web demandée est publiée comme Site privé, avec résultat confirmé dans `presentation/web/deployment.json`. Elle reprend les dix diapositives, les deux auteurs et les résultats gelés. `verification.json` consigne 38 rendus SVG réels, les contrôles DOM et les ressources HTTP. L’inspection visuelle complète en navigateur reste indisponible à cause du réglage Work ; elle n’est pas revendiquée. Les intervalles, les unités de lecture et le nombre d’essais restent affichés.

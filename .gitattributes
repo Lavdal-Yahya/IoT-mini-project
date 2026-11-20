@@ -10,3 +10,6 @@ Makefile text eol=lf
 *.png binary
 *.joblib binary
 *.pptx binary
+
+# Keep upstream library and font license bytes intact.
+presentation/web/dist/vendor/* -whitespace
