@@ -79,7 +79,7 @@ Ordre : **M0 → M1 → M2 → M3 → M4 → M5 → M6**. Un chargement ou contr
 
 **État observé :** M1 à M5 terminés. Les 40 fichiers sont audités. Les charges 0/1/2 HP servent au développement (268 fenêtres) ; la charge 3 HP a été évaluée une fois après gel (92 fenêtres). E4, retenu avant le test, atteint 98,15 % d'exactitude équilibrée contre 90,74 % pour E1. Les dix diagnostics agrégés d'E4 sont corrects, avec un seul essai sain disponible. Une reproduction dans un environnement neuf a retrouvé les 368 prédictions finales des quatre modèles. L’article de six pages est rendu et inspecté ; les dix diapositives modifiables et les fiches orales utilisent les résultats vérifiés. Le support a été rendu et inspecté. Les livrables ont été poussés sur `origin/main` (livraison `5d7e8f5`, distant vérifié). La répétition humaine n’est pas effectuée.
 
-**Prochaine action :** T49 dans [tasks.md](tasks.md), répétition humaine chronométrée à partir de `presentation/plan_soutenance.md`, Le contrôle T51 est documenté dans `docs/delivery_check.md` ; la publication T52 est vérifiée.
+**Prochaine action :** T49 dans [tasks.md](tasks.md), répétition humaine chronométrée à partir de `presentation/plan_soutenance.md`. Le contrôle T51 est documenté dans `docs/delivery_check.md` ; la publication T52 est vérifiée.
 
 ## 7. Budget indicatif
 
