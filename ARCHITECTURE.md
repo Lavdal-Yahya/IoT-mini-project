@@ -1,0 +1,230 @@
+# Mouhamedou Yahya Cheikh Med Vall
+# 25239
+
+# Architecture technique du mini-projet AML313 du groupe 7
+
+Dernière mise à jour : **20 novembre 2026**. Statut : **conception initiale ; pipeline non implémenté**.
+
+## 1. Rôle et principes
+
+Ce fichier est la source de vérité technique. [ROADMAP.md](ROADMAP.md) porte les objectifs et l'avancement. L'[énoncé](Mini-projet-AML313.pdf), page 10, impose la baseline, les tâches physiques et le découpage par enregistrement. Les instructions explicites de l'utilisateur priment ; toute adaptation est documentée.
+
+Le projet utilise un pipeline Python local, exécuté en lot sur CPU. Le même code produit les caractéristiques, les expériences, les figures et les tables de l'article. Les notebooks peuvent expliquer ou explorer le développement ; ils ne portent pas une seconde implémentation du pipeline.
+
+## 2. Vue d'ensemble
+
+```mermaid
+flowchart TD
+    A[Sources CWRU et manifeste] --> B[Fichiers MAT bruts et empreintes]
+    B --> C[Audit des signaux et métadonnées]
+    C --> D[Protocole et partitions par enregistrement]
+    D --> E[Préparation et fenêtres tracées]
+    E --> F[Indicateurs temporels]
+    E --> G[FFT et enveloppe]
+    F --> H[Développement avec GroupKFold]
+    G --> H
+    H --> I[Choix et gel du protocole]
+    I --> J[Test final sur une autre charge]
+    J --> K[Métriques et figures]
+    K --> L[Article et soutenance]
+```
+
+Les signaux de la charge finale ne servent pas à choisir les paramètres, les caractéristiques ou les exemples du développement. Les contrôles d'intégrité et de métadonnées sont permis sur tous les fichiers ; ils restent distincts de l'inspection des performances.
+
+## 3. Pile et modules prévus
+
+| Composant | Choix initial | Rôle |
+| --- | --- | --- |
+| Exécution | Python 3.11 ou 3.12 en environnement isolé | Choisir une version disponible, vérifier les dépendances, puis figer les versions exactes. |
+| Signaux et calcul | NumPy, SciPy | MAT, rééchantillonnage, filtres, FFT et enveloppe. |
+| Tables | pandas, CSV et JSON | Manifestes, caractéristiques et résultats. |
+| Modèles | scikit-learn | Arbre, forêt, validation groupée et métriques. |
+| Figures | Matplotlib | Figures statiques pour le rapport. |
+| Configuration | JSON et bibliothèque standard | Paramètres et empreinte du protocole. |
+| Vérification | pytest | Tests ciblés sur calculs physiques et frontières de validation. |
+
+Aucun serveur, GPU, service cloud ou base de données n'est nécessaire dans le périmètre initial. Les versions exactes restent à vérifier ; aucune compatibilité n'est encore annoncée comme testée.
+
+Arborescence **cible**, créée au fil des jalons :
+
+```text
+mini-project/
+  README.md, ROADMAP.md, ARCHITECTURE.md, AGENTS.md
+  Mini-projet-AML313.pdf
+  pyproject.toml                  # paquet et dépendances déclarées
+  requirements.lock.txt           # environnement exact vérifié
+  Makefile                       # point d'entrée de reproduction
+  configs/experiment.json        # paramètres scientifiques
+  data/
+    manifest.csv                 # provenance et métadonnées
+    raw/                         # fichiers originaux, jamais modifiés
+    processed/                   # signaux dérivés et caractéristiques
+    splits/                      # groupes et plis figés
+  src/bearing_diagnosis/
+    cli.py                       # orchestration
+    data.py                      # téléchargement, MAT, manifeste et audit
+    splits.py                    # réservation de charge et GroupKFold
+    signals.py                   # préparation, fenêtres, FFT et enveloppe
+    features.py                  # indicateurs
+    models.py                    # modèles et recherche bornée
+    evaluation.py                # métriques et incertitude
+    reporting.py                 # figures et tables
+  tests/
+  notebooks/                     # explications utilisant le paquet
+  outputs/<run_id>/              # paramètres, journaux et résultats
+  report/                        # article et sources
+  presentation/                  # soutenance
+```
+
+Le manifeste, les configurations et les partitions sont versionnés. Les données brutes volumineuses et caches ne le sont pas par défaut. Vérifier les conditions d'utilisation avant redistribution ; accessibilité publique ne signifie pas licence de redistribution établie.
+
+Le dépôt Git a pour racine `mini-project/`, pour branche principale `main` et pour distant `origin` l'URL `https://github.com/Lavdal-Yahya/IoT-mini-project.git`. Le fichier `.gitignore` exclut les environnements, caches, secrets locaux, `data/raw/`, `data/processed/`, `outputs/` et `tmp/`. Les cours et TPs du dossier parent restent hors du dépôt. Les résultats générés utiles à une livraison pourront être sélectionnés explicitement et référencés ; ils ne sont pas ajoutés automatiquement.
+
+## 4. Données et interfaces
+
+### 4.1 Sous-ensemble proposé
+
+Point de départ à vérifier en M1 : roulement côté entraînement, canal `DE`, quatre classes `healthy`, `inner_race`, `outer_race`, `ball`, tailles de défaut 0,007/0,014/0,021 pouce et une position externe cohérente, proposée à 6 h selon la table officielle [S4]. Ajouter les enregistrements sains correspondants [S5].
+
+Charges proposées : **0, 1 et 2 HP pour développer ; 3 HP pour le transfert final**. Cette répartition reste provisoire jusqu'au contrôle des fichiers et des classes. Un changement se décide sur les métadonnées avant les scores.
+
+Fréquence commune envisagée : **12 000 Hz**. Vérifier la fréquence native de chaque canal et fichier ; ne pas la déduire du seul nom du dossier. Pour un fichier retenu à 48 kHz, appliquer un anti-repliement documenté avant le passage à 12 kHz. Une fréquence non vérifiable met le fichier en attente.
+
+### 4.2 Contrats de données
+
+Une ligne de `manifest.csv` décrit un canal d'un enregistrement source. Champs requis : `recording_id`, `group_id`, `source_url`, `local_path`, `file_sha256`, `signal_sha256`, `mat_key`, `sensor_location`, `bearing_location`, `class_label`, `fault_diameter_in`, `outer_race_position`, `load_hp`, `rpm`, `fs_native_hz`, `n_samples`, `duration_s`, `units`, `metadata_source`, `inclusion_status`, `exclusion_reason`.
+
+Une information inconnue est explicitement manquante et justifiée. Les attributs de défaut sont non applicables aux signaux sains. Classe, taille, charge et identifiants servent à organiser et évaluer les données ; ils n'entrent pas dans la matrice de caractéristiques `X`.
+
+`recording_id` désigne l'essai d'origine ; `group_id` réunit tous ses canaux, copies et dérivés. Les doublons de fichier ou de signal ne deviennent jamais de nouveaux exemples indépendants. Signaler aussi les extraits communs et les relations physiques entre essais lorsqu'elles sont documentées : deux empreintes différentes ne prouvent pas une indépendance physique.
+
+Une fenêtre conserve `window_id`, `recording_id`, `group_id`, `start_sample`, `stop_sample` exclu, `fs_analysis_hz`, `available_at_s`, `class_label` et `split_role`. `window_id` est la clé unique des tables de caractéristiques ; la provenance reste séparée de `X`.
+
+### 4.3 Audit et préparation
+
+Vérifier clés MAT, dimensions, nombres finis, durées, amplitudes, saturation, séquences constantes, doublons et métadonnées. Sans horodatage réel, la grille est relative : `t = sample_index / fs`. Elle ne donne ni dates d'essai, ni ordre chronologique entre fichiers, ni preuve de pertes réseau.
+
+Une valeur répétée peut être légitime : ne pas supprimer les échantillons égaux comme des doublons de lignes. Ne pas imputer automatiquement les lacunes vibratoires ni enlever les pics susceptibles de porter le défaut. Toute exclusion est justifiée. Le journal indique source, méthode, paramètres, tailles avant/après et points retirés.
+
+## 5. Signal et caractéristiques
+
+### 5.1 Fenêtres et causalité
+
+Proposition initiale : fenêtres complètes de **1 s sans recouvrement**, soit 12 000 points à 12 kHz et `Δf = 1 Hz`. Une alternative de 0,5 s peut être comparée uniquement sur le développement si elle est physiquement justifiée. Durée et pas sont ensuite figés ; compter les fragments terminaux exclus.
+
+La prédiction d'une fenêtre est disponible à sa fin, lorsque tous ses échantillons sont connus. FFT et enveloppe analytique calculées sur cette fenêtre fermée ne permettent pas de dater une décision avant sa fin. Ne pas appliquer un filtre bidirectionnel sur tout l'enregistrement en le présentant comme causal.
+
+Le passe-bande proposé est causal, avec état conservé dans un enregistrement et réinitialisé entre essais. Le rééchantillonnage doit documenter son délai, ses bords et sa période transitoire. Mesurer et déclarer la latence totale et les portions exclues ; ne pas supposer un traitement sans délai.
+
+### 5.2 Trois indicateurs de référence
+
+Calculer sur les mêmes fenêtres, avec retrait local de composante continue déclaré :
+
+- `RMS = sqrt(mean(x**2))`.
+- Kurtosis de Pearson : moment centré d'ordre 4 divisé par la variance au carré ; convention gaussienne égale à 3. La correction de biais est explicitée et constante entre expériences.
+- Facteur de crête : `max(abs(x)) / RMS`.
+
+Signaler les fenêtres d'énergie ou variance nulle ; aucune division par zéro ou correction silencieuse. Le retrait de moyenne ne signifie pas une normalisation de chaque fenêtre à variance unité, qui supprimerait l'information d'amplitude de la baseline.
+
+### 5.3 FFT et enveloppe
+
+Retirer la moyenne locale puis appliquer Hann pour le spectre. Préciser normalisation, unités et résolution `fs / N`. Distinguer l'espacement des raies de la séparation permise par le fenêtrage ; le zero-padding n'améliore pas la résolution physique.
+
+Calculer les fréquences de défaut à partir de la vitesse de chaque essai, avec `f_rotation = rpm / 60` :
+
+```text
+BPFO = (n / 2) × f_rotation × (1 − (d / D) × cos(theta))
+BPFI = (n / 2) × f_rotation × (1 + (d / D) × cos(theta))
+```
+
+`n` : nombre d'éléments roulants ; `d` : diamètre d'une bille ; `D` : diamètre primitif ; `theta` : angle de contact. Ne pas inventer une géométrie manquante. La fiche officielle DE fournit directement `BPFO = 3,5848 × f_rotation` et `BPFI = 5,4152 × f_rotation` ; vérifier la correspondance du roulement retenu [S3].
+
+Chaîne prévue : passe-bande causal autour d'une résonance justifiée → enveloppe analytique sur fenêtre fermée → retrait de moyenne de l'enveloppe → Hann → spectre. Inspecter les transitoires et effets de bord. La bande reste **à déterminer par la physique et le développement**, sous Nyquist ; ne pas recopier une bande du cours sans contrôle.
+
+Jeu spectral proposé : énergies relatives dans des bandes proches de BPFO/BPFI et de leurs premières harmoniques, avec quelques bandes générales documentées. Calculer les mêmes candidats pour toutes les classes ; aucune fréquence n'est sélectionnée à partir de la vraie étiquette. Tolérances et harmoniques sont figées avant le test.
+
+La vitesse place les bandes physiques mais n'est pas une entrée brute du classifieur initial. Documenter son origine et sa disponibilité, notamment pour une application future sans capteur de vitesse.
+
+## 6. Validation et expériences
+
+### 6.1 Partitions
+
+1. Définir groupes et alias avant de produire les exemples d'apprentissage.
+2. Réserver la charge de transfert et ses identifiants ; aucune sélection de bande ou de modèle sur cette charge.
+3. Utiliser `GroupKFold` sur les charges de développement, avec **3 plis proposés**. Vérifier toutes les classes dans chaque apprentissage et évaluation ; la classe saine peut avoir peu de groupes.
+4. Si un pli est invalide, revoir nombre de plis, répartition ou sous-ensemble sur les métadonnées avant les scores. Ne pas mélanger aléatoirement les fenêtres pour contourner ce problème.
+5. Ajuster tout prétraitement appris seulement dans l'apprentissage du pli. Les transformations fixes par fenêtre restent déterministes et sans ajustement global.
+
+Le sujet 7 exige une séparation par enregistrement ; les fichiers n'établissent pas forcément une chronologie. Une éventuelle analyse temporelle complémentaire sur des blocs d'un même essai conserve leur ordre et un gap couvrant fenêtres, recouvrement et mémoire du filtre. Elle ne remplace pas l'évaluation sur essais distincts. Ne pas inventer de dates pour simuler une validation chronologique.
+
+### 6.2 Baseline et ablation
+
+| Expérience | Classifieur | Entrées | Rôle |
+| --- | --- | --- | --- |
+| E1 | Arbre de décision | RMS, kurtosis, facteur de crête | Baseline exigée. |
+| E2 | Arbre de décision | Temporelles + spectrales/enveloppe | Effet des caractéristiques à modèle identique. |
+| E3 | Forêt aléatoire | Trois indicateurs temporels | Effet du classifieur à entrées identiques. |
+| E4 | Forêt aléatoire | Temporelles + spectrales/enveloppe | Candidat enrichi. |
+
+Même découpage, fenêtres et métriques pour E1–E4. Prévoir une petite grille de profondeur et de taille minimale de feuille, avec nombre d'arbres fixe pour la forêt. Grille exacte et graines sont enregistrées avant les essais. Un prédicteur majoritaire peut fournir un repère supplémentaire sans remplacer E1.
+
+Les plis de développement servent à sélectionner les choix ; leur score après sélection n'est pas une nouvelle estimation indépendante. Si une recherche plus large est ajoutée, prévoir des plis groupés internes pour régler et externes pour estimer, sans toucher à la charge finale.
+
+### 6.3 Métriques et incertitude
+
+Rapporter l'exactitude et les matrices de confusion imposées, en nombres et normalisées par vraie classe. Ajouter rappel par classe, exactitude équilibrée et macro-F1. Critère de sélection proposé : exactitude équilibrée donnant le même poids aux enregistrements, puis préférence pour le modèle plus simple à résultats comparables ; règle exacte fixée en M2.
+
+Conserver les métriques par fenêtre et par enregistrement. Les indicateurs principaux utilisent des poids de fenêtre inverses du nombre de fenêtres de leur enregistrement ; les scores bruts par fenêtre sont complémentaires, car les essais longs peuvent les dominer. Pour un diagnostic agrégé de l'enregistrement, la règle proposée est la moyenne des probabilités de ses fenêtres, annoncée avant l'évaluation.
+
+La dispersion entre plis est descriptive. Un bootstrap rééchantillonne les **enregistrements**, de manière appariée entre modèles et en conservant les classes. Il ne traite pas les fenêtres voisines comme indépendantes. Avec un seul essai de test dans une classe, il ne mesure pas la variabilité entre essais de cette classe : rapporter cette limite et les valeurs individuelles, sans promettre un intervalle représentatif.
+
+Le transfert change la charge et les enregistrements. Une baisse ne doit pas être attribuée exclusivement à la charge. Les scores CWRU ne démontrent pas à eux seuls une généralisation à une autre machine industrielle.
+
+### 6.4 Gel et test final
+
+Avant le test, enregistrer manifeste, partitions, caractéristiques, bandes, modèles, réglages, métriques et empreintes du code/configuration. Réentraîner les expériences annoncées sur tout le développement. Exécuter **une seule campagne finale E1–E4** sur la charge réservée.
+
+Le programme de test exigera un fichier de gel et écrira un marqueur de consultation. Une relance identique peut vérifier la reproduction ; toute nouvelle décision scientifique après lecture du test reste exploratoire et demande une évaluation indépendante pour être confirmée. Le programme ne sélectionne ni ne règle automatiquement une méthode à partir du score final.
+
+## 7. Sorties et reproduction
+
+Chaque exécution produit un dossier identifié : configuration résolue, empreintes des données et partitions, versions, graines, journal de préparation, résultats par pli, prédictions avec provenance, métriques et figures. Les tables de l'article sont dérivées de ces sorties ; ne pas saisir à la main des résultats dans le code d'affichage.
+
+Interface **prévue, non encore disponible** : diagnostic → développement → gel → évaluation finale. La cible `make reproduce` devra rejouer le protocole figé et régénérer les résultats et figures. URL, empreintes et verrou d'environnement permettront de reconstruire les entrées et le logiciel. Ajouter les commandes exactes au README après implémentation et vérification.
+
+## 8. Vérifications nécessaires
+
+- Signaux connus : RMS, facteur de crête, convention de kurtosis, pic d'une sinusoïde et résolution FFT.
+- Porteuse modulée connue : récupération de la modulation par enveloppe. Cette simulation ne remplace pas les données CWRU.
+- Absence de signal partagé, alias, groupe ou fenêtre entre partitions ; couverture des classes.
+- Prétraitement appris par pli ; exclusion des métadonnées interdites de `X`.
+- Bords, délais et transitoires des filtres et du rééchantillonnage ; provenance des fenêtres.
+- Exécution complète dans un environnement propre ; correspondance entre prédictions, métriques et figures sauvegardées.
+
+Ces contrôles ciblent les erreurs scientifiques importantes. Aucun résultat n'est annoncé comme vérifié avant exécution.
+
+## 9. Décisions et inconnues
+
+| ID | Choix | Statut |
+| --- | --- | --- |
+| D01 | Pipeline Python local CPU ; notebooks explicatifs. | Retenu pour l'implémentation. |
+| D02 | Quatre classes ; arbre de référence ; forêt enrichie ; ablation E1–E4. | Retenu pour l'implémentation. |
+| D03 | Groupes par essai source et alias ; charge finale distincte. | Règle obligatoire. |
+| D04 | DE, tailles 0,007/0,014/0,021 pouce, position externe 6 h, fréquence commune 12 kHz. | Proposition à vérifier en M1. |
+| D05 | Charges 0/1/2 HP en développement, 3 HP en transfert ; 3 plis. | Proposition à vérifier en M2. |
+| D06 | Fenêtres 1 s sans recouvrement ; alternative 0,5 s sur développement. | Justification à terminer en M2/M3. |
+| D07 | Bande d'enveloppe, tolérances, grille exacte et versions logicielles. | Ouvert ; à fixer avant les essais concernés. |
+
+Toute modification substantielle actualise cette table, les sections concernées, la configuration et le journal de la roadmap. La configuration décrit l'exécution exacte et ne peut pas contredire silencieusement ces décisions.
+
+## 10. Sources techniques
+
+Pages officielles CWRU consultées le 19 novembre 2026 :
+
+- [S1 — Fichiers et conventions DE/FE/BA/RPM](https://engineering.case.edu/bearingdatacenter/download-data-file).
+- [S2 — Banc et procédures](https://engineering.case.edu/bearingdatacenter/apparatus-and-procedures).
+- [S3 — Géométrie et fréquences des roulements](https://engineering.case.edu/bearingdatacenter/bearing-information).
+- [S4 — Table des défauts DE à 12 kHz](https://engineering.case.edu/bearingdatacenter/12k-drive-end-bearing-fault-data).
+- [S5 — Table des enregistrements sains](https://engineering.case.edu/bearingdatacenter/normal-baseline-data).
+
+Ces pages décrivent les données candidates ; l'audit des fichiers reste à faire. Les chapitres locaux 1, 3 et 5 complètent les références, comme indiqué dans le README.
