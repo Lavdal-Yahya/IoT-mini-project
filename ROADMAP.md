@@ -115,13 +115,8 @@ Après consultation du test final, une nouvelle idée reste exploratoire et ne p
 | 2026-11-19 | Création de la roadmap et de l'architecture. | M0 terminé ; M1 à commencer ; propositions techniques identifiées. |
 | 2026-11-20 | Initialisation du dépôt Git sur `main`, configuration d'`origin` et ajout de `.gitignore`. | Dépôt limité au mini-projet ; cours et TPs conservés dans le workspace parent ; M1 reste le prochain jalon. |
 | 2026-11-20 | Ajout de `tasks.md`, checklist détaillée de T01 à T52, reliée aux jalons et aux règles de suivi. | Cadrage existant coché ; prochaine tâche T05 ; aucun travail expérimental marqué terminé. |
-
 | 2026-11-20 | Audit de 40 fichiers, métadonnées corrigées, environnement et protocole enregistrés. | M1/M2 terminés ; sains à 48 kHz ; validation par charge entière ; test 3 HP réservé. |
-
 | 2026-11-20 | Extraction et contrôles physiques sur le développement ; FIR harmonisé à 12/48 kHz avant tout modèle. | M3 terminé ; 268 fenêtres ; 32 tests réussis ; test final non consulté. |
-
 | 2026-11-20 | Comparaison E1–E4 sur trois plis par charge ; E4 retenu avant le test. | M4 terminé ; baseline 92,90 % et E4 99,69 % d’exactitude équilibrée de développement ; scores de sélection, non indépendants. |
-
 | 2026-11-20 | Gel puis campagne finale 3 HP ; reproduction dans un environnement Python distinct. | M5 terminé ; E4 98,15 % BA, baseline 90,74 % ; 368 prédictions reproduites à l’identique ; préparation de M6. |
-
 | 2026-11-20 | Article six pages, sources et fiches orales préparés ; reproduction et contrôles scientifiques réussis. | M6 partiel : répétition humaine et clôture de livraison encore ouvertes. |

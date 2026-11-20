@@ -10,3 +10,5 @@ La commande `.venv-repro/bin/python -m bearing_diagnosis.cli reproduce` a refait
 Preuve : `results/reproduction_verification.json`. Les 32 tests automatisés couvrent les calculs de signal, les métriques, les partitions, le gel et les chemins de reproduction. Les pages du rapport ont été rendues et inspectées. Ces contrôles ne remplacent ni de nouveaux essais physiques ni une répétition de la soutenance.
 
 Le gel scientifique est `results/freeze.json`. Les variables de présentation restent séparées du calcul scientifique. Les signaux ne sont pas distribués dans Git ; `data/manifest.csv` contient les sources et empreintes nécessaires pour les récupérer.
+
+Un clone Git distinct, initialement sans `outputs/`, a ensuite été contrôlé avec le même environnement neuf. Seul le cache MAT a été copié et ses empreintes revérifiées. Le clone a restauré le registre livré, reconstruit les caractéristiques et reproduit les prédictions, puis régénéré les figures. Preuve : `results/clean_clone_verification.json`. Le réseau des tables officielles a été utilisé ; les fichiers bruts n’ont pas été retéléchargés pendant ce second contrôle.

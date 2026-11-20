@@ -31,11 +31,11 @@ flowchart TD
 
 Les signaux de la charge finale ne servent pas à choisir les paramètres, les caractéristiques ou les exemples du développement. Les contrôles d'intégrité et de métadonnées sont permis sur tous les fichiers ; ils restent distincts de l'inspection des performances.
 
-## 3. Pile et modules prévus
+## 3. Pile et modules implémentés
 
 | Composant | Choix initial | Rôle |
 | --- | --- | --- |
-| Exécution | Python 3.11 ou 3.12 en environnement isolé | Choisir une version disponible, vérifier les dépendances, puis figer les versions exactes. |
+| Exécution | Python 3.12.14 en environnement isolé | Versions installées et vérifiées ; requirements.lock.txt fait autorité. |
 | Signaux et calcul | NumPy, SciPy | MAT, rééchantillonnage, filtres, FFT et enveloppe. |
 | Tables | pandas, CSV et JSON | Manifestes, caractéristiques et résultats. |
 | Modèles | scikit-learn | Arbre, forêt, validation groupée et métriques. |
@@ -43,9 +43,9 @@ Les signaux de la charge finale ne servent pas à choisir les paramètres, les c
 | Configuration | JSON et bibliothèque standard | Paramètres et empreinte du protocole. |
 | Vérification | pytest | Tests ciblés sur calculs physiques et frontières de validation. |
 
-Aucun serveur, GPU, service cloud ou base de données n'est nécessaire dans le périmètre initial. Les versions exactes restent à vérifier ; aucune compatibilité n'est encore annoncée comme testée.
+Aucun serveur, GPU, service cloud ou base de données n'est nécessaire dans le périmètre initial. Les versions exactes sont figées dans `requirements.lock.txt` ; deux environnements isolés et un clone distinct ont reproduit les résultats.
 
-Arborescence **cible**, créée au fil des jalons :
+Organisation du pipeline, avec dossiers générés créés à la demande :
 
 ```text
 mini-project/
@@ -84,7 +84,7 @@ Le dépôt Git a pour racine `mini-project/`, pour branche principale `main` et 
 
 ### 4.1 Sous-ensemble retenu après audit
 
-Sous-ensemble vérifié en M1 : roulement côté entraînement, canal `DE`, quatre classes `healthy`, `inner_race`, `outer_race`, `ball`, tailles de défaut 0,007/0,014/0,021 pouce et une position externe cohérente, proposée à 6 h selon la table officielle [S4]. Ajouter les enregistrements sains correspondants [S5].
+Sous-ensemble vérifié en M1 : roulement côté entraînement, canal `DE`, quatre classes `healthy`, `inner_race`, `outer_race`, `ball`, tailles de défaut 0,007/0,014/0,021 pouce et une position externe cohérente, fixée à 6 h selon la table officielle [S4], avec les enregistrements sains correspondants [S5].
 
 Charges retenues : **0, 1 et 2 HP pour développer ; 3 HP pour le transfert final**. Cette répartition a été contrôlée avant l'entraînement. Un changement se décide sur les métadonnées avant les scores.
 
@@ -114,7 +114,7 @@ Choix retenu : fenêtres complètes de **1 s sans recouvrement**, soit 12 000 po
 
 La prédiction d'une fenêtre est disponible à sa fin, lorsque tous ses échantillons sont connus. FFT et enveloppe analytique calculées sur cette fenêtre fermée ne permettent pas de dater une décision avant sa fin. Ne pas appliquer un filtre bidirectionnel sur tout l'enregistrement en le présentant comme causal.
 
-Le passe-bande proposé est causal, avec état conservé dans un enregistrement et réinitialisé entre essais. Le rééchantillonnage doit documenter son délai, ses bords et sa période transitoire. Mesurer et déclarer la latence totale et les portions exclues ; ne pas supposer un traitement sans délai.
+Le passe-bande implémenté est causal, avec état conservé dans un enregistrement et réinitialisé entre essais. Le rééchantillonnage doit documenter son délai, ses bords et sa période transitoire. Mesurer et déclarer la latence totale et les portions exclues ; ne pas supposer un traitement sans délai.
 
 ### 5.2 Trois indicateurs de référence
 
@@ -139,9 +139,9 @@ BPFI = (n / 2) × f_rotation × (1 + (d / D) × cos(theta))
 
 `n` : nombre d'éléments roulants ; `d` : diamètre d'une bille ; `D` : diamètre primitif ; `theta` : angle de contact. Ne pas inventer une géométrie manquante. La fiche officielle DE fournit directement `BPFO = 3,5848 × f_rotation` et `BPFI = 5,4152 × f_rotation` ; vérifier la correspondance du roulement retenu [S3].
 
-Chaîne prévue : passe-bande causal autour d'une résonance justifiée → enveloppe analytique sur fenêtre fermée → retrait de moyenne de l'enveloppe → Hann → spectre. Inspecter les transitoires et effets de bord. La bande 2–5 kHz est fixée et contrôlée sur le développement, sous Nyquist ; elle n’a pas été optimisée par les scores.
+Chaîne implémentée : passe-bande causal autour d'une résonance justifiée → enveloppe analytique sur fenêtre fermée → retrait de moyenne de l'enveloppe → Hann → spectre. Inspecter les transitoires et effets de bord. La bande 2–5 kHz est fixée et contrôlée sur le développement, sous Nyquist ; elle n’a pas été optimisée par les scores.
 
-Jeu spectral proposé : énergies relatives dans des bandes proches de BPFO/BPFI et de leurs premières harmoniques, avec quelques bandes générales documentées. Calculer les mêmes candidats pour toutes les classes ; aucune fréquence n'est sélectionnée à partir de la vraie étiquette. Tolérances et harmoniques sont figées avant le test.
+Jeu spectral retenu : énergies relatives dans des bandes proches de BPFO/BPFI et de leurs premières harmoniques, avec quelques bandes générales documentées. Calculer les mêmes candidats pour toutes les classes ; aucune fréquence n'est sélectionnée à partir de la vraie étiquette. Tolérances et harmoniques sont figées avant le test.
 
 La vitesse place les bandes physiques mais n'est pas une entrée brute du classifieur initial. Documenter son origine et sa disponibilité, notamment pour une application future sans capteur de vitesse.
 
@@ -174,7 +174,7 @@ Les plis de développement servent à sélectionner les choix ; leur score aprè
 
 Rapporter l'exactitude et les matrices de confusion imposées, en nombres et normalisées par vraie classe. Ajouter rappel par classe, exactitude équilibrée et macro-F1. Critère de sélection retenu : exactitude équilibrée donnant le même poids aux enregistrements, puis préférence pour le modèle plus simple à résultats comparables ; règle fixée en M2 et enregistrée dans la configuration.
 
-Conserver les métriques par fenêtre et par enregistrement. Les indicateurs principaux utilisent des poids de fenêtre inverses du nombre de fenêtres de leur enregistrement ; les scores bruts par fenêtre sont complémentaires, car les essais longs peuvent les dominer. Pour un diagnostic agrégé de l'enregistrement, la règle proposée est la moyenne des probabilités de ses fenêtres, annoncée avant l'évaluation.
+Conserver les métriques par fenêtre et par enregistrement. Les indicateurs principaux utilisent des poids de fenêtre inverses du nombre de fenêtres de leur enregistrement ; les scores bruts par fenêtre sont complémentaires, car les essais longs peuvent les dominer. Pour un diagnostic agrégé de l'enregistrement, la règle retenue est la moyenne des probabilités de ses fenêtres, annoncée avant l'évaluation.
 
 La dispersion entre plis est descriptive. Un bootstrap rééchantillonne les **enregistrements**, de manière appariée entre modèles et en conservant les classes. Il ne traite pas les fenêtres voisines comme indépendantes. Avec un seul essai de test dans une classe, il ne mesure pas la variabilité entre essais de cette classe : rapporter cette limite et les valeurs individuelles, sans promettre un intervalle représentatif.
 
@@ -184,7 +184,7 @@ Le transfert change la charge et les enregistrements. Une baisse ne doit pas êt
 
 Avant le test, enregistrer manifeste, partitions, caractéristiques, bandes, modèles, réglages, métriques et empreintes du code/configuration. Réentraîner les expériences annoncées sur tout le développement. Exécuter **une seule campagne finale E1–E4** sur la charge réservée.
 
-Le programme de test exigera un fichier de gel et écrira un marqueur de consultation. Une relance identique peut vérifier la reproduction ; toute nouvelle décision scientifique après lecture du test reste exploratoire et demande une évaluation indépendante pour être confirmée. Le programme ne sélectionne ni ne règle automatiquement une méthode à partir du score final.
+Le programme de test exige un fichier de gel et écrit un marqueur de consultation. Une relance identique peut vérifier la reproduction ; toute nouvelle décision scientifique après lecture du test reste exploratoire et demande une évaluation indépendante pour être confirmée. Le programme ne sélectionne ni ne règle automatiquement une méthode à partir du score final.
 
 ## 7. Sorties et reproduction
 
@@ -201,7 +201,7 @@ Interface implémentée : diagnostic → développement → gel → évaluation 
 - Bords, délais et transitoires des filtres et du rééchantillonnage ; provenance des fenêtres.
 - Exécution complète dans un environnement propre ; correspondance entre prédictions, métriques et figures sauvegardées.
 
-Ces contrôles ciblent les erreurs scientifiques importantes. Aucun résultat n'est annoncé comme vérifié avant exécution.
+Ces contrôles ciblent les erreurs scientifiques importantes. Les 32 tests automatisés, le gel et la reproduction ont été exécutés. Leurs limites restent distinctes d’une validation physique supplémentaire.
 
 ## 9. Décisions et inconnues
 

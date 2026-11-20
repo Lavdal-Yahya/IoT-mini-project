@@ -1,76 +1,76 @@
 [
   {
-    "source": "/home/nomad/Projects/school/S3/IoT-serie-temporel/mini-project/configs/experiment.json",
+    "source": "configs/experiment.json",
     "released": "results/experiment.json",
     "sha256": "d9cd07c42ef567cb9aaac24da9fcc2b34b7392d295f36501226372afb37b3c9f"
   },
   {
-    "source": "/home/nomad/Projects/school/S3/IoT-serie-temporel/mini-project/outputs/main/preparation_development.json",
+    "source": "results/preparation_development.json",
     "released": "results/preparation_development.json",
     "sha256": "5d850f9a0cb59f57819d1be93de9c5ee9ee87e800bf965a12166ce84932af2d2"
   },
   {
-    "source": "/home/nomad/Projects/school/S3/IoT-serie-temporel/mini-project/outputs/main/filter_diagnostics.json",
+    "source": "results/filter_diagnostics.json",
     "released": "results/filter_diagnostics.json",
     "sha256": "6ec87ab9571e124bbfe50dcefdac9348b350798a919a63868634832032e8e53d"
   },
   {
-    "source": "/home/nomad/Projects/school/S3/IoT-serie-temporel/mini-project/outputs/main/development_metrics.json",
+    "source": "results/development_metrics.json",
     "released": "results/development_metrics.json",
     "sha256": "a216860eff973dff007ecd6eb50828eb17bbdd0f4f6fa8efb985e5b33403b1ef"
   },
   {
-    "source": "/home/nomad/Projects/school/S3/IoT-serie-temporel/mini-project/outputs/main/development_bootstrap.json",
+    "source": "results/development_bootstrap.json",
     "released": "results/development_bootstrap.json",
     "sha256": "988fed180d18dba678993d4470f189e8dcb916be8af8a7dd22fcbb6b8a0c5c34"
   },
   {
-    "source": "/home/nomad/Projects/school/S3/IoT-serie-temporel/mini-project/outputs/main/development_oof.csv",
+    "source": "results/development_oof.csv",
     "released": "results/development_oof.csv",
     "sha256": "f8c7a377372d49dc380ff14e7f83b47b38036615cc35985484fad0d98bfd06bc"
   },
   {
-    "source": "/home/nomad/Projects/school/S3/IoT-serie-temporel/mini-project/outputs/main/selection.json",
+    "source": "results/selection.json",
     "released": "results/selection.json",
     "sha256": "d0e8f39851f165d2841130b7e2567c090405a1a4d558a5cdb3804a4b2104be23"
   },
   {
-    "source": "/home/nomad/Projects/school/S3/IoT-serie-temporel/mini-project/outputs/main/environment.json",
+    "source": "results/environment.json",
     "released": "results/environment.json",
     "sha256": "189c360c633166f275165a3014d7958de9cf17e0637056c77ecf500374aba729"
   },
   {
-    "source": "/home/nomad/Projects/school/S3/IoT-serie-temporel/mini-project/outputs/main/freeze.json",
+    "source": "results/freeze.json",
     "released": "results/freeze.json",
     "sha256": "42f98a766c895b4f9fc8a50737f8624266c9455e4140ac288fd0a7002240f002"
   },
   {
-    "source": "/home/nomad/Projects/school/S3/IoT-serie-temporel/mini-project/outputs/main/final_metrics.json",
+    "source": "results/final_metrics.json",
     "released": "results/final_metrics.json",
     "sha256": "bdc70f12e2bdafcde774e60eac529b19d7b1feafecef3c46ecdb1da52cf4c1e0"
   },
   {
-    "source": "/home/nomad/Projects/school/S3/IoT-serie-temporel/mini-project/outputs/main/final_bootstrap.json",
+    "source": "results/final_bootstrap.json",
     "released": "results/final_bootstrap.json",
     "sha256": "7c348471f0ac116628e11c6d5f040bffc00d6520cf6379a2645daf35f3c9cbf3"
   },
   {
-    "source": "/home/nomad/Projects/school/S3/IoT-serie-temporel/mini-project/outputs/main/final_predictions.csv",
+    "source": "results/final_predictions.csv",
     "released": "results/final_predictions.csv",
     "sha256": "c0b6b8e499f6fbc1f9b7dbffd6d23a92982c868d44b127a6c65389b03c670ed7"
   },
   {
-    "source": "/home/nomad/Projects/school/S3/IoT-serie-temporel/mini-project/outputs/main/test_consulted.json",
+    "source": "results/test_consulted.json",
     "released": "results/test_consulted.json",
     "sha256": "b2c41ca6f9f49c92d423c80d47a63aa9bda8f3c80e023b8e008a58f4bf398114"
   },
   {
-    "source": "/home/nomad/Projects/school/S3/IoT-serie-temporel/mini-project/outputs/main/preparation_final_test.json",
+    "source": "results/preparation_final_test.json",
     "released": "results/preparation_final_test.json",
     "sha256": "d975c33ec3a9bac5f60052c8d09c2b55768ec949a1782776e7dd155f385706ff"
   },
   {
-    "source": "/home/nomad/Projects/school/S3/IoT-serie-temporel/mini-project/outputs/main/final_model_provenance.json",
+    "source": "results/final_model_provenance.json",
     "released": "results/final_model_provenance.json",
     "sha256": "856b48df0af5f765e4c622350220b311d26fa5e7866ad088faefd3d67ddf8b41"
   }
