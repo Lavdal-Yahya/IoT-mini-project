@@ -206,7 +206,7 @@ La décision pratique reste bornée au banc CWRU étudié. Le taux d'erreurs par
 
 ### Références
 
-[1] CWRU Bearing Data Center, « 12k Drive End Bearing Fault Data » et « Normal Baseline Data », [tables officielles](https://engineering.case.edu/bearingdatacenter/).
+[1] CWRU Bearing Data Center, [table des défauts DE à 12 kHz](https://engineering.case.edu/bearingdatacenter/12k-drive-end-bearing-fault-data) et [table des essais sains](https://engineering.case.edu/bearingdatacenter/normal-baseline-data).
 
 [2] CWRU, « Apparatus and Procedures », [description du banc](https://engineering.case.edu/bearingdatacenter/apparatus-and-procedures).
 

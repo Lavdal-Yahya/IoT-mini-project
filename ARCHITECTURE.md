@@ -78,7 +78,7 @@ mini-project/
 
 Le manifeste, les configurations et les partitions sont versionnés. Les données brutes volumineuses et caches ne le sont pas par défaut. Vérifier les conditions d'utilisation avant redistribution ; accessibilité publique ne signifie pas licence de redistribution établie.
 
-Le dépôt Git a pour racine `mini-project/`, pour branche principale `main` et pour distant `origin` l'URL `https://github.com/Lavdal-Yahya/IoT-mini-project.git`. Le fichier `.gitignore` exclut les environnements, caches, secrets locaux, `data/raw/`, `data/processed/`, `outputs/` et `tmp/`. Les cours et TPs du dossier parent restent hors du dépôt. Les résultats générés utiles à une livraison pourront être sélectionnés explicitement et référencés ; ils ne sont pas ajoutés automatiquement.
+Le dépôt Git a pour racine `mini-project/`, pour branche principale `main` et pour distant `origin` l'URL `https://github.com/Lavdal-Yahya/IoT-mini-project.git`. Le fichier `.gitignore` exclut les environnements, caches, secrets locaux, `data/raw/`, `data/processed/`, `outputs/` et `tmp/`. Les cours et TPs du dossier parent restent hors du dépôt. Les résultats sélectionnés pour la livraison sont versionnés dans `results/`, avec leurs empreintes et leurs références.
 
 ## 4. Données et interfaces
 
@@ -190,7 +190,7 @@ Le programme de test exige un fichier de gel et écrit un marqueur de consultati
 
 Chaque exécution produit un dossier identifié : configuration résolue, empreintes des données et partitions, versions, graines, journal de préparation, résultats par pli, prédictions avec provenance, métriques et figures. Les tables de l'article sont dérivées de ces sorties ; ne pas saisir à la main des résultats dans le code d'affichage.
 
-Interface implémentée : diagnostic → développement → gel → évaluation finale. La cible `make reproduce` rejoue les calculs gelés et compare les prédictions finales aux références. Les figures et tables sont régénérées par `make report` depuis une exécution complète. URL, empreintes et verrou d'environnement permettront de reconstruire les entrées et le logiciel. Les commandes exactes et le parcours de reproduction sont décrits dans le README.
+Interface implémentée : diagnostic → développement → gel → évaluation finale. La cible `make reproduce` rejoue les calculs gelés et compare les prédictions finales aux références. Les figures et tables sont régénérées par `make report` depuis une exécution complète. URL, empreintes et verrou d’environnement ont permis de reconstruire les entrées et le logiciel depuis un clone propre. Les commandes exactes et le parcours de reproduction sont décrits dans le README.
 
 ## 8. Vérifications nécessaires
 
@@ -227,7 +227,7 @@ Pages officielles CWRU consultées le 19 novembre 2026 :
 - [S4 — Table des défauts DE à 12 kHz](https://engineering.case.edu/bearingdatacenter/12k-drive-end-bearing-fault-data).
 - [S5 — Table des enregistrements sains](https://engineering.case.edu/bearingdatacenter/normal-baseline-data).
 
-Ces pages décrivent les données candidates ; l'audit des fichiers reste à faire. Les chapitres locaux 1, 3 et 5 complètent les références, comme indiqué dans le README.
+Ces pages décrivent les données utilisées ; l’audit des fichiers est consigné dans `docs/data_audit.md`. Les chapitres locaux 1, 3 et 5 complètent les références, comme indiqué dans le README.
 
 ## 11. Décisions vérifiées pendant M1 et M2
 
@@ -246,3 +246,7 @@ La bande 2–5 kHz est confirmée comme bande large exploitable sur les figures 
 Les réglages E1–E4 sont choisis sur les plis de développement et archivés dans `results/selection.json`. E4 a été retenu avant la campagne finale. À 3 HP, l'exactitude équilibrée par fenêtre avec pondération égale des essais est de 90,741 % pour E1, 98,148 % pour E2, 89,815 % pour E3 et 98,148 % pour E4. Le modèle retenu n'a pas changé après lecture du test. Son diagnostic agrégé est correct pour 10 essais sur 10 ; son rappel par fenêtre pour la bague externe est 92,593 %.
 
 Le gel `results/freeze.json` et le marqueur `results/test_consulted.json` font autorité. Toute nouvelle méthode reste exploratoire. Les sources de présentation (`reporting.py` et les documents) sont séparées de l'empreinte scientifique ; les modules de données, signal, caractéristiques, modèles, métriques, orchestration et provenance sont gelés. La reproduction utilise la sélection enregistrée, sans nouvelle recherche. La comparaison dans un environnement Python neuf a retrouvé les 368 prédictions des quatre expériences.
+
+## 14. Supports de livraison
+
+L’article de six pages est livré dans `report/rapport.pdf`, avec sa source éditable et son générateur. Le diaporama modifiable comporte dix diapositives ; `presentation/artifact.json` identifie l’artefact, `presentation/build_slides.mjs` conserve le callback de construction et `presentation/slides.md` son storyboard. Les tableaux et graphiques de scores sont des objets natifs éditables. Les notes sont estimées à dix minutes ; cette estimation ne remplace pas une répétition humaine. Aucun réglage scientifique n’a changé pendant la mise en page.
