@@ -51,7 +51,7 @@ Les données brutes (~134 Mo), les environnements et les modèles générés res
 - [Tableau des résultats](results/summary.csv), [sélection avant le test](results/selection.json) et [gel scientifique](results/freeze.json).
 - [Audit des données](docs/data_audit.md), [protocole](docs/protocol.md), [caractéristiques](docs/features.md) et [décision de développement](docs/development_decision.md).
 - Figures dans [results/figures](results/figures/) ; prédictions et métriques détaillées dans [results](results/).
-- [Article de six pages](report/rapport.pdf) et source de génération dans [report](report/) ; [support modifiable et storyboard](presentation/README.md), notes et questions dans [presentation](presentation/).
+- [Article de six pages](report/rapport.pdf) et source de génération dans [report](report/) ; [support modifiable et storyboard](presentation/README.md), [variante analytique PowerPoint](presentation/dashboard/README.md), notes et questions dans [presentation](presentation/).
 
 Les scores principaux sont pondérés pour donner le même poids à chaque enregistrement. Le diagnostic agrégé par essai et les scores bruts par fenêtre sont aussi conservés. Un seul enregistrement sain est disponible à 3 HP ; les résultats ne prouvent pas une généralisation à d'autres machines.
 

@@ -252,3 +252,5 @@ Le gel `results/freeze.json` et le marqueur `results/test_consulted.json` font a
 ## 14. Supports de livraison
 
 L’article de six pages est livré dans `report/rapport.pdf`, avec sa source éditable et son générateur. Le diaporama modifiable comporte dix diapositives ; `presentation/artifact.json` identifie l’artefact, `presentation/build_slides.mjs` conserve le callback de construction et `presentation/slides.md` son storyboard. Les tableaux et graphiques de scores sont des objets natifs éditables. Les notes sont estimées à dix minutes ; cette estimation ne remplace pas une répétition humaine. Aucun réglage scientifique n’a changé pendant la mise en page.
+
+La variante demandée avec `dashboard-design` est indépendante du support initial : `presentation/dashboard/diagnostic_dashboard.pptx`. Ses tableaux et graphiques natifs sont régénérés par `build_dashboard.mjs` et `export_dashboard.mjs` à partir des preuves gelées. Les classeurs embarqués portent un instantané des valeurs, sans logique scientifique supplémentaire. Cette variante de présentation n’ajoute ni application web ni expérience au périmètre.

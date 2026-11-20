@@ -42,3 +42,7 @@ Les chemins de code vérifiés maintiennent la séparation : `splits.py` attribu
 - [x] Versionner et publier la livraison, puis contrôler l’état du dépôt distant (T52). Le commit `5d7e8f5` est poussé sur `origin/main` ; empreinte distante et HEAD concordent.
 
 La référence [1] de l'article renvoie directement aux deux tables CWRU utilisées pour le sous-ensemble. Les URL de chaque fichier figurent dans `data/manifest.csv`.
+
+## Variante analytique du support
+
+`presentation/dashboard/diagnostic_dashboard.pptx` propose dix diapositives supplémentaires en tant que version alternative du même oral. Les cinq tâches du sujet, la sélection avant le test, l’ablation, les erreurs et les limites y sont reprises. Dix rendus ont été inspectés. Le fichier passe les contrôles de structure, dimensions, polices, tableaux et graphiques natifs, ainsi que l’import Artifact Tool. Aucun essai scientifique supplémentaire ni répétition humaine n’a été effectué.

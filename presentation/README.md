@@ -30,3 +30,7 @@ var scores = await builder.loadScores(root);
 ```
 
 Exécuter ensuite `builder.default` dans quatre appels `artifactSession.run` séparés avec `input: {root, scores, phase}`, et le même `artifactRef`. La phase `cover` attend la première diapositive vide d’une nouvelle session ; chacune des phases suivantes ajoute trois diapositives. Rendre et inspecter les dix diapositives après reconstruction.
+
+## Autre version analytique
+
+La [version dashboard-design](dashboard/README.md) est un diaporama PowerPoint distinct de dix diapositives. Elle conserve les mêmes résultats et auteurs avec des comparaisons alignées, une matrice de confusion et des limites visibles. Les notes sont estimées à dix minutes, sans répétition humaine revendiquée.

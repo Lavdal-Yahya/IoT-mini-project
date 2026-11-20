@@ -1,0 +1,33 @@
+{
+  "title": "AML313 groupe 7 — Diagnostic vibratoire, version analytique",
+  "file": "presentation/dashboard/diagnostic_dashboard.pptx",
+  "format": "pptx",
+  "slides": 10,
+  "estimated_duration_seconds": 600,
+  "human_rehearsal_completed": false,
+  "authors": [
+    {
+      "name": "Mouhamedou Yahya Cheikh Med Vall",
+      "student_id": "25239"
+    },
+    {
+      "name": "Maryeim Mohamed T'Feil",
+      "student_id": "22087"
+    }
+  ],
+  "builder": "presentation/dashboard/build_dashboard.mjs",
+  "exporter": "presentation/dashboard/export_dashboard.mjs",
+  "original_artifact_ref": "artifact_R9buHvj_oDqBtxtptKyCJWAqPwT9vHIk",
+  "sha256": "d295ab32e99e60dfdef1a990b2c7a831badd9c80a074f3429c055bd8e2b32b0d",
+  "evidence_sha256": {
+    "results/summary.csv": "aae2fed4278295982fc5c453c249d9bfea1d5f67f01f8d490f95839fb5d328b1",
+    "results/final_metrics.json": "bdc70f12e2bdafcde774e60eac529b19d7b1feafecef3c46ecdb1da52cf4c1e0",
+    "results/final_bootstrap.json": "7c348471f0ac116628e11c6d5f040bffc00d6520cf6379a2645daf35f3c9cbf3",
+    "results/selection.json": "d0e8f39851f165d2841130b7e2567c090405a1a4d558a5cdb3804a4b2104be23",
+    "configs/experiment.json": "d9cd07c42ef567cb9aaac24da9fcc2b34b7392d295f36501226372afb37b3c9f",
+    "data/classcoverage.csv": "5e44f1b930d0c3c31032b117c7c1d807976b30364a5614456446359dbdadbf51",
+    "results/figures/temporal_features.png": "efc67200c794d8e77bb40d761a15fc1d59bb159a0e855c30883630d5108c415c",
+    "presentation/envelope_examples.png": "787d310614f8585f10e77820da70ad8e4efa475c32fe175247b793f7b303eaea"
+  },
+  "review": "Dix rendus inspectés ; validation structurelle et import Artifact Tool réussis. Application Microsoft PowerPoint non ouverte."
+}

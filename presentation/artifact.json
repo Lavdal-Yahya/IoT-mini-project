@@ -9,7 +9,7 @@
   "storyboard": "presentation/slides.md",
   "evidence": "results/summary.csv",
   "notes": "Artefact modifiable du chat Codex ; le storyboard et le callback restent versionnés pour reconstruction. Aucun lien public ni Page ID n’a été retourné.",
-  "reviewed_state_version": 9,
+  "reviewed_state_version": 11,
   "authors": [
     {
       "name": "Mouhamedou Yahya Cheikh Med Vall",
