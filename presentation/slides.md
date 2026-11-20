@@ -1,5 +1,7 @@
 # Mouhamedou Yahya Cheikh Med Vall
 # 25239
+# Maryeim Mohamed T'Feil
+# 22087
 
 # Storyboard du diaporama AML313 — groupe 7
 
@@ -20,7 +22,7 @@ Ce storyboard décrit dix diapositives construites dans la présentation Spaces 
 
 ## 1. Diagnostic de roulements par vibrations
 
-**Écran :** « CWRU · quatre états · transfert de charge », Mouhamedou Yahya Cheikh Med Vall, 25239.
+**Écran :** « CWRU · quatre états · transfert de charge », Mouhamedou Yahya Cheikh Med Vall, 25239, et Maryeim Mohamed T'Feil, 22087.
 
 **Notes :** Présenter le diagnostic sain, bague interne, bague externe et bille. Poser la question de l'apport des caractéristiques d'enveloppe et du transfert à une charge absente de l'apprentissage.
 

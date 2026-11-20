@@ -1,5 +1,7 @@
 # Mouhamedou Yahya Cheikh Med Vall
 # 25239
+# Maryeim Mohamed T'Feil
+# 22087
 
 # Architecture technique du mini-projet AML313 du groupe 7
 

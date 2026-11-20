@@ -1,5 +1,7 @@
 # Mouhamedou Yahya Cheikh Med Vall
 # 25239
+# Maryeim Mohamed T'Feil
+# 22087
 
 # Plan de soutenance — mini-projet AML313, groupe 7
 

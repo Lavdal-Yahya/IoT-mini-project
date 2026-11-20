@@ -1,5 +1,7 @@
 # Mouhamedou Yahya Cheikh Med Vall
 # 25239
+# Maryeim Mohamed T'Feil
+# 22087
 
 # Roadmap du mini-projet AML313 du groupe 7
 
@@ -122,3 +124,4 @@ Après consultation du test final, une nouvelle idée reste exploratoire et ne p
 | 2026-11-20 | Article six pages, sources et fiches orales préparés ; reproduction et contrôles scientifiques réussis. | M6 partiel : répétition humaine et clôture de livraison encore ouvertes. |
 | 2026-11-20 | Dix diapositives modifiables construites et inspectées ; couverture des cinq tâches et du barème vérifiée. | T51 terminé ; T49 reste ouvert pour la répétition humaine, sans modification du protocole gelé. |
 | 2026-11-20 | Livraison scientifique et sources du support poussées sur `origin/main` ; commit `5d7e8f5` vérifié sur GitHub. | T52 terminé ; seule la répétition humaine T49 empêche la clôture de M6. |
+| 2026-11-20 | Attribution des livrables aux deux membres du groupe 7, conformément à l’énoncé page 10 ; rapport et couverture du support régénérés. | Correction éditoriale des auteurs ; protocole et résultats gelés inchangés, répétition humaine T49 toujours ouverte. |

@@ -117,6 +117,10 @@ def make_markdown(root: Path, evidence: dict) -> str:
 
 # 25239
 
+# Maryeim Mohamed T'Feil
+
+# 22087
+
 # Diagnostic de défauts de roulement par vibration
 
 **AML313 · Groupe 7 · Article scientifique court · 20 novembre 2026**
@@ -322,7 +326,7 @@ def _story(root: Path, markdown: str, styles: dict, width: float) -> list:
             story.append(Paragraph(_inline(line[3:]), styles["h2"]))
         elif line.startswith("# "):
             title_count += 1
-            story.append(Paragraph(_inline(line[2:]), styles["identity"] if title_count <= 2 else styles["title"]))
+            story.append(Paragraph(_inline(line[2:]), styles["identity"] if title_count <= 4 else styles["title"]))
         else:
             paragraph = [line]
             while index + 1 < len(lines) and lines[index + 1].strip() and not lines[index + 1].startswith(("#", "|", "![", "<!--")):
@@ -338,7 +342,7 @@ class Article(BaseDocTemplate):
     def __init__(self, path: Path):
         super().__init__(str(path), pagesize=A4, leftMargin=47, rightMargin=47,
                          topMargin=39, bottomMargin=42, title="Diagnostic de défauts de roulement par vibration",
-                         author="Mouhamedou Yahya Cheikh Med Vall")
+                         author="Mouhamedou Yahya Cheikh Med Vall ; Maryeim Mohamed T'Feil")
         frame = Frame(self.leftMargin, self.bottomMargin, self.width, self.height,
                       leftPadding=0, rightPadding=0, topPadding=0, bottomPadding=0)
         self.addPageTemplates(PageTemplate(id="article", frames=frame, onPage=self._page))

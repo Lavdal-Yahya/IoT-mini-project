@@ -2,6 +2,10 @@
 
 # 25239
 
+# Maryeim Mohamed T'Feil
+
+# 22087
+
 # Diagnostic de défauts de roulement par vibration
 
 **AML313 · Groupe 7 · Article scientifique court · 20 novembre 2026**

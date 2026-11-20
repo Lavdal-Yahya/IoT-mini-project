@@ -34,3 +34,5 @@ Ces instructions s'appliquent à `mini-project/` et ses sous-dossiers.
 - Documents scientifiques en français, phrases simples, unités explicites.
 - Vérifier calculs physiques, absence de fuite et reproductibilité par des contrôles adaptés.
 - Conserver le périmètre du sujet 7 ; tout ajout substantiel est justifié dans les documents de référence.
+
+Les livrables du groupe 7 portent les deux auteurs : **Mouhamedou Yahya Cheikh Med Vall (25239)** et **Maryeim Mohamed T'Feil (22087)**. Conserver les deux identités dans les documents, les métadonnées du rapport et les supports de soutenance, y compris après régénération. Le binôme et le matricule 22087 sont confirmés par l’énoncé, page 10.

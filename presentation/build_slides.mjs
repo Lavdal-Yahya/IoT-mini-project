@@ -83,8 +83,9 @@ export default async function build({presentation,input}) {
       for(let i=1;i<existing.length;i++) existing[i].text='';
     } else textbox(slide,'Diagnostic de roulements par vibrations',66,152,1100,150,44,true,C.white);
     textbox(slide,'CWRU · quatre états · transfert de charge',68,322,1050,55,24,false,'#CFEBE9');
-    textbox(slide,'Mouhamedou Yahya Cheikh Med Vall',68,548,1060,42,21,true,C.white);
-    textbox(slide,'25239  ·  AML313, groupe 7',68,595,1060,34,18,false,'#CFEBE9');
+    textbox(slide,'Mouhamedou Yahya Cheikh Med Vall · 25239',68,490,1060,42,21,true,C.white);
+    textbox(slide,"Maryeim Mohamed T'Feil · 22087",68,548,1060,42,21,true,C.white);
+    textbox(slide,'AML313, groupe 7',68,605,1060,34,18,false,'#CFEBE9');
     note(slide,'0 min 30 s','Présenter les quatre états : sain, bague interne, bague externe et bille. Question : les caractéristiques spectrales et d’enveloppe ajoutent-elles de l’information aux trois indicateurs temporels, et le diagnostic tient-il sur une charge absente de l’apprentissage ?');
     return {phase,slides:presentation.slides.items.length};
   }

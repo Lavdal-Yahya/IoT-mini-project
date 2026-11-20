@@ -1,5 +1,7 @@
 # Mouhamedou Yahya Cheikh Med Vall
 # 25239
+# Maryeim Mohamed T'Feil
+# 22087
 
 # Caractéristiques vibratoires : méthode et limites
 
