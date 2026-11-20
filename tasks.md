@@ -13,7 +13,7 @@ Suivre les identifiants dans l'ordre. Une case cochée signifie que la preuve in
 
 Après chaque étape, mettre à jour cette checklist et le jalon correspondant dans la roadmap. Ne terminer un jalon que lorsque toutes ses tâches obligatoires sont closes. Si une tâche devient non applicable, conserver son identifiant et expliquer pourquoi. Toute adaptation scientifique actualise aussi l'architecture et la configuration.
 
-**Prochaine tâche : T31 — vérifier les métriques puis comparer les modèles sur le développement.** Les paramètres encore provisoires de l'architecture seront confirmés par l'audit, avant les essais concernés.
+**Prochaine tâche : T39 — geler le protocole avant le test final.** Les paramètres encore provisoires de l'architecture seront confirmés par l'audit, avant les essais concernés.
 
 ## M0 — Cadrer le projet
 
@@ -67,14 +67,14 @@ Prérequis : M2 terminé. Les exemples et réglages de signal viennent du dével
 
 Prérequis : M3 terminé. Aucun résultat de la charge finale n'est consulté.
 
-- [ ] **T31 — Implémenter l'évaluation commune.** Calculer exactitude, matrices de confusion, rappels, exactitude équilibrée et macro-F1 selon les pondérations annoncées. Preuve : contrôles sur un petit exemple dont les résultats sont calculables à la main.
-- [ ] **T32 — Implémenter l'entraînement par pli.** Ajuster modèles et prétraitements appris seulement sur l'apprentissage ; conserver les prédictions hors pli. Preuve : provenance des apprentissages et contrôles de séparation.
-- [ ] **T33 — Évaluer E1, la baseline imposée.** Arbre de décision sur RMS, kurtosis et facteur de crête. Preuve : paramètres, scores par pli et prédictions hors pli enregistrés.
-- [ ] **T34 — Évaluer E2.** Arbre avec caractéristiques temporelles et spectrales/enveloppe. Preuve : mêmes fenêtres et partitions que E1.
-- [ ] **T35 — Évaluer E3.** Forêt aléatoire avec les trois indicateurs temporels. Preuve : mêmes entrées que E1 et réglages conformes à la grille annoncée.
-- [ ] **T36 — Évaluer E4.** Forêt avec caractéristiques temporelles et spectrales/enveloppe. Preuve : mêmes observations et protocole que E1–E3.
-- [ ] **T37 — Analyser les ablations, erreurs et incertitudes.** Comparer E2 à E1 et E4 à E3 pour les caractéristiques, puis E3 à E1 et E4 à E2 pour le classifieur. Preuve : gains appariés, confusion par classe et limites de l'incertitude par groupe.
-- [ ] **T38 — Arrêter les choix du développement.** Retenir les réglages selon le critère fixé, sans exiger que le modèle enrichi gagne. Preuve : décision écrite, résultats et configuration sauvegardés ; M4 clôturé.
+- [x] **T31 — Implémenter l'évaluation commune.** Calculer exactitude, matrices de confusion, rappels, exactitude équilibrée et macro-F1 selon les pondérations annoncées. Preuve : contrôles sur un petit exemple dont les résultats sont calculables à la main. **Vérifié :** résultats E1–E4 dans results/development_metrics.json, selection.json et development_bootstrap.json ; tests des métriques et des frontières réussis.
+- [x] **T32 — Implémenter l'entraînement par pli.** Ajuster modèles et prétraitements appris seulement sur l'apprentissage ; conserver les prédictions hors pli. Preuve : provenance des apprentissages et contrôles de séparation. **Vérifié :** résultats E1–E4 dans results/development_metrics.json, selection.json et development_bootstrap.json ; tests des métriques et des frontières réussis.
+- [x] **T33 — Évaluer E1, la baseline imposée.** Arbre de décision sur RMS, kurtosis et facteur de crête. Preuve : paramètres, scores par pli et prédictions hors pli enregistrés. **Vérifié :** résultats E1–E4 dans results/development_metrics.json, selection.json et development_bootstrap.json ; tests des métriques et des frontières réussis.
+- [x] **T34 — Évaluer E2.** Arbre avec caractéristiques temporelles et spectrales/enveloppe. Preuve : mêmes fenêtres et partitions que E1. **Vérifié :** résultats E1–E4 dans results/development_metrics.json, selection.json et development_bootstrap.json ; tests des métriques et des frontières réussis.
+- [x] **T35 — Évaluer E3.** Forêt aléatoire avec les trois indicateurs temporels. Preuve : mêmes entrées que E1 et réglages conformes à la grille annoncée. **Vérifié :** résultats E1–E4 dans results/development_metrics.json, selection.json et development_bootstrap.json ; tests des métriques et des frontières réussis.
+- [x] **T36 — Évaluer E4.** Forêt avec caractéristiques temporelles et spectrales/enveloppe. Preuve : mêmes observations et protocole que E1–E3. **Vérifié :** résultats E1–E4 dans results/development_metrics.json, selection.json et development_bootstrap.json ; tests des métriques et des frontières réussis.
+- [x] **T37 — Analyser les ablations, erreurs et incertitudes.** Comparer E2 à E1 et E4 à E3 pour les caractéristiques, puis E3 à E1 et E4 à E2 pour le classifieur. Preuve : gains appariés, confusion par classe et limites de l'incertitude par groupe. **Vérifié :** résultats E1–E4 dans results/development_metrics.json, selection.json et development_bootstrap.json ; tests des métriques et des frontières réussis.
+- [x] **T38 — Arrêter les choix du développement.** Retenir les réglages selon le critère fixé, sans exiger que le modèle enrichi gagne. Preuve : décision écrite, résultats et configuration sauvegardés ; M4 clôturé. **Vérifié :** résultats E1–E4 dans results/development_metrics.json, selection.json et development_bootstrap.json ; tests des métriques et des frontières réussis.
 
 ## M5 — Évaluer le transfert une seule fois
 

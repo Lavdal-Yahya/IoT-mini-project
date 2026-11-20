@@ -73,13 +73,13 @@ Ordre : **M0 → M1 → M2 → M3 → M4 → M5 → M6**. Un chargement ou contr
 - [x] M1 — Audit des données vérifié : 40 fichiers, manifeste et journal disponibles.
 - [x] M2 — Protocole fixé : charges et partitions enregistrées avant entraînement.
 - [x] M3 — Analyse physique vérifiée : 268 fenêtres, 13 caractéristiques et figures inspectées.
-- [ ] M4 — Modèles et ablation évalués sur le développement.
+- [x] M4 — E1–E4 évalués sur le développement ; E4 retenu avant le test.
 - [ ] M5 — Test final de transfert réalisé.
 - [ ] M6 — Livraison et reproduction vérifiées.
 
-**État observé :** M1 et M2 terminés. Les 40 fichiers CWRU sont audités et leurs empreintes enregistrées. Les charges 0/1/2 HP forment trois plis par charge entière ; les dix essais à 3 HP sont réservés. Deux vitesses saines viennent de valeurs officielles approximatives, marquées comme telles. L'environnement Python 3.12.14 est installé et verrouillé. Les indicateurs sont vérifiés sur 268 fenêtres de développement ; aucun modèle CWRU n’a encore été entraîné.
+**État observé :** M1 et M2 terminés. Les 40 fichiers CWRU sont audités et leurs empreintes enregistrées. Les charges 0/1/2 HP forment trois plis par charge entière ; les dix essais à 3 HP sont réservés. Deux vitesses saines viennent de valeurs officielles approximatives, marquées comme telles. L'environnement Python 3.12.14 est installé et verrouillé. Les indicateurs sont vérifiés sur 268 fenêtres de développement ; les quatre expériences sont entraînées et comparées sur les plis de développement. E4 est retenu (exactitude équilibrée 99,69 %). La charge finale reste non consultée.
 
-**Prochaine action :** T31–T38 dans [tasks.md](tasks.md), modèles et ablation sur les plis de développement.
+**Prochaine action :** T39–T44 dans [tasks.md](tasks.md), gel et campagne finale sur la charge 3 HP.
 
 ## 7. Budget indicatif
 
@@ -119,3 +119,5 @@ Après consultation du test final, une nouvelle idée reste exploratoire et ne p
 | 2026-11-20 | Audit de 40 fichiers, métadonnées corrigées, environnement et protocole enregistrés. | M1/M2 terminés ; sains à 48 kHz ; validation par charge entière ; test 3 HP réservé. |
 
 | 2026-11-20 | Extraction et contrôles physiques sur le développement ; FIR harmonisé à 12/48 kHz avant tout modèle. | M3 terminé ; 268 fenêtres ; 32 tests réussis ; test final non consulté. |
+
+| 2026-11-20 | Comparaison E1–E4 sur trois plis par charge ; E4 retenu avant le test. | M4 terminé ; baseline 92,90 % et E4 99,69 % d’exactitude équilibrée de développement ; scores de sélection, non indépendants. |

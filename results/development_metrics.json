@@ -1,0 +1,2198 @@
+{
+  "E1": {
+    "classes": [
+      "healthy",
+      "inner_race",
+      "outer_race",
+      "ball"
+    ],
+    "n_windows": 268,
+    "n_recordings": 30,
+    "raw_window": {
+      "accuracy": 0.914179104477612,
+      "balanced_accuracy": 0.92957512071774,
+      "macro_f1": 0.9294182211101001,
+      "confusion": [
+        [
+          22,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          71,
+          8,
+          2
+        ],
+        [
+          0,
+          0,
+          81,
+          2
+        ],
+        [
+          0,
+          8,
+          3,
+          71
+        ]
+      ],
+      "confusion_normalized_true": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.8765432098765432,
+          0.09876543209876543,
+          0.024691358024691357
+        ],
+        [
+          0.0,
+          0.0,
+          0.9759036144578314,
+          0.024096385542168676
+        ],
+        [
+          0.0,
+          0.0975609756097561,
+          0.036585365853658534,
+          0.8658536585365854
+        ]
+      ],
+      "recall_by_class": {
+        "healthy": 1.0,
+        "inner_race": 0.8765432098765432,
+        "outer_race": 0.9759036144578314,
+        "ball": 0.8658536585365854
+      },
+      "support_by_class": {
+        "healthy": 22.0,
+        "inner_race": 81.0,
+        "outer_race": 83.0,
+        "ball": 82.0
+      }
+    },
+    "weighted_window": {
+      "accuracy": 0.9148148148148147,
+      "balanced_accuracy": 0.9290123456790123,
+      "macro_f1": 0.9286756036596869,
+      "confusion": [
+        [
+          3.0000000000000004,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          7.888888888888876,
+          0.8888888888888891,
+          0.2222222222222222
+        ],
+        [
+          0.0,
+          0.0,
+          8.777777777777763,
+          0.2222222222222222
+        ],
+        [
+          0.0,
+          0.8888888888888891,
+          0.3333333333333333,
+          7.777777777777765
+        ]
+      ],
+      "confusion_normalized_true": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.8765432098765431,
+          0.09876543209876561,
+          0.024691358024691395
+        ],
+        [
+          0.0,
+          0.0,
+          0.9753086419753086,
+          0.024691358024691402
+        ],
+        [
+          0.0,
+          0.0987654320987656,
+          0.037037037037037084,
+          0.8641975308641974
+        ]
+      ],
+      "recall_by_class": {
+        "healthy": 1.0,
+        "inner_race": 0.8765432098765431,
+        "outer_race": 0.9753086419753086,
+        "ball": 0.8641975308641974
+      },
+      "support_by_class": {
+        "healthy": 3.0000000000000004,
+        "inner_race": 8.999999999999986,
+        "outer_race": 8.999999999999984,
+        "ball": 8.999999999999988
+      }
+    },
+    "record": {
+      "accuracy": 0.9666666666666667,
+      "balanced_accuracy": 0.9722222222222222,
+      "macro_f1": 0.9721362229102167,
+      "confusion": [
+        [
+          3,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          8,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          9,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          9
+        ]
+      ],
+      "confusion_normalized_true": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.8888888888888888,
+          0.1111111111111111,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "recall_by_class": {
+        "healthy": 1.0,
+        "inner_race": 0.8888888888888888,
+        "outer_race": 1.0,
+        "ball": 1.0
+      },
+      "support_by_class": {
+        "healthy": 3.0,
+        "inner_race": 9.0,
+        "outer_race": 9.0,
+        "ball": 9.0
+      }
+    },
+    "per_record": [
+      {
+        "recording_id": "B007_0",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.0,
+        "proba_ball": 1.0,
+        "class_label": "ball",
+        "n_windows": 10,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B007_1",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.0,
+        "proba_ball": 1.0,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B007_2",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.0,
+        "proba_ball": 1.0,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B014_0",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.3777777777777778,
+        "proba_outer_race": 0.2222222222222222,
+        "proba_ball": 0.4,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B014_1",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.1111111111111111,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.8888888888888888,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B014_2",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.21481481481481482,
+        "proba_outer_race": 0.06666666666666667,
+        "proba_ball": 0.7185185185185186,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B021_0",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.08888888888888889,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.911111111111111,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B021_1",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.0,
+        "proba_ball": 1.0,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B021_2",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.0,
+        "proba_ball": 1.0,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "IR007_0",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 1.0,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.0,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR007_1",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 1.0,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.0,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR007_2",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 1.0,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.0,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR014_0",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.8444444444444446,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.15555555555555556,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR014_1",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.8666666666666667,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.13333333333333333,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR014_2",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.9555555555555555,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.044444444444444446,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR021_0",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.1111111111111111,
+        "proba_outer_race": 0.8888888888888888,
+        "proba_ball": 0.0,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": false
+      },
+      {
+        "recording_id": "IR021_1",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.8888888888888888,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.1111111111111111,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR021_2",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 1.0,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.0,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "Normal_0",
+        "proba_healthy": 1.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.0,
+        "class_label": "healthy",
+        "n_windows": 4,
+        "predicted_label": "healthy",
+        "correct": true
+      },
+      {
+        "recording_id": "Normal_1",
+        "proba_healthy": 1.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.0,
+        "class_label": "healthy",
+        "n_windows": 9,
+        "predicted_label": "healthy",
+        "correct": true
+      },
+      {
+        "recording_id": "Normal_2",
+        "proba_healthy": 1.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.0,
+        "class_label": "healthy",
+        "n_windows": 9,
+        "predicted_label": "healthy",
+        "correct": true
+      },
+      {
+        "recording_id": "OR007@6_0",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 1.0,
+        "proba_ball": 0.0,
+        "class_label": "outer_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR007@6_1",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 1.0,
+        "proba_ball": 0.0,
+        "class_label": "outer_race",
+        "n_windows": 10,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR007@6_2",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 1.0,
+        "proba_ball": 0.0,
+        "class_label": "outer_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR014@6_0",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.7777777777777778,
+        "proba_ball": 0.2222222222222222,
+        "class_label": "outer_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR014@6_1",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 1.0,
+        "proba_ball": 0.0,
+        "class_label": "outer_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR014@6_2",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.911111111111111,
+        "proba_ball": 0.08888888888888889,
+        "class_label": "outer_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR021@6_0",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 1.0,
+        "proba_ball": 0.0,
+        "class_label": "outer_race",
+        "n_windows": 10,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR021@6_1",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.17777777777777778,
+        "proba_outer_race": 0.8222222222222223,
+        "proba_ball": 0.0,
+        "class_label": "outer_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR021@6_2",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.06666666666666668,
+        "proba_outer_race": 0.9333333333333333,
+        "proba_ball": 0.0,
+        "class_label": "outer_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": true
+      }
+    ]
+  },
+  "E2": {
+    "classes": [
+      "healthy",
+      "inner_race",
+      "outer_race",
+      "ball"
+    ],
+    "n_windows": 268,
+    "n_recordings": 30,
+    "raw_window": {
+      "accuracy": 0.9328358208955224,
+      "balanced_accuracy": 0.9120443752508597,
+      "macro_f1": 0.9190970261622435,
+      "confusion": [
+        [
+          18,
+          0,
+          4,
+          0
+        ],
+        [
+          0,
+          79,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          76,
+          7
+        ],
+        [
+          2,
+          1,
+          2,
+          77
+        ]
+      ],
+      "confusion_normalized_true": [
+        [
+          0.8181818181818182,
+          0.0,
+          0.18181818181818182,
+          0.0
+        ],
+        [
+          0.0,
+          0.9753086419753086,
+          0.0,
+          0.024691358024691357
+        ],
+        [
+          0.0,
+          0.0,
+          0.9156626506024096,
+          0.08433734939759036
+        ],
+        [
+          0.024390243902439025,
+          0.012195121951219513,
+          0.024390243902439025,
+          0.9390243902439024
+        ]
+      ],
+      "recall_by_class": {
+        "healthy": 0.8181818181818182,
+        "inner_race": 0.9753086419753086,
+        "outer_race": 0.9156626506024096,
+        "ball": 0.9390243902439024
+      },
+      "support_by_class": {
+        "healthy": 22.0,
+        "inner_race": 81.0,
+        "outer_race": 83.0,
+        "ball": 82.0
+      }
+    },
+    "weighted_window": {
+      "accuracy": 0.9148148148148146,
+      "balanced_accuracy": 0.8734567901234567,
+      "macro_f1": 0.8886382055246227,
+      "confusion": [
+        [
+          2.0000000000000004,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          8.777777777777763,
+          0.0,
+          0.2222222222222222
+        ],
+        [
+          0.0,
+          0.0,
+          8.222222222222209,
+          0.7777777777777779
+        ],
+        [
+          0.2222222222222222,
+          0.1111111111111111,
+          0.2222222222222222,
+          8.44444444444443
+        ]
+      ],
+      "confusion_normalized_true": [
+        [
+          0.6666666666666667,
+          0.0,
+          0.33333333333333326,
+          0.0
+        ],
+        [
+          0.0,
+          0.9753086419753086,
+          0.0,
+          0.024691358024691402
+        ],
+        [
+          0.0,
+          0.0,
+          0.9135802469135801,
+          0.08641975308641989
+        ],
+        [
+          0.024691358024691395,
+          0.012345679012345697,
+          0.024691358024691395,
+          0.9382716049382716
+        ]
+      ],
+      "recall_by_class": {
+        "healthy": 0.6666666666666667,
+        "inner_race": 0.9753086419753086,
+        "outer_race": 0.9135802469135801,
+        "ball": 0.9382716049382716
+      },
+      "support_by_class": {
+        "healthy": 3.0000000000000004,
+        "inner_race": 8.999999999999984,
+        "outer_race": 8.999999999999988,
+        "ball": 8.999999999999986
+      }
+    },
+    "record": {
+      "accuracy": 0.9333333333333333,
+      "balanced_accuracy": 0.8888888888888888,
+      "macro_f1": 0.9090643274853801,
+      "confusion": [
+        [
+          2,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          9,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          8,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          9
+        ]
+      ],
+      "confusion_normalized_true": [
+        [
+          0.6666666666666666,
+          0.0,
+          0.3333333333333333,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.8888888888888888,
+          0.1111111111111111
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "recall_by_class": {
+        "healthy": 0.6666666666666666,
+        "inner_race": 1.0,
+        "outer_race": 0.8888888888888888,
+        "ball": 1.0
+      },
+      "support_by_class": {
+        "healthy": 3.0,
+        "inner_race": 9.0,
+        "outer_race": 9.0,
+        "ball": 9.0
+      }
+    },
+    "per_record": [
+      {
+        "recording_id": "B007_0",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.0,
+        "proba_ball": 1.0,
+        "class_label": "ball",
+        "n_windows": 10,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B007_1",
+        "proba_healthy": 0.17777777777777778,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.8222222222222223,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B007_2",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.0,
+        "proba_ball": 1.0,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B014_0",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.2222222222222222,
+        "proba_ball": 0.7777777777777778,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B014_1",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.0,
+        "proba_ball": 1.0,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B014_2",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.06666666666666668,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.9333333333333333,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B021_0",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.1111111111111111,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.8888888888888888,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B021_1",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.0,
+        "proba_ball": 1.0,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B021_2",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.0,
+        "proba_ball": 1.0,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "IR007_0",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 1.0,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.0,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR007_1",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 1.0,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.0,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR007_2",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 1.0,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.0,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR014_0",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 1.0,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.0,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR014_1",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.9555555555555555,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.044444444444444446,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR014_2",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.8,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.2,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR021_0",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 1.0,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.0,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR021_1",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 1.0,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.0,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR021_2",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 1.0,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.0,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "Normal_0",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 1.0,
+        "proba_ball": 0.0,
+        "class_label": "healthy",
+        "n_windows": 4,
+        "predicted_label": "outer_race",
+        "correct": false
+      },
+      {
+        "recording_id": "Normal_1",
+        "proba_healthy": 0.9555555555555555,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.044444444444444446,
+        "class_label": "healthy",
+        "n_windows": 9,
+        "predicted_label": "healthy",
+        "correct": true
+      },
+      {
+        "recording_id": "Normal_2",
+        "proba_healthy": 1.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.0,
+        "class_label": "healthy",
+        "n_windows": 9,
+        "predicted_label": "healthy",
+        "correct": true
+      },
+      {
+        "recording_id": "OR007@6_0",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 1.0,
+        "proba_ball": 0.0,
+        "class_label": "outer_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR007@6_1",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 1.0,
+        "proba_ball": 0.0,
+        "class_label": "outer_race",
+        "n_windows": 10,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR007@6_2",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 1.0,
+        "proba_ball": 0.0,
+        "class_label": "outer_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR014@6_0",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.7777777777777778,
+        "proba_ball": 0.2222222222222222,
+        "class_label": "outer_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR014@6_1",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 1.0,
+        "proba_ball": 0.0,
+        "class_label": "outer_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR014@6_2",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.022222222222222223,
+        "proba_outer_race": 0.4444444444444444,
+        "proba_ball": 0.5333333333333333,
+        "class_label": "outer_race",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": false
+      },
+      {
+        "recording_id": "OR021@6_0",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 1.0,
+        "proba_ball": 0.0,
+        "class_label": "outer_race",
+        "n_windows": 10,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR021@6_1",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 1.0,
+        "proba_ball": 0.0,
+        "class_label": "outer_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR021@6_2",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 1.0,
+        "proba_ball": 0.0,
+        "class_label": "outer_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": true
+      }
+    ]
+  },
+  "E3": {
+    "classes": [
+      "healthy",
+      "inner_race",
+      "outer_race",
+      "ball"
+    ],
+    "n_windows": 268,
+    "n_recordings": 30,
+    "raw_window": {
+      "accuracy": 0.9552238805970149,
+      "balanced_accuracy": 0.9465581798327415,
+      "macro_f1": 0.9546606865817246,
+      "confusion": [
+        [
+          20,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          74,
+          6,
+          1
+        ],
+        [
+          0,
+          0,
+          82,
+          1
+        ],
+        [
+          0,
+          2,
+          0,
+          80
+        ]
+      ],
+      "confusion_normalized_true": [
+        [
+          0.9090909090909091,
+          0.0,
+          0.09090909090909091,
+          0.0
+        ],
+        [
+          0.0,
+          0.9135802469135802,
+          0.07407407407407407,
+          0.012345679012345678
+        ],
+        [
+          0.0,
+          0.0,
+          0.9879518072289156,
+          0.012048192771084338
+        ],
+        [
+          0.0,
+          0.024390243902439025,
+          0.0,
+          0.975609756097561
+        ]
+      ],
+      "recall_by_class": {
+        "healthy": 0.9090909090909091,
+        "inner_race": 0.9135802469135802,
+        "outer_race": 0.9879518072289156,
+        "ball": 0.975609756097561
+      },
+      "support_by_class": {
+        "healthy": 22.0,
+        "inner_race": 81.0,
+        "outer_race": 83.0,
+        "ball": 82.0
+      }
+    },
+    "weighted_window": {
+      "accuracy": 0.9555555555555555,
+      "balanced_accuracy": 0.9506172839506173,
+      "macro_f1": 0.9565669562199042,
+      "confusion": [
+        [
+          2.7777777777777786,
+          0.0,
+          0.2222222222222222,
+          0.0
+        ],
+        [
+          0.0,
+          8.222222222222209,
+          0.6666666666666667,
+          0.1111111111111111
+        ],
+        [
+          0.0,
+          0.0,
+          8.888888888888873,
+          0.1111111111111111
+        ],
+        [
+          0.0,
+          0.2222222222222222,
+          0.0,
+          8.777777777777763
+        ]
+      ],
+      "confusion_normalized_true": [
+        [
+          0.9259259259259259,
+          0.0,
+          0.07407407407407404,
+          0.0
+        ],
+        [
+          0.0,
+          0.9135802469135802,
+          0.0740740740740742,
+          0.012345679012345697
+        ],
+        [
+          0.0,
+          0.0,
+          0.9876543209876544,
+          0.012345679012345701
+        ],
+        [
+          0.0,
+          0.024691358024691402,
+          0.0,
+          0.9753086419753086
+        ]
+      ],
+      "recall_by_class": {
+        "healthy": 0.9259259259259259,
+        "inner_race": 0.9135802469135802,
+        "outer_race": 0.9876543209876544,
+        "ball": 0.9753086419753086
+      },
+      "support_by_class": {
+        "healthy": 3.000000000000001,
+        "inner_race": 8.999999999999986,
+        "outer_race": 8.999999999999984,
+        "ball": 8.999999999999984
+      }
+    },
+    "record": {
+      "accuracy": 0.9666666666666667,
+      "balanced_accuracy": 0.9722222222222222,
+      "macro_f1": 0.9721362229102167,
+      "confusion": [
+        [
+          3,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          8,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          9,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          9
+        ]
+      ],
+      "confusion_normalized_true": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.8888888888888888,
+          0.1111111111111111,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "recall_by_class": {
+        "healthy": 1.0,
+        "inner_race": 0.8888888888888888,
+        "outer_race": 1.0,
+        "ball": 1.0
+      },
+      "support_by_class": {
+        "healthy": 3.0,
+        "inner_race": 9.0,
+        "outer_race": 9.0,
+        "ball": 9.0
+      }
+    },
+    "per_record": [
+      {
+        "recording_id": "B007_0",
+        "proba_healthy": 0.048,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.14850000000000002,
+        "proba_ball": 0.8035,
+        "class_label": "ball",
+        "n_windows": 10,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B007_1",
+        "proba_healthy": 0.02277777777777778,
+        "proba_inner_race": 0.0005555555555555556,
+        "proba_outer_race": 0.11777777777777779,
+        "proba_ball": 0.8588888888888889,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B007_2",
+        "proba_healthy": 0.1416666666666667,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.14333333333333334,
+        "proba_ball": 0.715,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B014_0",
+        "proba_healthy": 0.009444444444444445,
+        "proba_inner_race": 0.30166666666666664,
+        "proba_outer_race": 0.035555555555555556,
+        "proba_ball": 0.6533333333333333,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B014_1",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.1827777777777778,
+        "proba_outer_race": 0.008333333333333333,
+        "proba_ball": 0.8088888888888888,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B014_2",
+        "proba_healthy": 0.0005555555555555556,
+        "proba_inner_race": 0.255,
+        "proba_outer_race": 0.010555555555555556,
+        "proba_ball": 0.7338888888888889,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B021_0",
+        "proba_healthy": 0.02888888888888889,
+        "proba_inner_race": 0.09333333333333332,
+        "proba_outer_race": 0.05611111111111111,
+        "proba_ball": 0.8216666666666668,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B021_1",
+        "proba_healthy": 0.0005555555555555556,
+        "proba_inner_race": 0.01888888888888889,
+        "proba_outer_race": 0.018333333333333333,
+        "proba_ball": 0.9622222222222222,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B021_2",
+        "proba_healthy": 0.003888888888888889,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.17722222222222223,
+        "proba_ball": 0.8188888888888889,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "IR007_0",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.9750000000000001,
+        "proba_outer_race": 0.0033333333333333335,
+        "proba_ball": 0.021666666666666667,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR007_1",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.9861111111111112,
+        "proba_outer_race": 0.008888888888888889,
+        "proba_ball": 0.005,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR007_2",
+        "proba_healthy": 0.0022222222222222222,
+        "proba_inner_race": 0.8594444444444443,
+        "proba_outer_race": 0.006111111111111111,
+        "proba_ball": 0.1322222222222222,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR014_0",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.8394444444444444,
+        "proba_outer_race": 0.045000000000000005,
+        "proba_ball": 0.11555555555555556,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR014_1",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.6911111111111111,
+        "proba_outer_race": 0.08888888888888889,
+        "proba_ball": 0.22,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR014_2",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.883888888888889,
+        "proba_outer_race": 0.04888888888888889,
+        "proba_ball": 0.06722222222222222,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR021_0",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.4461111111111112,
+        "proba_outer_race": 0.5322222222222223,
+        "proba_ball": 0.021666666666666667,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": false
+      },
+      {
+        "recording_id": "IR021_1",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.953888888888889,
+        "proba_outer_race": 0.011111111111111112,
+        "proba_ball": 0.035,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR021_2",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.9366666666666666,
+        "proba_outer_race": 0.032777777777777774,
+        "proba_ball": 0.030555555555555558,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "Normal_0",
+        "proba_healthy": 0.5974999999999999,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.12125,
+        "proba_ball": 0.28125,
+        "class_label": "healthy",
+        "n_windows": 4,
+        "predicted_label": "healthy",
+        "correct": true
+      },
+      {
+        "recording_id": "Normal_1",
+        "proba_healthy": 0.6105555555555555,
+        "proba_inner_race": 0.0044444444444444444,
+        "proba_outer_race": 0.33666666666666667,
+        "proba_ball": 0.04833333333333333,
+        "class_label": "healthy",
+        "n_windows": 9,
+        "predicted_label": "healthy",
+        "correct": true
+      },
+      {
+        "recording_id": "Normal_2",
+        "proba_healthy": 0.6494444444444444,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.2838888888888889,
+        "proba_ball": 0.06666666666666667,
+        "class_label": "healthy",
+        "n_windows": 9,
+        "predicted_label": "healthy",
+        "correct": true
+      },
+      {
+        "recording_id": "OR007@6_0",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.029444444444444447,
+        "proba_outer_race": 0.9705555555555555,
+        "proba_ball": 0.0,
+        "class_label": "outer_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR007@6_1",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0395,
+        "proba_outer_race": 0.9605,
+        "proba_ball": 0.0,
+        "class_label": "outer_race",
+        "n_windows": 10,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR007@6_2",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.09666666666666666,
+        "proba_outer_race": 0.9033333333333332,
+        "proba_ball": 0.0,
+        "class_label": "outer_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR014@6_0",
+        "proba_healthy": 0.0811111111111111,
+        "proba_inner_race": 0.008888888888888889,
+        "proba_outer_race": 0.7138888888888889,
+        "proba_ball": 0.19611111111111112,
+        "class_label": "outer_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR014@6_1",
+        "proba_healthy": 0.16055555555555556,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.7638888888888888,
+        "proba_ball": 0.07555555555555556,
+        "class_label": "outer_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR014@6_2",
+        "proba_healthy": 0.1388888888888889,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.7733333333333333,
+        "proba_ball": 0.08777777777777779,
+        "class_label": "outer_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR021@6_0",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.061,
+        "proba_outer_race": 0.9365,
+        "proba_ball": 0.0025,
+        "class_label": "outer_race",
+        "n_windows": 10,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR021@6_1",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.15611111111111112,
+        "proba_outer_race": 0.8083333333333333,
+        "proba_ball": 0.035555555555555556,
+        "class_label": "outer_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR021@6_2",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.15333333333333335,
+        "proba_outer_race": 0.8322222222222222,
+        "proba_ball": 0.014444444444444446,
+        "class_label": "outer_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": true
+      }
+    ]
+  },
+  "E4": {
+    "classes": [
+      "healthy",
+      "inner_race",
+      "outer_race",
+      "ball"
+    ],
+    "n_windows": 268,
+    "n_recordings": 30,
+    "raw_window": {
+      "accuracy": 0.996268656716418,
+      "balanced_accuracy": 0.9969512195121951,
+      "macro_f1": 0.9969325153374233,
+      "confusion": [
+        [
+          22,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          81,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          83,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          81
+        ]
+      ],
+      "confusion_normalized_true": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.012195121951219513,
+          0.0,
+          0.9878048780487805
+        ]
+      ],
+      "recall_by_class": {
+        "healthy": 1.0,
+        "inner_race": 1.0,
+        "outer_race": 1.0,
+        "ball": 0.9878048780487805
+      },
+      "support_by_class": {
+        "healthy": 22.0,
+        "inner_race": 81.0,
+        "outer_race": 83.0,
+        "ball": 82.0
+      }
+    },
+    "weighted_window": {
+      "accuracy": 0.9962962962962962,
+      "balanced_accuracy": 0.9969135802469136,
+      "macro_f1": 0.9969134626376558,
+      "confusion": [
+        [
+          3.0000000000000004,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          8.999999999999984,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          8.999999999999984,
+          0.0
+        ],
+        [
+          0.0,
+          0.1111111111111111,
+          0.0,
+          8.888888888888873
+        ]
+      ],
+      "confusion_normalized_true": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.012345679012345701,
+          0.0,
+          0.9876543209876544
+        ]
+      ],
+      "recall_by_class": {
+        "healthy": 1.0,
+        "inner_race": 1.0,
+        "outer_race": 1.0,
+        "ball": 0.9876543209876544
+      },
+      "support_by_class": {
+        "healthy": 3.0000000000000004,
+        "inner_race": 8.999999999999984,
+        "outer_race": 8.999999999999984,
+        "ball": 8.999999999999984
+      }
+    },
+    "record": {
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "confusion": [
+        [
+          3,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          9,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          9,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          9
+        ]
+      ],
+      "confusion_normalized_true": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "recall_by_class": {
+        "healthy": 1.0,
+        "inner_race": 1.0,
+        "outer_race": 1.0,
+        "ball": 1.0
+      },
+      "support_by_class": {
+        "healthy": 3.0,
+        "inner_race": 9.0,
+        "outer_race": 9.0,
+        "ball": 9.0
+      }
+    },
+    "per_record": [
+      {
+        "recording_id": "B007_0",
+        "proba_healthy": 0.0036428571428571434,
+        "proba_inner_race": 0.0015,
+        "proba_outer_race": 0.18207066869300909,
+        "proba_ball": 0.8127864741641337,
+        "class_label": "ball",
+        "n_windows": 10,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B007_1",
+        "proba_healthy": 0.01372734436564224,
+        "proba_inner_race": 0.001986603624901497,
+        "proba_outer_race": 0.05969656774646023,
+        "proba_ball": 0.9245894842629959,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B007_2",
+        "proba_healthy": 0.01888888888888889,
+        "proba_inner_race": 0.0016666666666666668,
+        "proba_outer_race": 0.0913949753949754,
+        "proba_ball": 0.888049469049469,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B014_0",
+        "proba_healthy": 0.03166666666666666,
+        "proba_inner_race": 0.05,
+        "proba_outer_race": 0.08150709219858156,
+        "proba_ball": 0.8368262411347518,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B014_1",
+        "proba_healthy": 0.023427895981087472,
+        "proba_inner_race": 0.0028723404255319145,
+        "proba_outer_race": 0.013713691035116628,
+        "proba_ball": 0.9599860725582641,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B014_2",
+        "proba_healthy": 0.034444444444444444,
+        "proba_inner_race": 0.023555555555555555,
+        "proba_outer_race": 0.017173737373737372,
+        "proba_ball": 0.9248262626262628,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B021_0",
+        "proba_healthy": 0.006666666666666666,
+        "proba_inner_race": 0.10611111111111111,
+        "proba_outer_race": 0.09086606655755593,
+        "proba_ball": 0.7963561556646663,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B021_1",
+        "proba_healthy": 0.012328605200945626,
+        "proba_inner_race": 0.04150453112687155,
+        "proba_outer_race": 0.0641974141077562,
+        "proba_ball": 0.8819694495644266,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "B021_2",
+        "proba_healthy": 0.0016666666666666666,
+        "proba_inner_race": 0.012777777777777779,
+        "proba_outer_race": 0.05207028557861891,
+        "proba_ball": 0.9334852699769366,
+        "class_label": "ball",
+        "n_windows": 9,
+        "predicted_label": "ball",
+        "correct": true
+      },
+      {
+        "recording_id": "IR007_0",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 1.0,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.0,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR007_1",
+        "proba_healthy": 0.0005555555555555556,
+        "proba_inner_race": 0.9994444444444444,
+        "proba_outer_race": 0.0,
+        "proba_ball": 0.0,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR007_2",
+        "proba_healthy": 0.006666666666666666,
+        "proba_inner_race": 0.991111111111111,
+        "proba_outer_race": 0.0022222222222222222,
+        "proba_ball": 0.0,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR014_0",
+        "proba_healthy": 0.0011111111111111111,
+        "proba_inner_race": 0.9905555555555554,
+        "proba_outer_race": 0.003333333333333333,
+        "proba_ball": 0.005,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR014_1",
+        "proba_healthy": 0.012222222222222223,
+        "proba_inner_race": 0.9396203703703703,
+        "proba_outer_race": 0.007830026455026456,
+        "proba_ball": 0.04032738095238095,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR014_2",
+        "proba_healthy": 0.0022222222222222222,
+        "proba_inner_race": 0.814439393939394,
+        "proba_outer_race": 0.012384848484848485,
+        "proba_ball": 0.17095353535353536,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR021_0",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.8927777777777778,
+        "proba_outer_race": 0.10666666666666666,
+        "proba_ball": 0.0005555555555555556,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR021_1",
+        "proba_healthy": 0.0005555555555555556,
+        "proba_inner_race": 0.9838888888888889,
+        "proba_outer_race": 0.006666666666666666,
+        "proba_ball": 0.008888888888888889,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "IR021_2",
+        "proba_healthy": 0.0011111111111111111,
+        "proba_inner_race": 0.9872222222222222,
+        "proba_outer_race": 0.0044444444444444444,
+        "proba_ball": 0.007222222222222223,
+        "class_label": "inner_race",
+        "n_windows": 9,
+        "predicted_label": "inner_race",
+        "correct": true
+      },
+      {
+        "recording_id": "Normal_0",
+        "proba_healthy": 0.49624999999999997,
+        "proba_inner_race": 0.08375,
+        "proba_outer_race": 0.22625,
+        "proba_ball": 0.19375,
+        "class_label": "healthy",
+        "n_windows": 4,
+        "predicted_label": "healthy",
+        "correct": true
+      },
+      {
+        "recording_id": "Normal_1",
+        "proba_healthy": 0.9158687943262412,
+        "proba_inner_race": 0.01392434988179669,
+        "proba_outer_race": 0.015277777777777779,
+        "proba_ball": 0.0549290780141844,
+        "class_label": "healthy",
+        "n_windows": 9,
+        "predicted_label": "healthy",
+        "correct": true
+      },
+      {
+        "recording_id": "Normal_2",
+        "proba_healthy": 0.6477777777777778,
+        "proba_inner_race": 0.003888888888888889,
+        "proba_outer_race": 0.14558888888888888,
+        "proba_ball": 0.20274444444444445,
+        "class_label": "healthy",
+        "n_windows": 9,
+        "predicted_label": "healthy",
+        "correct": true
+      },
+      {
+        "recording_id": "OR007@6_0",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.9988461538461537,
+        "proba_ball": 0.001153846153846154,
+        "class_label": "outer_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR007@6_1",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0,
+        "proba_outer_race": 0.9964999999999999,
+        "proba_ball": 0.0035000000000000005,
+        "class_label": "outer_race",
+        "n_windows": 10,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR007@6_2",
+        "proba_healthy": 0.0016666666666666666,
+        "proba_inner_race": 0.055,
+        "proba_outer_race": 0.9183333333333334,
+        "proba_ball": 0.025,
+        "class_label": "outer_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR014@6_0",
+        "proba_healthy": 0.004206349206349207,
+        "proba_inner_race": 0.003888888888888889,
+        "proba_outer_race": 0.8628479853479853,
+        "proba_ball": 0.12905677655677655,
+        "class_label": "outer_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR014@6_1",
+        "proba_healthy": 0.022720646178092985,
+        "proba_inner_race": 0.017165090622537432,
+        "proba_outer_race": 0.8255813290336538,
+        "proba_ball": 0.13453293416571588,
+        "class_label": "outer_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR014@6_2",
+        "proba_healthy": 0.01,
+        "proba_inner_race": 0.010555555555555556,
+        "proba_outer_race": 0.7035266789673652,
+        "proba_ball": 0.27591776547707925,
+        "class_label": "outer_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR021@6_0",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.0025,
+        "proba_outer_race": 0.9671987179487178,
+        "proba_ball": 0.030301282051282054,
+        "class_label": "outer_race",
+        "n_windows": 10,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR021@6_1",
+        "proba_healthy": 0.006666666666666666,
+        "proba_inner_race": 0.00537037037037037,
+        "proba_outer_race": 0.9027999900169712,
+        "proba_ball": 0.08516297294599182,
+        "class_label": "outer_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": true
+      },
+      {
+        "recording_id": "OR021@6_2",
+        "proba_healthy": 0.0,
+        "proba_inner_race": 0.003888888888888889,
+        "proba_outer_race": 0.9622653000594177,
+        "proba_ball": 0.0338458110516934,
+        "class_label": "outer_race",
+        "n_windows": 9,
+        "predicted_label": "outer_race",
+        "correct": true
+      }
+    ]
+  }
+}

@@ -134,7 +134,7 @@ def _development_scores(summary: pd.DataFrame, path: Path) -> None:
     axis.set_ylim(0, 1.05)
     axis.set_ylabel("Score hors pli")
     axis.set_title("Développement — fenêtres pondérées également par essai")
-    axis.legend(fontsize=8)
+    axis.legend(loc="lower right", fontsize=8)
     axis.grid(axis="y", alpha=0.2)
     _save(fig, path)
 
