@@ -5,7 +5,7 @@
 
 # Roadmap du mini-projet AML313 du groupe 7
 
-Création : **19 novembre 2026**. Dernière mise à jour : **20 novembre 2026**.
+Création : **19 novembre 2026**. Dernière mise à jour : **21 novembre 2026**.
 
 ## 1. Rôle et autorité
 
@@ -130,3 +130,7 @@ Après consultation du test final, une nouvelle idée reste exploratoire et ne p
 | 2026-11-20 | Site privé publié avec succès ; URL et version conservées dans `presentation/web/deployment.json`. | T53 terminé avec limite explicite de vérification en navigateur ; T49 reste ouvert pour la répétition humaine. |
 | 2026-11-20 | Animations d’entrée ECharts demandées : rejeu à chaque apparition, dimensionnement séparé et préférence de mouvement suivie en direct. | Contrôles DOM et moteur d’animation natif réussis ; valeurs scientifiques conservées. |
 | 2026-11-20 | Version animée du Site privé publiée avec succès. | T54 terminé ; tests natifs de cycle d’animation réussis, contrôle visuel en navigateur toujours indisponible. |
+| 2026-11-20 | Explication détaillée exportée en guide PDF anglais à la demande de l'utilisateur, avec les deux auteurs. | T55 terminé : dix pages rendues et inspectées, chiffres clés contrôlés ; guide complémentaire à l'article français, sans modification scientifique. La prochaine action reste T49, répétition humaine. |
+| 2026-11-20 | Thème clair demandé : fond blanc, palette marine et jaune, graphiques ECharts harmonisés. | Dix diapositives inspectées dans le navigateur intégré sur écran de bureau ; contrôles DOM, 38 états SVG et animations réussis. T56 terminé, version claire publiée avec succès ; prochaine action pédagogique T49 inchangée. |
+| 2026-11-21 | Harmonisation demandée du PowerPoint avec le thème clair de la version web. | Dix diapositives et figures restylées ; données, notes et crédits conservés. T57 terminé : paquet validé, dix rendus du fichier final inspectés ; prochaine action pédagogique T49 inchangée. |
+| 2026-11-21 | Application demandée de dashboard-design à l'article et au PDF de soumission. | T58 terminé : six pages rendues et inspectées ; score, baseline, effectifs, unités de décision et incertitude lisibles ensemble. Sources gelées et résultats inchangés ; copie de soumission synchronisée avec les deux auteurs en première page. Prochaine action pédagogique T49 inchangée. |

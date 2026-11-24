@@ -12,12 +12,13 @@ import argparse
 import html
 import json
 import re
+import shutil
 from pathlib import Path
 
 import pandas as pd
 from pypdf import PdfReader
 from reportlab.lib import colors
-from reportlab.lib.enums import TA_CENTER, TA_LEFT
+from reportlab.lib.enums import TA_CENTER, TA_LEFT, TA_RIGHT
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.utils import ImageReader
@@ -35,6 +36,7 @@ FIGURES = ("temporal_features.png", "spectra_envelope.png", "development_scores.
 CLASSES = {"healthy": "Sain", "inner_race": "Bague interne", "outer_race": "Bague externe", "ball": "Bille"}
 EXPERIMENTS = ("E1", "E2", "E3", "E4")
 PAGE_BREAK = "<!-- PAGE BREAK -->"
+SUBMISSION = "MouhamedouYahyaCheikhMedVall_MaryeimMohamedTFeil_MiniProjet.pdf"
 
 
 def _read_evidence(root: Path) -> dict:
@@ -59,7 +61,7 @@ def _read_evidence(root: Path) -> dict:
 
 
 def _pct(value: float) -> str:
-    return f"{100 * value:.1f}%".replace(".", ",")
+    return f"{100 * value:.2f} %".replace(".", ",")
 
 
 def _number(value: float, digits: int = 3) -> str:
@@ -71,7 +73,7 @@ def _row(summary: pd.DataFrame, stage: str, experiment: str) -> pd.Series:
 
 
 def _score_table(summary: pd.DataFrame, stage: str) -> str:
-    lines = ["| Essai | Exact. équilibrée | Exact. pondérée | Macro-F1 | Exact. par essai |",
+    lines = ["| Modèle | Exact. équilibrée | Exact. pondérée | Macro-F1 | Exact. par essai |",
              "| --- | ---: | ---: | ---: | ---: |"]
     for experiment in EXPERIMENTS:
         row = _row(summary, stage, experiment)
@@ -86,14 +88,14 @@ def _ablation_text(summary: pd.DataFrame, stage: str) -> str:
                  ("E4 - E3", values["E4"] - values["E3"]),
                  ("E3 - E1", values["E3"] - values["E1"]),
                  ("E4 - E2", values["E4"] - values["E2"])]
-    return "; ".join(f"{name} = {delta * 100:+.1f} points".replace(".", ",") for name, delta in contrasts) + "."
+    return "; ".join(f"{name} = {delta * 100:+.2f} points".replace(".", ",") for name, delta in contrasts) + "."
 
 
 def _ci(bootstrap: dict, comparison: str) -> str:
     entry = bootstrap["comparisons"][comparison]
     low, high = entry["ci95"]
-    return (f"{comparison.replace('_minus_', ' - ')} : {100 * entry['point_difference']:+.1f} points "
-            f"[IC bootstrap 95 % : {100 * low:+.1f} ; {100 * high:+.1f}]").replace(".", ",")
+    return (f"{comparison.replace('_minus_', ' - ')} : {100 * entry['point_difference']:+.2f} points "
+            f"[IC bootstrap 95 % : {100 * low:+.2f} ; {100 * high:+.2f}]").replace(".", ",")
 
 
 def make_markdown(root: Path, evidence: dict) -> str:
@@ -123,11 +125,13 @@ def make_markdown(root: Path, evidence: dict) -> str:
 
 # Diagnostic de défauts de roulement par vibration
 
-**AML313 · Groupe 7 · Article scientifique court · 20 novembre 2026**
+**AML313 · Groupe 7 · Article scientifique court · 21 novembre 2026**
 
 ## Résumé
 
-Nous comparons quatre diagnostics de roulements CWRU à partir de fenêtres vibratoires. La question est de savoir si dix caractéristiques spectrales et d'enveloppe améliorent trois indicateurs temporels, et si le diagnostic tient sur une charge réservée. Le développement compte {n_dev} enregistrements ({nw_dev} fenêtres) à 0, 1 et 2 HP ; le test final compte {n_final} enregistrements ({nw_final} fenêtres) à 3 HP. Le choix du développement est {winner}, avec une exactitude équilibrée hors pli de {winner_dev}. Sur la charge réservée, son exactitude équilibrée pondérée par essai est {winner_final}. Les scores ne démontrent pas à eux seuls un transfert vers une autre machine.
+Nous comparons quatre diagnostics de roulements CWRU à partir de fenêtres vibratoires. La question est de savoir si dix caractéristiques spectrales et d'enveloppe améliorent trois indicateurs temporels, et si le diagnostic tient sur une charge réservée. Le développement compte {n_dev} enregistrements ({nw_dev} fenêtres) à 0, 1 et 2 HP ; le test final compte {n_final} enregistrements ({nw_final} fenêtres) à 3 HP. Le choix du développement est {winner}, avec une exactitude équilibrée hors pli de {winner_dev}. Les résultats ci-dessous concernent uniquement le banc CWRU et la charge réservée. Ils ne démontrent pas un transfert vers une autre machine.
+
+<!-- RESULTS OVERVIEW -->
 
 ## 1. Question et données
 
@@ -150,7 +154,7 @@ Les fichiers sains sont identifiés à 48 kHz et ceux des défauts à 12 kHz [1,
 
 Sur le signal centré de chaque fenêtre, **RMS** = √moyenne(x²), **kurtosis** = moment centré d'ordre quatre normalisé (Pearson, correction d'échantillon), et **facteur de crête** = max|x| / RMS. Une fenêtre dégénérée provoque une erreur. Ces trois variables alimentent E1 et E3 ; aucune charge, étiquette ou vitesse brute n'entre dans X.
 
-![Figure 1. Indicateurs temporels : un point représente la médiane d'un essai du développement ; le trait rouge est la médiane de la classe.](../results/figures/temporal_features.png)
+![Figure 1. Indicateurs temporels : un point représente la médiane d'un essai du développement ; le trait sombre est la médiane de la classe. Les axes verticaux sont propres à chaque indicateur.](figures/temporal_features.png)
 
 Dans cette figure du développement, les essais sains ont un RMS faible ; les défauts montrent des valeurs plus dispersées. Les distributions de kurtosis et de facteur de crête se recouvrent entre classes. L'unité d'accélération numérique n'est pas établie par les pages consultées. Les points représentent des essais, pas des fenêtres indépendantes.
 
@@ -164,7 +168,7 @@ Chaque spectre retire la moyenne, applique Hann, puis corrige l'amplitude par la
 
 Pour le roulement DE et une vitesse r en tr/min, **BPFO = 3,5848 × r/60** et **BPFI = 5,4152 × r/60** [4]. Le passe-bande Butterworth d'ordre 4 couvre 2–5 kHz et avance causalement sur chaque essai. L'enveloppe analytique est calculée sur la fenêtre fermée ; le diagnostic n'est disponible qu'à sa fin. Le filtre a une réponse contrôlée numériquement, mais la résonance optimale d'un roulement donné n'est pas prouvée.
 
-![Figure 2. Vibration et enveloppe : une fenêtre de chaque classe du développement. Les lignes BPFO et BPFI viennent de la vitesse de l'essai.](../results/figures/spectra_envelope.png)
+![Figure 2. Vibration et enveloppe : une fenêtre par classe du développement. BPFO (tirets jaunes) et BPFI (tirets marine) dépendent de la vitesse. Amplitudes non certifiées et axes indépendants par signal.](figures/spectra_envelope.png)
 
 Les dix variables ajoutées sont quatre descripteurs de forme spectrale et six parts d'énergie d'enveloppe près des harmoniques 1–3 de BPFO/BPFI (±3 Hz). Elles sont calculées de la même façon pour toutes les classes. Les deux vitesses saines approximatives rendent leurs bandes moins sûres.
 
@@ -178,7 +182,7 @@ La grille fixée contient profondeurs 3, 6 ou libre et feuilles minimales 1 ou 5
 
 {_score_table(summary, 'development')}
 
-![Figure 3. Scores hors pli du développement, chaque essai ayant le même poids total.](../results/figures/development_scores.png)
+![Figure 3. Exactitude équilibrée hors pli, poids égal par essai. E4 (or) est retenu avant le test ; tous les modèles restent visibles sur une même échelle partant de zéro.](figures/development_scores.png)
 
 Différences de l'exactitude équilibrée : {_ablation_text(summary, 'development')} Ces scores ont servi à choisir les modèles. Après cette sélection, ils sont optimistes et ne constituent pas une estimation indépendante.
 
@@ -192,9 +196,9 @@ Après gel de la configuration, des empreintes, des variables et des réglages, 
 
 Les exactitudes **brutes** par fenêtre sont : {raw}. Le tableau principal pondère les fenêtres pour que chaque essai compte autant. L'« exactitude par essai » classe la moyenne des probabilités de ses fenêtres. Les deux unités de décision répondent à des questions différentes.
 
-![Figure 4. Matrices de confusion finales par enregistrement, E1–E4 ; lignes réelles, colonnes prédites.](../results/figures/final_confusion.png)
+![Figure 4. E4 : deux erreurs de fenêtre (externe prédite bille), puis dix essais agrégés corrects. Lignes réelles, colonnes prédites ; comptes bruts. Les deux échelles de couleur ont des maxima distincts : 28 fenêtres et 3 essais.](figures/final_confusion.png)
 
-E4 classe correctement les dix essais après agrégation, mais son rappel pondéré des fenêtres de bague externe est de {_pct(final['E4']['weighted_window']['recall_by_class']['outer_race'])}. L'agrégation masque donc certaines erreurs de fenêtre. Par rapport au développement, les écarts à 3 HP mêlent changement de charge, changement d'essai et possibles différences entre roulements.
+E1 ne classe que neuf essais sur dix : un essai externe est prédit bille. E2, E3 et E4 classent les dix essais correctement. E4 garde toutefois deux erreurs de fenêtre, et son rappel pondéré des fenêtres de bague externe est de {_pct(final['E4']['weighted_window']['recall_by_class']['outer_race'])}. L'agrégation masque donc certaines erreurs de fenêtre. Par rapport au développement, les écarts à 3 HP mêlent changement de charge, changement d'essai et possibles différences entre roulements.
 
 {PAGE_BREAK}
 
@@ -202,7 +206,7 @@ E4 classe correctement les dix essais après agrégation, mais son rappel pondé
 
 Les ablations finales, en points d'exactitude équilibrée pondérée par essai, sont : {_ablation_text(summary, 'final')} Elles décrivent le test réservé ; elles ne déclenchent aucun nouveau choix de modèle.
 
-![Figure 5. Ablation E1–E4 sur développement et test réservé ; le second tracé est descriptif.](../results/figures/ablation.png)
+![Figure 5. À gauche : E1–E4 sur développement et test, échelle commune. À droite : gains appariés et IC bootstrap 95 %. La ligne zéro matérialise l'absence de gain. Le test reste descriptif, sans nouvelle sélection.](figures/ablation.png)
 
 Le bootstrap apparié tire {bootstrap['n_bootstrap']} fois des **enregistrements** au sein de chaque classe et partage les tirages entre modèles. Exemples de différences : {_ci(bootstrap, 'E4_minus_E1')} ; {_ci(bootstrap, 'E4_minus_E3')}. La borne basse du premier intervalle vaut zéro : ce contraste ne garantit pas un gain strict. La classe {one_record} n'a qu'un essai à 3 HP : sa variabilité entre essais n'est pas estimable. Les intervalles ne couvrent pas le changement de machine.
 
@@ -241,35 +245,64 @@ def _inline(value: str) -> str:
 
 
 def _styles() -> dict:
-    blue = colors.HexColor("#173b5b")
-    slate = colors.HexColor("#253445")
+    ink = colors.HexColor("#000814")
+    navy = colors.HexColor("#003566")
+    muted = colors.HexColor("#41566d")
     return {
-        "identity": ParagraphStyle("identity", fontName="Liberation-Bold", fontSize=16, leading=19, textColor=blue, spaceAfter=3),
-        "title": ParagraphStyle("title", fontName="Liberation-Bold", fontSize=20, leading=24, textColor=blue, spaceAfter=10),
-        "h2": ParagraphStyle("h2", fontName="Liberation-Bold", fontSize=12.2, leading=15, textColor=blue, spaceBefore=6, spaceAfter=6),
-        "h3": ParagraphStyle("h3", fontName="Liberation-Bold", fontSize=10.2, leading=13, textColor=blue, spaceBefore=5, spaceAfter=4),
-        "body": ParagraphStyle("body", fontName="Liberation", fontSize=9.05, leading=12.25, textColor=slate, spaceAfter=7),
-        "caption": ParagraphStyle("caption", fontName="Liberation-Italic", fontSize=8, leading=10, textColor=slate, spaceBefore=3, spaceAfter=8),
-        "table": ParagraphStyle("table", fontName="Liberation", fontSize=8.0, leading=10, textColor=slate),
-        "small": ParagraphStyle("small", fontName="Liberation", fontSize=8.0, leading=10.4, textColor=slate, spaceAfter=6),
+        "identity": ParagraphStyle("identity", fontName="Liberation-Bold", fontSize=16, leading=19, textColor=navy, spaceAfter=3),
+        "title": ParagraphStyle("title", fontName="Liberation-Bold", fontSize=23, leading=27, textColor=ink, spaceBefore=6, spaceAfter=10),
+        "h2": ParagraphStyle("h2", fontName="Liberation-Bold", fontSize=14, leading=18, textColor=navy, spaceBefore=9, spaceAfter=8, keepWithNext=True),
+        "h3": ParagraphStyle("h3", fontName="Liberation-Bold", fontSize=11, leading=14, textColor=navy, spaceBefore=7, spaceAfter=5, keepWithNext=True),
+        "body": ParagraphStyle("body", fontName="Liberation", fontSize=10, leading=13.7, textColor=ink, spaceAfter=9, allowWidows=0, allowOrphans=0),
+        "caption": ParagraphStyle("caption", fontName="Liberation", fontSize=8.5, leading=11.2, textColor=muted, spaceBefore=5, spaceAfter=10),
+        "table": ParagraphStyle("table", fontName="Liberation", fontSize=9, leading=11.5, textColor=ink),
+        "small": ParagraphStyle("small", fontName="Liberation", fontSize=8.5, leading=11.2, textColor=muted, spaceAfter=5),
+        "callout": ParagraphStyle("callout", fontName="Liberation", fontSize=9.5, leading=13, textColor=colors.HexColor("#001d3d"), backColor=colors.HexColor("#fff6cc"), borderPadding=7, spaceBefore=5, spaceAfter=12),
     }
+
+
+def _overview(root: Path, styles: dict, width: float) -> list:
+    evidence = _read_evidence(root)
+    s = evidence["summary"]
+    winner = evidence["selection"]["winner"]
+    score = _row(s, "final", winner)
+    baseline = _row(s, "final", "E1")
+    gain = (score.balanced_accuracy-baseline.balanced_accuracy)*100
+    entries = [(_pct(score.balanced_accuracy), f"{winner} · exactitude équilibrée"),
+               (f"+{gain:.2f} points".replace(".", ","), f"face à E1 : {_pct(baseline.balanced_accuracy)}"),
+               (f"{round(score.record_accuracy*score.n_recordings)}/{int(score.n_recordings)}", "essais correctement diagnostiqués")]
+    large = ParagraphStyle("metric", fontName="Liberation-Bold", fontSize=22, leading=28, textColor=colors.HexColor("#003566"))
+    small = ParagraphStyle("metric-label", fontName="Liberation", fontSize=8.2, leading=11, textColor=colors.HexColor("#41566d"))
+    t = Table([[Paragraph(value, large) for value,_ in entries], [Paragraph(label,small) for _,label in entries]], colWidths=[width*.33,width*.37,width*.30])
+    t.setStyle(TableStyle([("VALIGN",(0,0),(-1,-1),"TOP"),("LEFTPADDING",(0,0),(-1,-1),8),("RIGHTPADDING",(0,0),(-1,-1),6),("TOPPADDING",(0,0),(-1,0),8),("BOTTOMPADDING",(0,-1),(-1,-1),9),("LINEABOVE",(0,0),(-1,0),2.5,colors.HexColor("#ffd60a")),("BACKGROUND",(0,0),(-1,-1),colors.HexColor("#f5f7fa"))]))
+    ci = evidence["bootstrap"]["comparisons"][f"{winner}_minus_E1"]["ci95"]
+    interval = f"[{ci[0]*100:.2f} ; {ci[1]*100:.2f}]".replace(".", ",")
+    n_healthy = sum(evidence["final"][winner]["record"]["confusion"][0])
+    notice = (f"<b>Test réservé : 3 HP, {int(score.n_recordings)} essais, {int(score.n_windows)} fenêtres.</b> "
+              f"Poids égal par essai pour les métriques par fenêtre. {n_healthy} seul essai sain. "
+              f"Le gain {winner} − E1 a un IC 95 % de {interval} points : sa borne basse touche zéro.")
+    return [t, Spacer(1,6), Paragraph(notice,styles["callout"])]
 
 
 def _table(lines: list[str], styles: dict, width: float) -> Table:
     rows = [[cell.strip() for cell in line.strip().strip("|").split("|")] for line in lines]
-    rows.pop(1)  # Markdown separator.
+    rows.pop(1)
     cols = len(rows[0])
-    data = [[Paragraph(_inline(cell), styles["table"]) for cell in row] for row in rows]
-    table = Table(data, colWidths=[width / cols] * cols, hAlign="LEFT")
-    table.setStyle(TableStyle([
-        ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#e8f0f5")),
-        ("LINEBELOW", (0, 0), (-1, 0), 0.6, colors.HexColor("#9ab2c3")),
-        ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#f7fafc")]),
-        ("VALIGN", (0, 0), (-1, -1), "TOP"),
-        ("LEFTPADDING", (0, 0), (-1, -1), 5), ("RIGHTPADDING", (0, 0), (-1, -1), 5),
-        ("TOPPADDING", (0, 0), (-1, -1), 4), ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
-    ]))
-    return table
+    score = rows[0][0] == "Modèle"
+    ratios = [.12,.24,.23,.18,.23] if score else [.16,.10,.12,.13,.10,.39]
+    data = []
+    for r,row in enumerate(rows):
+        cells=[]
+        for c,value in enumerate(row):
+            st = ParagraphStyle(f"cell-{r}-{c}",parent=styles["table"],alignment=TA_RIGHT if c>0 and (score or c<5) else TA_LEFT, fontName="Liberation-Bold" if r==0 or row[0]=="E4" else "Liberation",textColor=colors.white if r==0 else colors.HexColor("#000814"))
+            cells.append(Paragraph(_inline(value),st))
+        data.append(cells)
+    t=Table(data,colWidths=[width*x/sum(ratios) for x in ratios],hAlign="LEFT",repeatRows=1)
+    commands=[("BACKGROUND",(0,0),(-1,0),colors.HexColor("#001d3d")),("ROWBACKGROUNDS",(0,1),(-1,-1),[colors.HexColor("#f5f7fa"),colors.white]),("VALIGN",(0,0),(-1,-1),"TOP"),("LEFTPADDING",(0,0),(-1,-1),6),("RIGHTPADDING",(0,0),(-1,-1),6),("TOPPADDING",(0,0),(-1,-1),6),("BOTTOMPADDING",(0,0),(-1,-1),6),("LINEBELOW",(0,-1),(-1,-1),.5,colors.HexColor("#d6dfe9"))]
+    for r,row in enumerate(rows):
+        if row[0]=="E4": commands.extend([("BACKGROUND",(0,r),(-1,r),colors.HexColor("#fff6cc")),("LINEBEFORE",(0,r),(0,r),2.5,colors.HexColor("#ffc300"))])
+    t.setStyle(TableStyle(commands))
+    return t
 
 
 def _image(root: Path, line: str, styles: dict, max_width: float) -> list:
@@ -283,16 +316,16 @@ def _image(root: Path, line: str, styles: dict, max_width: float) -> list:
     raw_width, raw_height = ImageReader(str(path)).getSize()
     # Tall spectrum and confusion panels get the available page width while
     # retaining a readable aspect ratio.
-    width = min(max_width, 485)
+    width = min(max_width, 500)
     height = width * raw_height / raw_width
     if path.name == "spectra_envelope.png":
-        width = 420
+        width = 480
         height = width * raw_height / raw_width
     elif path.name == "final_confusion.png":
-        width = 390
+        width = 480
         height = width * raw_height / raw_width
     elif path.name == "ablation.png":
-        width = 380
+        width = 480
         height = width * raw_height / raw_width
     graphic = Image(str(path), width=width, height=height, hAlign="CENTER")
     return [graphic, Paragraph(_inline(caption), styles["caption"])]
@@ -308,7 +341,9 @@ def _story(root: Path, markdown: str, styles: dict, width: float) -> list:
         if not line:
             index += 1
             continue
-        if line == PAGE_BREAK:
+        if line == "<!-- RESULTS OVERVIEW -->":
+            story.extend(_overview(root,styles,width))
+        elif line == PAGE_BREAK:
             story.append(PageBreak())
         elif line.startswith("!["):
             story.extend(_image(root, line, styles, width))
@@ -332,7 +367,7 @@ def _story(root: Path, markdown: str, styles: dict, width: float) -> list:
             while index + 1 < len(lines) and lines[index + 1].strip() and not lines[index + 1].startswith(("#", "|", "![", "<!--")):
                 index += 1
                 paragraph.append(lines[index].strip())
-            style = styles["small"] if re.match(r"\[\d+\]", line) else styles["body"]
+            style = styles["small"] if re.match(r"\[\d+\]", line) else styles["callout"] if line.startswith("**Limite de population.") else styles["body"]
             story.append(Paragraph(_inline(" ".join(paragraph)), style))
         index += 1
     return story
@@ -341,7 +376,7 @@ def _story(root: Path, markdown: str, styles: dict, width: float) -> list:
 class Article(BaseDocTemplate):
     def __init__(self, path: Path):
         super().__init__(str(path), pagesize=A4, leftMargin=47, rightMargin=47,
-                         topMargin=39, bottomMargin=42, title="Diagnostic de défauts de roulement par vibration",
+                         topMargin=44, bottomMargin=42, title="Diagnostic de défauts de roulement par vibration",
                          author="Mouhamedou Yahya Cheikh Med Vall ; Maryeim Mohamed T'Feil")
         frame = Frame(self.leftMargin, self.bottomMargin, self.width, self.height,
                       leftPadding=0, rightPadding=0, topPadding=0, bottomPadding=0)
@@ -349,10 +384,12 @@ class Article(BaseDocTemplate):
 
     def _page(self, canvas, doc):
         canvas.saveState()
-        canvas.setStrokeColor(colors.HexColor("#b7c9d6"))
+        canvas.setFillColor(colors.HexColor("#ffd60a"))
+        canvas.rect(0,A4[1]-6,A4[0],6,fill=1,stroke=0)
+        canvas.setStrokeColor(colors.HexColor("#d6dfe9"))
         canvas.line(47, 31, A4[0] - 47, 31)
         canvas.setFont("Liberation", 7.5)
-        canvas.setFillColor(colors.HexColor("#536a7b"))
+        canvas.setFillColor(colors.HexColor("#41566d"))
         canvas.drawString(47, 20, "AML313 · Groupe 7 · CWRU")
         canvas.drawRightString(A4[0] - 47, 20, f"{doc.page} / 6")
         canvas.restoreState()
@@ -379,6 +416,10 @@ def main() -> None:
     pages = len(PdfReader(str(pdf_path)).pages)
     if pages != 6:
         raise ValueError(f"layout overflow: expected 6 pages, rendered {pages}")
+    submission = root / "output/pdf" / SUBMISSION
+    submission.parent.mkdir(parents=True,exist_ok=True)
+    shutil.copy2(pdf_path,submission)
+    print(f"Submission copy: {submission}")
     print(f"Built {markdown_path} and {pdf_path} ({pages} pages)")
 
 

@@ -43,7 +43,11 @@ node presentation/web/check_animations.cjs
 
 Le contrôle DOM vérifie les auteurs, les dix diapositives, les raccourcis, les commandes de lecture, leurs dénominateurs et les tableaux. ECharts rend réellement 38 états SVG : 19 combinaisons pertinentes en largeurs 900 et 360 pixels. Les métriques sont comparées aux preuves gelées.
 
-Cette vérification ne remplace pas une inspection complète en navigateur. Le navigateur local est désactivé dans les réglages Work. Des rendus SVG représentatifs ont été inspectés et l’aperçu HTTP a répondu 200 ; cette limite figure dans `verification.json`.
+Cette vérification automatisée ne remplace pas une inspection en navigateur. Lors du passage au thème clair, les dix diapositives ont été inspectées dans le navigateur intégré sur écran de bureau ; l'aperçu HTTP répond 200. La mise en page mobile n'a pas été inspectée visuellement ; ses graphiques sont contrôlés en SVG à 360 pixels. Le périmètre figure dans `verification.json`.
+
+## Thème clair
+
+Le fond est blanc. Les couleurs demandées sont définies dans `dist/style.css` : ink-black `#000814`, prussian-blue `#001d3d`, regal-navy `#003566`, school-bus-yellow `#ffc300` et gold `#ffd60a`. Les textes et courbes utilisent les bleus ; les sélections et accents utilisent les jaunes avec un texte sombre. Les graphiques ECharts suivent la même palette, avec des symboles distincts pour les classes du nuage de points et des étiquettes contrastées. Les animations et données sont conservées.
 
 ## Publication
 

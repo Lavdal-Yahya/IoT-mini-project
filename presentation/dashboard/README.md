@@ -11,6 +11,8 @@ Cette variante applique la compétence `dashboard-design` demandée : le périm�
 
 Le diaporama est un support explicatif, sans filtres ni données simulées. Il présente le même test final gelé. Les tableaux et les deux graphiques de scores sont des objets natifs éditables. Les figures de signaux sont incorporées au fichier. Aucun signal n’a été réanalysé pour modifier un score.
 
+Depuis le 21 novembre 2026, cette version reprend le thème clair de la présentation web : fond blanc, ink-black `#000814`, prussian-blue `#001d3d`, regal-navy `#003566`, school-bus-yellow `#ffc300` et gold `#ffd60a`. Les barres E4 et la cellule E4 de l'ablation sont dorées ; la matrice utilise des cellules bleu marine et des erreurs sur fond jaune pâle. Les deux figures sont retracées depuis les valeurs enregistrées de la version web, avec les mêmes couleurs de classes et des symboles distincts.
+
 ## Déroulé de dix minutes
 
 | Diapositive | Sujet | Durée estimée |
@@ -30,7 +32,7 @@ Les quinze questions préparées dans [questions_reponses.md](../questions_repon
 
 ## Régénérer le fichier
 
-Le constructeur [build_dashboard.mjs](build_dashboard.mjs) lit directement `results/summary.csv`, `results/final_metrics.json`, `results/final_bootstrap.json`, `results/selection.json`, `configs/experiment.json` et `data/classcoverage.csv`. Les deux images viennent des figures vérifiées du projet. Le script n’entraîne aucun modèle.
+Le constructeur [build_dashboard.mjs](build_dashboard.mjs) lit directement `results/summary.csv`, `results/final_metrics.json`, `results/final_bootstrap.json`, `results/selection.json`, `configs/experiment.json` et `data/classcoverage.csv`. Avant l'export, `.venv/bin/python presentation/dashboard/build_theme_figures.py` retrace les deux figures sous `assets/` depuis `presentation/web/dist/data.js`. Les scripts n’entraînent aucun modèle.
 
 [export_dashboard.mjs](export_dashboard.mjs) utilise le runtime Node et `@oai/artifact-tool` fournis par Codex, ainsi que le validateur de la compétence Presentations. Renseigner les chemins du runtime renvoyés par `load_workspace_dependencies` :
 
@@ -41,6 +43,6 @@ export PRESENTATIONS_SKILL=/chemin/de/la/competence/presentations
 /chemin/du/runtime/node presentation/dashboard/export_dashboard.mjs presentation/dashboard/diagnostic_dashboard_revision.pptx
 ```
 
-Le générateur refuse d’écraser un fichier final existant. Le dossier temporaire `tmp/dashboard-build/` contient les rendus de contrôle et la validation. Il reste hors Git. Les classeurs incorporés dans les graphiques sont des instantanés des valeurs publiées, sans formules scientifiques. La reconstruction du support est indépendante de la reproduction scientifique Python.
+Le générateur refuse d’écraser un fichier final existant. Un dossier temporaire unique `tmp/dashboard-build-*/` contient les rendus de contrôle et la validation. Il reste hors Git. Après validation d'une révision, recopier le fichier final à l'emplacement du livrable pour le mettre à jour. Les classeurs incorporés dans les graphiques sont des instantanés des valeurs publiées, sans formules scientifiques. La reconstruction du support est indépendante de la reproduction scientifique Python.
 
 La variante est livrée en PowerPoint séparé car la session de présentation du chat est liée au support initial et la création d’un second artefact n’est pas disponible. Le support initial conserve son contenu et son identifiant. Le fichier a été rendu et contrôlé, puis importé par Artifact Tool ; aucune ouverture dans Microsoft PowerPoint n’est revendiquée.

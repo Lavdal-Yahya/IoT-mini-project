@@ -1,5 +1,5 @@
 {
-  "title": "AML313 groupe 7 — Diagnostic vibratoire, version analytique",
+  "title": "AML313 groupe 7 · Diagnostic vibratoire, version claire",
   "file": "presentation/dashboard/diagnostic_dashboard.pptx",
   "format": "pptx",
   "slides": 10,
@@ -18,7 +18,7 @@
   "builder": "presentation/dashboard/build_dashboard.mjs",
   "exporter": "presentation/dashboard/export_dashboard.mjs",
   "original_artifact_ref": "artifact_R9buHvj_oDqBtxtptKyCJWAqPwT9vHIk",
-  "sha256": "d295ab32e99e60dfdef1a990b2c7a831badd9c80a074f3429c055bd8e2b32b0d",
+  "sha256": "dbc3d4e46d2ff3c12a50c777c2249c2b8197f8c33f54fc6d981ce7ce49ff7c4c",
   "evidence_sha256": {
     "results/summary.csv": "aae2fed4278295982fc5c453c249d9bfea1d5f67f01f8d490f95839fb5d328b1",
     "results/final_metrics.json": "bdc70f12e2bdafcde774e60eac529b19d7b1feafecef3c46ecdb1da52cf4c1e0",
@@ -26,8 +26,42 @@
     "results/selection.json": "d0e8f39851f165d2841130b7e2567c090405a1a4d558a5cdb3804a4b2104be23",
     "configs/experiment.json": "d9cd07c42ef567cb9aaac24da9fcc2b34b7392d295f36501226372afb37b3c9f",
     "data/classcoverage.csv": "5e44f1b930d0c3c31032b117c7c1d807976b30364a5614456446359dbdadbf51",
-    "results/figures/temporal_features.png": "efc67200c794d8e77bb40d761a15fc1d59bb159a0e855c30883630d5108c415c",
-    "presentation/envelope_examples.png": "787d310614f8585f10e77820da70ad8e4efa475c32fe175247b793f7b303eaea"
+    "presentation/web/dist/data.js": "a412e5e1ece4c6251a3f4fead02bfecf273f699ee0c2aec534a7906e660e7148",
+    "presentation/dashboard/assets/temporal_features.png": "1afe648c4e68a64731d8442c0266b092b34ae834916ecda05636cecf64114bf1",
+    "presentation/dashboard/assets/envelope_examples.png": "b7bff653530aefdd8fe52c882df760db79a6cacbf5063033a0706e239959d12e"
   },
-  "review": "Dix rendus inspectés ; validation structurelle et import Artifact Tool réussis. Application Microsoft PowerPoint non ouverte."
+  "review": "Dix diapositives du fichier final importées et rendues avec Artifact Tool, puis inspectées. Validation structurelle et géométrique réussie. Dix notes conservées, deux graphiques natifs avec classeurs incorporés. Application Microsoft PowerPoint non ouverte.",
+  "updated_at": "2026-11-21",
+  "theme": {
+    "mode": "light",
+    "palette": [
+      "#000814",
+      "#001d3d",
+      "#003566",
+      "#ffc300",
+      "#ffd60a"
+    ],
+    "background": "#ffffff",
+    "matches_web_palette": true
+  },
+  "figure_builder": "presentation/dashboard/build_theme_figures.py",
+  "validation": {
+    "package_integrity": "pass",
+    "layout_geometry": "pass",
+    "font_policy": "pass",
+    "native_chart_slides": [
+      7,
+      8
+    ],
+    "native_table_slides": [
+      2,
+      5,
+      6,
+      9,
+      10
+    ],
+    "speaker_notes_preserved": true,
+    "final_slides_rendered_and_reviewed": 10,
+    "scientific_fingerprints_unchanged": true
+  }
 }

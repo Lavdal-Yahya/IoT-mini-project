@@ -5,7 +5,7 @@
 
 # Tâches du mini-projet AML313 du groupe 7
 
-Dernière mise à jour : **20 novembre 2026**.
+Dernière mise à jour : **21 novembre 2026**.
 
 ## Mode d'emploi
 
@@ -107,3 +107,11 @@ Prérequis : M5 terminé pour les résultats finaux. Un premier brouillon des li
 - [x] **T53 — Livrer une présentation web avec Apache ECharts.** Dix diapositives, deux auteurs, graphiques des résultats gelés, navigation clavier, lecture par modèle et unité, données exactes accessibles. Preuves : `presentation/web/verification.json`, `assets.sha256.json`, source de génération et publication du Site confirmée par `deployment.json` (statut succeeded). Le contrôle complet en navigateur reste indisponible ; T49 continue d’exiger une répétition humaine.
 
 - [x] **T54 — Animer les graphiques lors de l’apparition des diapositives.** Entrées ECharts natives sur lignes, barres, points, matrice et intervalles ; rejeu à la revisite, absence de boucle et réduction du mouvement. Preuve : `presentation/web/check_animations.cjs` exécuté avec succès ; version publiée avec succès, identifiée dans `presentation/web/deployment.json`.
+
+- [x] **T55 — Livrer l'explication détaillée en PDF.** Guide pédagogique en anglais demandé par l'utilisateur, avec les deux auteurs et les résultats gelés. Preuves : `output/pdf/project_rundown.pdf`, dix pages rendues avec Poppler et inspectées ; `report/build_rundown.py` vérifie les crédits et chiffres clés par extraction de texte. T49 reste ouvert pour la répétition humaine.
+
+- [x] **T56 — Passer la présentation web au thème clair demandé.** Fond blanc, palette bleu marine et jaune fournie, graphiques et contrôles harmonisés. Dix diapositives inspectées dans le navigateur intégré sur écran de bureau ; 38 états SVG et contrôles d'animation réussis. Version claire publiée avec succès ; références dans `presentation/web/deployment.json`. T49 reste ouvert.
+
+- [x] **T57 — Harmoniser le PowerPoint avec le thème clair du web.** Palette blanche, marine et jaune appliquée aux dix diapositives, figures, graphiques et matrice ; notes et crédits conservés. Validation du paquet et de la géométrie réussie ; dix rendus du fichier final importé inspectés. Preuves : `presentation/dashboard/diagnostic_dashboard.pptx` et `version.json`. T49 reste ouvert.
+
+- [x] **T58 — Appliquer dashboard-design au rapport à déposer.** Hiérarchie du résultat avec baseline, effectifs et incertitude ; tableaux alignés, graphiques simplifiés et comparaisons par fenêtre/essai explicites. Preuves : six pages rendues et inspectées, `report/verification.json`, sources et cinq figures éditoriales ; copie nommée pour la soumission synchronisée. Résultats et sources scientifiques gelés inchangés. T49 reste ouvert.

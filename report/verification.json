@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-21",
+  "status": "pass",
+  "pages": 6,
+  "design_skill": "dashboard-design",
+  "palette": [
+    "#000814",
+    "#001d3d",
+    "#003566",
+    "#ffc300",
+    "#ffd60a",
+    "#ffffff"
+  ],
+  "render_review": "Six final pages rendered with Poppler and visually inspected; no clipping or overlapping text observed.",
+  "authors_on_first_page": true,
+  "authors_in_metadata": true,
+  "all_eight_score_rows_checked": true,
+  "all_four_metrics_per_row_checked": true,
+  "submission_copy_identical": true,
+  "scientific_sources_unchanged": 13,
+  "original_result_figures_unchanged": true,
+  "new_model_fit": false,
+  "development_spectrum_examples": "Same first recording per class and fixed pipeline as original reporting; only development signals used.",
+  "saved_results_sources": {
+    "results/summary.csv": "aae2fed4278295982fc5c453c249d9bfea1d5f67f01f8d490f95839fb5d328b1",
+    "results/final_metrics.json": "bdc70f12e2bdafcde774e60eac529b19d7b1feafecef3c46ecdb1da52cf4c1e0",
+    "results/final_bootstrap.json": "7c348471f0ac116628e11c6d5f040bffc00d6520cf6379a2645daf35f3c9cbf3",
+    "results/selection.json": "d0e8f39851f165d2841130b7e2567c090405a1a4d558a5cdb3804a4b2104be23",
+    "presentation/web/dist/data.js": "a412e5e1ece4c6251a3f4fead02bfecf273f699ee0c2aec534a7906e660e7148"
+  },
+  "pdf_sha256": "113e0d4ab76a5fee576b0dd0c27e262fc244be070d601db268701c4a8fd6c201",
+  "submission_file": "output/pdf/MouhamedouYahyaCheikhMedVall_MaryeimMohamedTFeil_MiniProjet.pdf",
+  "figure_sha256": {
+    "report/figures/ablation.png": "6718a993f872ca6a3d5fc5c7a0bee55b6d1b63a960b079d641205d17178727a0",
+    "report/figures/development_scores.png": "9e44541c563d3590e7222c1f23cf2cf65b354dbd233f3ff5ac95c4748ae1d05b",
+    "report/figures/final_confusion.png": "b15faa3a767a0fc9422d6e48da03a1ef6a2ddc8500847da31e6352976a164a1d",
+    "report/figures/spectra_envelope.png": "0ff2ca6291b4fc86ea805d4d3d58e22d10adc683abf9ab61fba663b0c472419e",
+    "report/figures/temporal_features.png": "58a95784ce1c6770d5bd0989aa4f2dc1f8437f752507f81a819a0d4007d16b38"
+  },
+  "limits": "No new scientific evaluation; small final test and uncertainty warnings remain explicit. Human oral rehearsal is still pending."
+}

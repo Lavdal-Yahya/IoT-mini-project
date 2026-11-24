@@ -16,7 +16,8 @@ const {finalizePresentation}=await import(pathToFileURL(path.join(skill,'contain
 const presentation=Presentation.create({slideSize:{width:1280,height:720}});
 const evidence=await loadEvidence(root);
 for(const phase of ['cover','a','b','c'])await build({presentation,input:{phase,evidence}});
-const staging=path.join(root,'tmp/dashboard-build');
+await fs.mkdir(path.join(root,'tmp'),{recursive:true});
+const staging=await fs.mkdtemp(path.join(root,'tmp/dashboard-build-'));
 const finalPath=path.resolve(process.argv[2]??path.join(root,'presentation/dashboard/diagnostic_dashboard.pptx'));
 await fs.mkdir(staging,{recursive:true});await fs.mkdir(path.dirname(finalPath),{recursive:true});
 for(const [index,slide] of presentation.slides.items.entries()){

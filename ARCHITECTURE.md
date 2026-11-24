@@ -5,7 +5,7 @@
 
 # Architecture technique du mini-projet AML313 du groupe 7
 
-Dernière mise à jour : **20 novembre 2026**. Statut : **pipeline scientifique exécuté, test final consulté et reproduction vérifiée**.
+Dernière mise à jour : **21 novembre 2026**. Statut : **pipeline scientifique exécuté, test final consulté et reproduction vérifiée**.
 
 ## 1. Rôle et principes
 
@@ -253,7 +253,11 @@ Le gel `results/freeze.json` et le marqueur `results/test_consulted.json` font a
 
 L’article de six pages est livré dans `report/rapport.pdf`, avec sa source éditable et son générateur. Le diaporama modifiable comporte dix diapositives ; `presentation/artifact.json` identifie l’artefact, `presentation/build_slides.mjs` conserve le callback de construction et `presentation/slides.md` son storyboard. Les tableaux et graphiques de scores sont des objets natifs éditables. Les notes sont estimées à dix minutes ; cette estimation ne remplace pas une répétition humaine. Aucun réglage scientifique n’a changé pendant la mise en page.
 
+Le 21 novembre 2026, la demande `dashboard-design` s'étend à l'article. `report/build_visuals.py` crée cinq figures éditoriales dans `report/figures/` : distributions, mêmes spectres de développement, barres d'exactitude équilibrée, matrices E4 par fenêtre et par essai, puis comparaison E1–E4 et intervalles appariés. Les résultats enregistrés font toujours autorité. Les autres métriques et contre-exemples restent dans les tableaux et le texte. `build_report.py` conserve six pages et les deux auteurs, aligne les valeurs, met E4 en évidence et affiche dès la première page le score, sa baseline, les effectifs et la réserve d'incertitude. Il synchronise la copie de soumission `output/pdf/MouhamedouYahyaCheikhMedVall_MaryeimMohamedTFeil_MiniProjet.pdf`. Les figures scientifiques d'origine et les treize sources gelées restent inchangées ; les preuves de revue sont dans `report/verification.json`.
+
 La variante demandée avec `dashboard-design` est indépendante du support initial : `presentation/dashboard/diagnostic_dashboard.pptx`. Ses tableaux et graphiques natifs sont régénérés par `build_dashboard.mjs` et `export_dashboard.mjs` à partir des preuves gelées. Les classeurs embarqués portent un instantané des valeurs, sans logique scientifique supplémentaire. Cette variante de présentation n’ajoute ni application web ni expérience au périmètre.
+
+Le 21 novembre 2026, le PowerPoint analytique adopte le même thème clair que le web : blanc, `#000814`, `#001d3d`, `#003566`, `#ffc300` et `#ffd60a`. `build_theme_figures.py` retrace les figures temporelles et d'enveloppe depuis les valeurs web enregistrées, sans nouvelle extraction. Les dix diapositives, notes, crédits et deux graphiques natifs sont conservés ; la validation et les empreintes figurent dans `presentation/dashboard/version.json`. Les rendus sont inspectés après import du fichier final.
 
 ## 15. Présentation web demandée
 
@@ -264,3 +268,9 @@ Le dossier `dist/` embarque HTML, CSS, JavaScript, Apache ECharts 6.1.0 et Manro
 La consultation locale utilise un serveur HTTP statique. Le Site est privé par défaut et son identité reste dans `.openai/hosting.json`. Les contrôles `check_web.cjs` couvrent le comportement DOM et 38 rendus ECharts SVG en deux largeurs. Ils ne prouvent pas la mise en page complète dans un navigateur : l’usage du navigateur local est désactivé dans Work. Cette limite reste explicite dans `verification.json`.
 
 Les animations natives ECharts sont déclenchées à l’entrée de chaque diapositive, y compris lors d’une revisite. `clear()` relance l’entrée sur une instance conservée ; le dimensionnement précède `setOption()`. Les notifications de mise en page ne réinitialisent pas les courbes. Les changements de données utilisent les transitions de mise à jour, et `prefers-reduced-motion` coupe les animations immédiatement. Les contrôles `check_animations.cjs` exécutent ces chemins avec la vraie bibliothèque dans un DOM simulé.
+
+Le thème clair demandé ensuite utilise un fond blanc, les bleus `#000814`, `#001d3d`, `#003566` pour les textes et courbes, et les jaunes `#ffc300`, `#ffd60a` pour les sélections et accents. Les étiquettes restent sombres sur jaune ; les cellules foncées de la matrice portent un texte blanc. Les classes conservent leurs couleurs entre graphiques et ont des symboles distincts dans le nuage de points. Les dix diapositives ont désormais été inspectées dans le navigateur intégré sur écran de bureau ; cette vérification remplace la réserve historique ci-dessus pour la version claire. La mise en page mobile reste sans inspection visuelle ; les contrôles SVG à 360 pixels et les contrôles d'animation passent.
+
+## 16. Guide explicatif PDF demandé
+
+À la demande de l'utilisateur, l'explication détaillée donnée en anglais est livrée dans `output/pdf/project_rundown.pdf`. Ce guide pédagogique distinct comporte dix pages ; il complète l'article scientifique français de six pages. Son générateur `report/build_rundown.py` utilise ReportLab, pypdf et les polices Liberation, avec les deux auteurs dans la couverture et les métadonnées. Il lit le résultat E4 enregistré pour contrôler le score principal, sans exécuter d'apprentissage. Les dix pages ont été rendues avec Poppler et inspectées ; les identités et chiffres clés sont aussi vérifiés par extraction de texte. Les paramètres et sources scientifiques gelés restent inchangés.
